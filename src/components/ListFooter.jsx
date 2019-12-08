@@ -4,10 +4,10 @@ import { Paragraph } from "react-native-paper";
 
 import Spinner from "./Spinner";
 
-const ListFooter = ({ show, loading, error, refreshing }) => (
+const ListFooter = ({ loading, error, refreshing }) => (
   <View style={styles.root}>
-    {show && loading && !refreshing && <Spinner />}
-    {show && error && <Paragraph>{error}</Paragraph>}
+    {loading && !refreshing && <Spinner />}
+    {error && <Paragraph>{error}</Paragraph>}
   </View>
 );
 

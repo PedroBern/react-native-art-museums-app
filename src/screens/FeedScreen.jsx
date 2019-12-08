@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, { useEffect } from "react";
 import { View, StyleSheet, FlatList, Text, Dimensions } from "react-native";
 import { connect } from "react-redux";
 import { Appbar, Paragraph, ToggleButton } from "react-native-paper";
 
 import FeedItem, { CARD_OFFSET } from "../components/FeedItem";
-import ListEmpty from "../components/ListEmpty";
 import ListFooter from "../components/ListFooter";
 import Spinner from "../components/Spinner";
 import {
@@ -32,25 +31,9 @@ const FeedScreen = ({
   toggleFeedView,
   setVisibleIndex
 }) => {
-  const flatList = useRef(null);
-
   useEffect(() => {
     if (records.length === 0) loadFeed();
   }, []);
-
-  useEffect(() => {
-    if (flatList.current && visibleIndex > 0) {
-      try {
-        const index = grid
-          ? Math.max((visibleIndex - 3 - (visibleIndex % 3)) / 3, 0)
-          : Math.max(visibleIndex - 1, 0);
-        flatList.current.scrollToIndex({
-          index,
-          viewPosition: 1
-        });
-      } catch {}
-    }
-  }, [grid]);
 
   return (
     <View style={styles.root}>
@@ -62,7 +45,11 @@ const FeedScreen = ({
         />
       </Appbar.Header>
       <FlatList
-        ref={flatList}
+        initialScrollIndex={
+          grid
+            ? Math.max((visibleIndex - (visibleIndex % 3)) / 3, 0)
+            : Math.max(visibleIndex, 0)
+        }
         key={grid ? "grid-feed-list" : "regular-feed-list"}
         data={records}
         numColumns={grid ? 3 : 1}
@@ -81,16 +68,8 @@ const FeedScreen = ({
             index
           };
         }}
-        ListEmptyComponent={() => (
-          <ListEmpty error={error} loading={loading} refreshing={refreshing} />
-        )}
         ListFooterComponent={() => (
-          <ListFooter
-            show={records.length > 0}
-            error={error}
-            loading={loading}
-            refreshing={refreshing}
-          />
+          <ListFooter error={error} loading={loading} refreshing={refreshing} />
         )}
       />
     </View>
