@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
   }
 });
 
-// 139 - list
-// grid
+// height of Card Title + Card Content
+// used on getItemLayout of FlatList
+export const CARD_OFFSET = 139;
 
 export default FeedItem;

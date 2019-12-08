@@ -3,11 +3,10 @@ import { View, StyleSheet, FlatList, Text, Dimensions } from "react-native";
 import { connect } from "react-redux";
 import { Appbar, Paragraph, ToggleButton } from "react-native-paper";
 
-import FeedItem from "../components/FeedItem";
+import FeedItem, { CARD_OFFSET } from "../components/FeedItem";
 import ListEmpty from "../components/ListEmpty";
 import ListFooter from "../components/ListFooter";
 import Spinner from "../components/Spinner";
-import { CARD_OFFSET } from "../constants/cardOffeset";
 import {
   loadFeed,
   toggleFeedView,
