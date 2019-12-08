@@ -16,6 +16,10 @@ import {
 
 const width = Dimensions.get("window").width;
 
+const viewabilityConfig = {
+  itemVisiblePercentThreshold: 95
+};
+
 const FeedScreen = ({
   loadFeed,
   refreshFeed,
@@ -42,8 +46,7 @@ const FeedScreen = ({
           : Math.max(visibleIndex - 1, 0);
         flatList.current.scrollToIndex({
           index,
-          viewPosition: 1,
-          animated: false
+          viewPosition: 1
         });
       } catch {}
     }
@@ -69,9 +72,7 @@ const FeedScreen = ({
         onViewableItemsChanged={setVisibleIndex}
         onRefresh={refreshFeed}
         refreshing={refreshing}
-        viewabilityConfig={{
-          itemVisiblePercentThreshold: 100
-        }}
+        viewabilityConfig={viewabilityConfig}
         getItemLayout={(data, index) => {
           const height = grid ? width / 3 : width + CARD_OFFSET;
           return {
@@ -117,8 +118,15 @@ const mapDispatchToProps = dispatch => ({
   refreshFeed: () => dispatch(refreshFeed()),
   toggleFeedView: () => dispatch(toggleFeedView()),
   setVisibleIndex: ({ viewableItems, changed }) => {
-    if (viewableItems[0] && viewableItems[0].index) {
-      dispatch(setVisibleIndex(viewableItems[0].index));
+    if (viewableItems[0]) {
+      const firstViewable = changed.find(el => el.isViewable);
+      if (firstViewable) {
+        dispatch(
+          setVisibleIndex(Math.min(viewableItems[0].index, firstViewable.index))
+        );
+      } else {
+        dispatch(setVisibleIndex(viewableItems[0].index));
+      }
     }
   }
 });
