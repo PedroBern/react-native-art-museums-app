@@ -19,7 +19,8 @@ const processFeed = results => {
   const processed = {
     info: {
       page: results.info.page,
-      pages: results.info.pages
+      pages: results.info.pages,
+      next: results.info.next
     },
     records: []
   };
@@ -52,21 +53,22 @@ const processFeed = results => {
   return processed;
 };
 
-export const fetchFeed = async (page = 1) => {
-  const aggregation = `{
-    "by_lastupdate": {
-      "terms": {
-        "field": "lastupdate",
-        "format": "yyyy-MM-dd"
+export const fetchFeed = async (url = null, page = 1) => {
+  if (!url) {
+    const aggregation = `{
+      "by_lastupdate": {
+        "terms": {
+          "field": "lastupdate",
+          "format": "yyyy-MM-dd"
+        }
       }
-    }
-  }`;
-
-  const url =
-    `https://api.harvardartmuseums.org/object?apikey=${API_KEY}` +
-    `&aggregation=${aggregation}` +
-    `&page=${page}` +
-    `&size=30`;
+    }`;
+    url =
+      `https://api.harvardartmuseums.org/object?apikey=${API_KEY}` +
+      `&aggregation=${aggregation}` +
+      `&page=${page}` +
+      `&size=30`;
+  }
 
   const response = await fetch(url);
 

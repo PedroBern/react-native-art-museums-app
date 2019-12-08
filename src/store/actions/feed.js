@@ -16,8 +16,9 @@ export const loadFeed = () => async (dispatch, getState) => {
   dispatch({ type: FETCH_FEED__SENT });
   try {
     const feed = getState().feed;
-    const results = await fetchFeed(feed.nextPage);
+    const results = await fetchFeed(feed.info.next ? feed.info.next : null);
     // const results = await delayMock(fetchFeedMock);
+    console.log(feed.info.next);
     dispatch({
       type: FETCH_FEED__FULFILLED,
       payload: {
@@ -33,7 +34,7 @@ export const loadFeed = () => async (dispatch, getState) => {
 export const refreshFeed = () => async dispatch => {
   dispatch({ type: REFRESH_FEED__SENT });
   try {
-    const results = await fetchFeed(1);
+    const results = await fetchFeed();
     // const results = await delayMock(fetchFeedMock);
     dispatch({
       type: FETCH_FEED__FULFILLED,
