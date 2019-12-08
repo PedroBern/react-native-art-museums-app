@@ -18,7 +18,6 @@ export const loadFeed = () => async (dispatch, getState) => {
     const feed = getState().feed;
     const results = await fetchFeed(feed.info.next ? feed.info.next : null);
     // const results = await delayMock(fetchFeedMock);
-    console.log(feed.info.next);
     dispatch({
       type: FETCH_FEED__FULFILLED,
       payload: {
