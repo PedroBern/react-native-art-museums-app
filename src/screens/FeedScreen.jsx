@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { View, StyleSheet, FlatList, Text, Dimensions } from "react-native";
 import { connect } from "react-redux";
-import { Appbar, Paragraph, ToggleButton } from "react-native-paper";
+import { Appbar, Paragraph } from "react-native-paper";
+import { withNavigation } from "react-navigation";
 
 import FeedItem, { CARD_OFFSET } from "../components/FeedItem";
 import ListFooter from "../components/ListFooter";
@@ -12,12 +13,16 @@ import {
   setVisibleIndex,
   refreshFeed
 } from "../store/actions/feed";
+import { setCurrentDetail } from "../store/actions/details";
 
 const width = Dimensions.get("window").width;
 
 const viewabilityConfig = {
   itemVisiblePercentThreshold: 95
 };
+
+const GRID_KEY = "feed-grid-display";
+const LIST_KEY = "feed-list-display";
 
 const FeedScreen = ({
   loadFeed,
@@ -29,7 +34,9 @@ const FeedScreen = ({
   grid,
   visibleIndex,
   toggleFeedView,
-  setVisibleIndex
+  setVisibleIndex,
+  navigation,
+  setCurrentDetail
 }) => {
   useEffect(() => {
     if (records.length === 0) loadFeed();
@@ -45,15 +52,29 @@ const FeedScreen = ({
         />
       </Appbar.Header>
       <FlatList
+        key={grid ? GRID_KEY : LIST_KEY}
         initialScrollIndex={
           grid
             ? Math.max((visibleIndex - (visibleIndex % 3)) / 3, 0)
             : Math.max(visibleIndex, 0)
         }
-        key={grid ? "grid-feed-list" : "regular-feed-list"}
         data={records}
         numColumns={grid ? 3 : 1}
-        renderItem={({ item }) => <FeedItem grid={grid} {...item} />}
+        renderItem={({ item }) => (
+          <FeedItem
+            grid={grid}
+            {...item}
+            fluiId={`${grid ? GRID_KEY : LIST_KEY}-${item.id}`}
+            onSingleTap={fluidId => {
+              setCurrentDetail(item.id, () =>
+                navigation.navigate("Details", {
+                  ...item,
+                  fluidId
+                })
+              );
+            }}
+          />
+        )}
         keyExtractor={item => item.id.toString()}
         onEndReached={() => loadFeed()}
         onViewableItemsChanged={setVisibleIndex}
@@ -93,6 +114,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  setCurrentDetail: (id, navigate) => dispatch(setCurrentDetail(id, navigate)),
   loadFeed: () => dispatch(loadFeed()),
   refreshFeed: () => dispatch(refreshFeed()),
   toggleFeedView: () => dispatch(toggleFeedView()),
@@ -110,4 +132,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeedScreen);
+export default withNavigation(
+  connect(mapStateToProps, mapDispatchToProps)(FeedScreen)
+);

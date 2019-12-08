@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
+import { StyleSheet, View, Dimensions, TouchableOpacity } from "react-native";
 import {
   Card,
   Title,
@@ -7,6 +7,8 @@ import {
   Subheading,
   Caption
 } from "react-native-paper";
+import { Transition } from "react-navigation-fluid-transitions";
+import DoubleTap from "react-native-double-tap";
 
 const FeedItem = memo(
   ({
@@ -17,14 +19,23 @@ const FeedItem = memo(
     dated,
     lastUpdateDate,
     lastUpdateTime,
-    grid
+    grid,
+    onSingleTap,
+    fluiId
   }) => (
     <Card key={id} style={grid ? styles.grid : styles.root} elevation={0}>
       {!grid && <Card.Title title={title} subtitle={division} />}
-      <Card.Cover
-        source={{ uri: images[0].url }}
-        style={grid ? styles.imageGrid : styles.image}
-      />
+      <Transition shared={fluiId}>
+        <DoubleTap
+          doubleTap={() => console.log("double tap on " + id)}
+          singleTap={() => onSingleTap(fluiId)}
+        >
+          <Card.Cover
+            source={{ uri: images[0].url }}
+            style={grid ? styles.imageGrid : styles.image}
+          />
+        </DoubleTap>
+      </Transition>
       {!grid && (
         <Card.Content>
           <Caption>{`Dated: ${dated}`}</Caption>

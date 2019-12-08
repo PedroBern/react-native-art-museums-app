@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     height: 3
   },
   scene: {
-    paddingTop: Constants.statusBarHeight,
+    // paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.colors.primary
   }
 });

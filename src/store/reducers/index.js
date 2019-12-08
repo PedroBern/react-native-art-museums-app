@@ -1,12 +1,15 @@
 import { combineReducers } from "redux";
 import feed, { feedInitialState } from "./feed";
+import details, { detailsInitialState } from "./details";
 
 export const initialState = {
-  feed: { ...feedInitialState }
+  feed: { ...feedInitialState },
+  details: { ...detailsInitialState }
 };
 
 const reducer = combineReducers({
-  feed
+  feed,
+  details
 });
 
 export default reducer;
