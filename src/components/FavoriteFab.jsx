@@ -5,13 +5,7 @@ import { FAB } from "react-native-paper";
 
 import { toggleFavorite } from "../store/actions/favorites";
 
-const FavoriteFab = ({
-  record,
-  favorites,
-  toggleFavorite,
-  state,
-  ...other
-}) => {
+const FavoriteFab = ({ record, favorites, toggleFavorite, ...other }) => {
   return (
     <FAB
       icon="heart"
@@ -23,8 +17,7 @@ const FavoriteFab = ({
 };
 
 const mapStateToProps = state => ({
-  favorites: state.favorites.records,
-  state: state
+  favorites: state.favorites.records
 });
 
 export default connect(mapStateToProps, { toggleFavorite })(FavoriteFab);
