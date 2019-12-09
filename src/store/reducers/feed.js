@@ -13,7 +13,7 @@ export const feedInitialState = {
   info: {},
   records: [],
   error: null,
-  grid: true,
+  grid: false,
   visibleIndex: 0,
   refreshing: false
 };

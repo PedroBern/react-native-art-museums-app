@@ -21,7 +21,7 @@ const DetailsScreen = ({ navigation, resetCurrentDetail }) => {
   const fluidId = navigation.getParam("fluidId", "not and id");
   const title = navigation.getParam("title", "No title to display");
   const division = navigation.getParam("division", "");
-  const images = navigation.getParam("images", []);
+  const primaryimageurl = navigation.getParam("primaryimageurl", []);
 
   return (
     <View style={styles.root}>
@@ -33,7 +33,7 @@ const DetailsScreen = ({ navigation, resetCurrentDetail }) => {
       </Transition>
       <ScrollView style={styles.body}>
         <Transition shared={fluidId}>
-          <Image source={{ uri: images[0].url }} style={styles.image} />
+          <Image source={{ uri: primaryimageurl }} style={styles.image} />
         </Transition>
         <Transition anchor={fluidId}>
           <View>
