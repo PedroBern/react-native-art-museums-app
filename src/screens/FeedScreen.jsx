@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import { View, StyleSheet, FlatList, Text, Dimensions } from "react-native";
 import { connect } from "react-redux";
 import { Appbar, Paragraph } from "react-native-paper";
-import { withNavigation } from "react-navigation";
 
-import FeedItem, { CARD_OFFSET } from "../components/FeedItem";
+import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
-import Spinner from "../components/Spinner";
 import {
   loadFeed,
   toggleFeedView,
@@ -14,15 +12,6 @@ import {
   refreshFeed
 } from "../store/actions/feed";
 import { setCurrentDetail } from "../store/actions/details";
-
-const width = Dimensions.get("window").width;
-
-const viewabilityConfig = {
-  itemVisiblePercentThreshold: 95
-};
-
-const GRID_KEY = "feed-grid-display";
-const LIST_KEY = "feed-list-display";
 
 const FeedScreen = ({
   loadFeed,
@@ -51,44 +40,16 @@ const FeedScreen = ({
           onPress={toggleFeedView}
         />
       </Appbar.Header>
-      <FlatList
-        key={grid ? GRID_KEY : LIST_KEY}
-        initialScrollIndex={
-          grid
-            ? Math.max((visibleIndex - (visibleIndex % 3)) / 3, 0)
-            : Math.max(visibleIndex, 0)
-        }
-        data={records}
-        numColumns={grid ? 3 : 1}
-        renderItem={({ item }) => (
-          <FeedItem
-            grid={grid}
-            {...item}
-            fluiId={`${grid ? GRID_KEY : LIST_KEY}-${item.id}`}
-            onSingleTap={fluidId => {
-              setCurrentDetail(item.id, () =>
-                navigation.navigate("Details", {
-                  ...item,
-                  fluidId
-                })
-              );
-            }}
-          />
-        )}
-        keyExtractor={item => item.id.toString()}
+      <FlatListBase
+        listKey={grid ? "feed-grid-display" : "feed-list-display"}
+        setVisibleIndex={setVisibleIndex}
+        visibleIndex={visibleIndex}
+        setCurrentDetail={setCurrentDetail}
+        grid={grid}
+        records={records}
         onEndReached={() => loadFeed()}
-        onViewableItemsChanged={setVisibleIndex}
         onRefresh={refreshFeed}
         refreshing={refreshing}
-        viewabilityConfig={viewabilityConfig}
-        getItemLayout={(data, index) => {
-          const height = grid ? width / 3 : width + CARD_OFFSET;
-          return {
-            length: height,
-            offset: height * index,
-            index
-          };
-        }}
         ListFooterComponent={() => (
           <ListFooter error={error} loading={loading} refreshing={refreshing} />
         )}
@@ -132,6 +93,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default withNavigation(
-  connect(mapStateToProps, mapDispatchToProps)(FeedScreen)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(FeedScreen);

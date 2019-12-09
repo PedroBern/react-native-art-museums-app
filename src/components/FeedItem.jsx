@@ -8,17 +8,25 @@ import {
   Caption
 } from "react-native-paper";
 import { Transition } from "react-navigation-fluid-transitions";
-import DoubleTap from "react-native-double-tap";
+
+import FavoriteFab from "./FavoriteFab";
+
+const width = Dimensions.get("window").width;
+
+// height of Card Title + Card Content
+// used on getItemLayout of FlatList
+export const CARD_OFFSET = 139;
+
+// Columns on grid view
+export const GRID_COLUMNS = 2;
 
 const FeedItem = memo(
   ({
     id,
     title,
-    images,
+    primaryimageurl,
     division,
-    dated,
-    lastUpdateDate,
-    lastUpdateTime,
+    century,
     grid,
     onSingleTap,
     fluiId
@@ -26,33 +34,46 @@ const FeedItem = memo(
     <Card key={id} style={grid ? styles.grid : styles.root} elevation={0}>
       {!grid && <Card.Title title={title} subtitle={division} />}
       <Transition shared={fluiId}>
-        <DoubleTap
-          doubleTap={() => console.log("double tap on " + id)}
-          singleTap={() => onSingleTap(fluiId)}
+        <TouchableOpacity
+          // doubleTap={() => console.log("double tap on " + id)}
+          // singleTap={() => onSingleTap(fluiId)}
+          onPress={() => onSingleTap(fluiId)}
         >
           <Card.Cover
-            source={{ uri: images[0].url }}
+            source={{
+              uri: `${primaryimageurl}`
+            }}
             style={grid ? styles.imageGrid : styles.image}
           />
-        </DoubleTap>
+        </TouchableOpacity>
       </Transition>
       {!grid && (
-        <Card.Content>
-          <Caption>{`Dated: ${dated}`}</Caption>
-        </Card.Content>
+        <React.Fragment>
+          <Card.Content>
+            <Caption>{century}</Caption>
+          </Card.Content>
+          <FavoriteFab
+            record={{
+              id,
+              title,
+              primaryimageurl,
+              division,
+              century
+            }}
+            style={styles.fab}
+          />
+        </React.Fragment>
       )}
     </Card>
   )
 );
-
-const width = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   root: {
     marginTop: 24
   },
   grid: {
-    flex: 1,
+    // flex: 1,
     padding: 2
   },
   image: {
@@ -60,13 +81,15 @@ const styles = StyleSheet.create({
     height: width
   },
   imageGrid: {
-    width: width / 3 - 4,
-    height: width / 3 - 4
+    width: width / GRID_COLUMNS - 4,
+    height: width / GRID_COLUMNS - 4
+  },
+  fab: {
+    position: "absolute",
+    margin: 16,
+    right: 0,
+    bottom: 0
   }
 });
-
-// height of Card Title + Card Content
-// used on getItemLayout of FlatList
-export const CARD_OFFSET = 139;
 
 export default FeedItem;
