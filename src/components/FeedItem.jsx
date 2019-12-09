@@ -7,7 +7,6 @@ import {
   Subheading,
   Caption
 } from "react-native-paper";
-import { Transition } from "react-navigation-fluid-transitions";
 
 import FavoriteFab from "./FavoriteFab";
 
@@ -33,16 +32,14 @@ const FeedItem = memo(
   }) => (
     <Card key={id} style={grid ? styles.grid : styles.root} elevation={0}>
       {!grid && <Card.Title title={title} subtitle={division} />}
-      <Transition shared={fluiId}>
-        <TouchableOpacity onPress={() => onPress(fluiId)}>
-          <Card.Cover
-            source={{
-              uri: `${primaryimageurl}`
-            }}
-            style={grid ? styles.imageGrid : styles.image}
-          />
-        </TouchableOpacity>
-      </Transition>
+      <TouchableOpacity onPress={() => onPress(fluiId)}>
+        <Card.Cover
+          source={{
+            uri: `${primaryimageurl}`
+          }}
+          style={grid ? styles.imageGrid : styles.image}
+        />
+      </TouchableOpacity>
       {!grid && (
         <React.Fragment>
           <Card.Content>

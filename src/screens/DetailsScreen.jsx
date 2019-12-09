@@ -8,32 +8,26 @@ import {
   Dimensions,
   Image
 } from "react-native";
-import { Transition } from "react-navigation-fluid-transitions";
 import { Appbar } from "react-native-paper";
 
-const DetailsScreen = ({ navigation, resetCurrentDetail }) => {
-  const fluidId = navigation.getParam("fluidId", "not and id");
-  const title = navigation.getParam("title", "No title to display");
+import DetailsContent from "../components/DetailsContent";
+
+const DetailsScreen = ({ navigation }) => {
+  const id = navigation.getParam("id", "");
+  const fluidId = navigation.getParam("fluidId", "");
+  const title = navigation.getParam("title", "Missing title");
   const division = navigation.getParam("division", "");
-  const primaryimageurl = navigation.getParam("primaryimageurl", []);
+  const primaryimageurl = navigation.getParam("primaryimageurl", "");
 
   return (
     <View style={styles.root}>
-      <Transition anchor={fluidId}>
-        <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => navigation.goBack()} />
-          <Appbar.Content title={title} subtitle={division} />
-        </Appbar.Header>
-      </Transition>
+      <Appbar.Header style={styles.header}>
+        <Appbar.BackAction onPress={() => navigation.goBack()} />
+        <Appbar.Content title={title} subtitle={division} />
+      </Appbar.Header>
       <ScrollView style={styles.body}>
-        <Transition shared={fluidId}>
-          <Image source={{ uri: primaryimageurl }} style={styles.image} />
-        </Transition>
-        <Transition anchor={fluidId}>
-          <View>
-            <Text>Content goes here</Text>
-          </View>
-        </Transition>
+        <Image source={{ uri: primaryimageurl }} style={styles.image} />
+        <DetailsContent id={id} />
       </ScrollView>
     </View>
   );
