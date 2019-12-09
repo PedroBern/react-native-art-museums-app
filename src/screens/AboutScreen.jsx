@@ -1,21 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import * as WebBrowser from "expo-web-browser";
-import { Appbar, Paragraph, Title, Headline } from "react-native-paper";
+import { Appbar, Paragraph, Headline } from "react-native-paper";
 
-const Link = ({ url, children, Component }) => (
-  <TouchableOpacity onPress={() => handleLinkPress(url)}>
-    <Component style={[styles.link, styles.centeredText]}>{children}</Component>
-  </TouchableOpacity>
-);
-
-Link.defaultProps = {
-  Component: Headline
-};
-
-function handleLinkPress(url) {
-  WebBrowser.openBrowserAsync(url);
-}
+import Link from "../components/Link";
 
 const AboutScreen = ({}) => {
   return (
@@ -58,8 +46,7 @@ const AboutScreen = ({}) => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "#FFF",
-    width: Dimensions.get("window").width
+    backgroundColor: "#FFF"
   },
   content: {
     flex: 1,
@@ -69,9 +56,6 @@ const styles = StyleSheet.create({
   },
   centeredText: {
     textAlign: "center"
-  },
-  link: {
-    color: "#2e78b7"
   },
   row: {
     flexDirection: "row"

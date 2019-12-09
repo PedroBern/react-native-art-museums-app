@@ -4,7 +4,7 @@ import { Paragraph } from "react-native-paper";
 
 const EmptyList = () => (
   <View style={styles.root}>
-    <Paragraph>Nothing to show</Paragraph>
+    <Paragraph>Nothing to show.</Paragraph>
   </View>
 );
 
