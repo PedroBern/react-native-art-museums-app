@@ -11,13 +11,7 @@ import {
 import { Transition } from "react-navigation-fluid-transitions";
 import { Appbar } from "react-native-paper";
 
-import { resetCurrentDetail } from "../store/actions/details";
-
 const DetailsScreen = ({ navigation, resetCurrentDetail }) => {
-  useEffect(() => {
-    return () => resetCurrentDetail();
-  }, []);
-
   const fluidId = navigation.getParam("fluidId", "not and id");
   const title = navigation.getParam("title", "No title to display");
   const division = navigation.getParam("division", "");
@@ -66,4 +60,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(null, { resetCurrentDetail })(DetailsScreen);
+export default DetailsScreen;

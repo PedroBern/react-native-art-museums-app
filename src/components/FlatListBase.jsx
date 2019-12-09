@@ -28,7 +28,6 @@ const FlatListBase = memo(
     grid,
     setVisibleIndex,
     visibleIndex,
-    setCurrentDetail,
     listKey,
     navigation,
     ...other
@@ -51,14 +50,9 @@ const FlatListBase = memo(
             grid={grid}
             {...item}
             fluiId={`${listKey}-${item.id}`}
-            onSingleTap={fluidId => {
-              setCurrentDetail(item.id, () =>
-                navigation.navigate("Details", {
-                  ...item,
-                  fluidId
-                })
-              );
-            }}
+            onPress={fluidId =>
+              navigation.navigate("Details", { ...item, fluidId })
+            }
           />
         )}
         keyExtractor={item => item.id.toString()}
@@ -84,7 +78,6 @@ FlatListBase.propTypes = {
   grid: PropTypes.bool.isRequired,
   setVisibleIndex: PropTypes.func.isRequired,
   visibleIndex: PropTypes.number.isRequired,
-  setCurrentDetail: PropTypes.func.isRequired,
   listKey: PropTypes.string.isRequired
 };
 

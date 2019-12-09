@@ -9,7 +9,6 @@ import {
   toggleFavoritesView,
   setVisibleIndex
 } from "../store/actions/favorites";
-import { setCurrentDetail } from "../store/actions/details";
 
 const FavoritesScreen = ({
   records,
@@ -17,8 +16,7 @@ const FavoritesScreen = ({
   toggleFavoritesView,
   setVisibleIndex,
   visibleIndex,
-  navigation,
-  setCurrentDetail
+  navigation
 }) => {
   return (
     <View style={styles.root}>
@@ -33,7 +31,6 @@ const FavoritesScreen = ({
         listKey={grid ? "favorites-grid-display" : "favorites-list-display"}
         setVisibleIndex={setVisibleIndex}
         visibleIndex={visibleIndex}
-        setCurrentDetail={setCurrentDetail}
         records={records}
         grid={grid}
         ListEmptyComponent={EmptyList}
@@ -56,7 +53,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentDetail: (id, navigate) => dispatch(setCurrentDetail(id, navigate)),
   toggleFavoritesView: () => dispatch(toggleFavoritesView()),
   setVisibleIndex: ({ viewableItems, changed }) => {
     if (viewableItems[0]) {

@@ -28,17 +28,13 @@ const FeedItem = memo(
     division,
     century,
     grid,
-    onSingleTap,
+    onPress,
     fluiId
   }) => (
     <Card key={id} style={grid ? styles.grid : styles.root} elevation={0}>
       {!grid && <Card.Title title={title} subtitle={division} />}
       <Transition shared={fluiId}>
-        <TouchableOpacity
-          // doubleTap={() => console.log("double tap on " + id)}
-          // singleTap={() => onSingleTap(fluiId)}
-          onPress={() => onSingleTap(fluiId)}
-        >
+        <TouchableOpacity onPress={() => onPress(fluiId)}>
           <Card.Cover
             source={{
               uri: `${primaryimageurl}`

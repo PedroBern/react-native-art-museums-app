@@ -11,7 +11,6 @@ import {
   setVisibleIndex,
   refreshFeed
 } from "../store/actions/feed";
-import { setCurrentDetail } from "../store/actions/details";
 
 const FeedScreen = ({
   loadFeed,
@@ -75,7 +74,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentDetail: (id, navigate) => dispatch(setCurrentDetail(id, navigate)),
   loadFeed: () => dispatch(loadFeed()),
   refreshFeed: () => dispatch(refreshFeed()),
   toggleFeedView: () => dispatch(toggleFeedView()),
