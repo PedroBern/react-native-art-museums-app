@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { StyleSheet, View, Dimensions, TouchableOpacity } from "react-native";
+import { useNavigation } from "react-navigation-hooks";
 import {
   Card,
   Title,
@@ -10,8 +11,6 @@ import {
 
 import FavoriteFab from "./FavoriteFab";
 
-const width = Dimensions.get("window").width;
-
 // height of Card Title + Card Content
 // used on getItemLayout of FlatList
 export const CARD_OFFSET = 139;
@@ -19,48 +18,73 @@ export const CARD_OFFSET = 139;
 // Columns on grid view
 export const GRID_COLUMNS = 2;
 
-const FeedItem = memo(
-  ({
-    id,
-    title,
-    primaryimageurl,
-    division,
-    century,
-    dated,
-    grid,
-    onPress,
-    fluiId
-  }) => (
-    <Card key={id} style={grid ? styles.grid : styles.root} elevation={0}>
-      {!grid && <Card.Title title={title} subtitle={division} />}
-      <TouchableOpacity onPress={onPress}>
-        <Card.Cover
-          source={{
-            uri: `${primaryimageurl}`
-          }}
-          style={grid ? styles.imageGrid : styles.image}
-        />
-      </TouchableOpacity>
-      {!grid && (
-        <React.Fragment>
-          <Card.Content>
-            <Caption>{century}</Caption>
-          </Card.Content>
-          <FavoriteFab
-            record={{
+const width = Dimensions.get("window").width;
+const listImage = Math.round(width);
+const gridImage = Math.round(width / GRID_COLUMNS - 4);
+
+export const FeedItem = memo(
+  ({ id, title, primaryimageurl, division, century, dated, onPress }) => {
+    const { navigate } = useNavigation();
+
+    return (
+      <Card key={id} style={styles.root} elevation={0}>
+        <Card.Title title={title} subtitle={division} />
+        <TouchableOpacity
+          onPress={() =>
+            navigate("Details", {
               id,
               title,
               primaryimageurl,
               division,
               century,
               dated
+            })
+          }
+        >
+          <Card.Cover
+            source={{
+              uri: `${primaryimageurl}?height=${listImage}&width=${listImage}`
             }}
-            style={styles.fab}
+            style={styles.image}
           />
-        </React.Fragment>
-      )}
-    </Card>
-  )
+        </TouchableOpacity>
+        <Card.Content>
+          <Caption>{century}</Caption>
+        </Card.Content>
+        <FavoriteFab
+          record={{
+            id,
+            title,
+            primaryimageurl,
+            division,
+            century,
+            dated
+          }}
+          style={styles.fab}
+        />
+      </Card>
+    );
+  }
+);
+
+export const FeedItemGrid = memo(
+  ({ id, primaryimageurl, onPress, ...other }) => {
+    const { navigate } = useNavigation();
+    return (
+      <Card key={id} style={styles.grid} elevation={0}>
+        <TouchableOpacity
+          onPress={() => navigate("Details", { id, primaryimageurl, ...other })}
+        >
+          <Card.Cover
+            source={{
+              uri: `${primaryimageurl}?height=${gridImage}&width=${gridImage}`
+            }}
+            style={styles.imageGrid}
+          />
+        </TouchableOpacity>
+      </Card>
+    );
+  }
 );
 
 const styles = StyleSheet.create({
@@ -86,5 +110,3 @@ const styles = StyleSheet.create({
     bottom: 0
   }
 });
-
-export default FeedItem;
