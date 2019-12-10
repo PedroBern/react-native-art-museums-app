@@ -53,7 +53,7 @@ const DetailsScreen = ({
             <View style={styles.image}>
               <Swiper>
                 {record.images.map(uri => (
-                  <Image key={uri} source={{ uri }} style={[styles.image]} />
+                  <Image key={uri} source={{ uri }} style={styles.image} />
                 ))}
               </Swiper>
               <FavoriteFab
