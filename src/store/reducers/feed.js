@@ -9,7 +9,6 @@ import {
 
 export const feedInitialState = {
   loading: true,
-  nextPage: 1,
   info: {},
   records: [],
   error: null,
@@ -30,7 +29,6 @@ const feedReducer = (state = feedInitialState, action) => {
       );
       return {
         ...state,
-        nextPage,
         info,
         records: [...state.records, ...toAdd],
         loading: false,

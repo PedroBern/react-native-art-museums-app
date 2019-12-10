@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
 import { connect } from "react-redux";
 import { Appbar, Paragraph } from "react-native-paper";
 
+import SortDialog from "../components/SortDialog";
 import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
 import {
   loadFeed,
   toggleFeedView,
   setVisibleIndex,
-  refreshFeed
+  refreshFeed,
+  sortFeed
 } from "../store/actions/feed";
 
 const FeedScreen = ({
@@ -24,16 +26,42 @@ const FeedScreen = ({
   toggleFeedView,
   setVisibleIndex,
   navigation,
-  setCurrentDetail
+  setCurrentDetail,
+  sortFeed
 }) => {
   useEffect(() => {
     if (records.length === 0) loadFeed();
   }, []);
 
+  const [visible, setVisible] = useState(false);
+
   return (
     <View style={styles.root}>
+      <SortDialog
+        visible={visible}
+        onDismiss={() => setVisible(false)}
+        buttons={[
+          {
+            title: "Recent page views",
+            onPress: () => sortFeed("dateoflastpageview", "desc")
+          },
+          {
+            title: "Older page views",
+            onPress: () => sortFeed("dateoflastpageview", "asc")
+          },
+          {
+            title: "More total views",
+            onPress: () => sortFeed("totalpageviews", "desc")
+          },
+          {
+            title: "Less total views",
+            onPress: () => sortFeed("totalpageviews", "asc")
+          }
+        ]}
+      />
       <Appbar.Header>
         <Appbar.Content title="Most recent updates" />
+        <Appbar.Action icon={"sort-variant"} onPress={() => setVisible(true)} />
         <Appbar.Action
           icon={grid ? "view-agenda" : "view-grid"}
           onPress={toggleFeedView}
@@ -77,6 +105,7 @@ const mapDispatchToProps = dispatch => ({
   loadFeed: () => dispatch(loadFeed()),
   refreshFeed: () => dispatch(refreshFeed()),
   toggleFeedView: () => dispatch(toggleFeedView()),
+  sortFeed: (sort, order) => dispatch(sortFeed(sort, order)),
   setVisibleIndex: ({ viewableItems, changed }) => {
     if (viewableItems[0]) {
       const firstViewable = changed.find(el => el.isViewable);

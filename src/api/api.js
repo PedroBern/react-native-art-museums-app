@@ -5,37 +5,38 @@ const processFeed = results => {
     info: {
       next: results.info.next
     },
-    records: results.records
-      .filter(r => ![undefined, null].includes(r.primaryimageurl))
-      .map(r => ({ ...r, id: r.objectnumber }))
+    records: results.records.map(r => ({
+      ...r,
+      // title: r.title[0] === "[" ? r.title.slice(1, -1) : r.title,
+      id: r.objectnumber
+    }))
   };
   return processed;
 };
 
-export const fetchFeed = async (url = null, page = 1) => {
+export const fetchFeed = async (
+  url = null,
+  sort = "dateoflastpageview",
+  sortorder = "desc"
+) => {
   if (!url) {
-    const fields =
-      "objectnumber,dated,century,division,primaryimageurl,title,lastupdate";
-    const aggregation = `{
-      "by_lastupdate": {
-        "terms": {
-          "field": "lastupdate",
-          "format": "yyyy-MM-dd"
-        }
-      }
-    }`;
+    // const fields = "objectnumber,dated,century,division,primaryimageurl,title";
+
     url =
       `https://api.harvardartmuseums.org/object?apikey=${API_KEY}` +
-      `&fields=${fields}` +
-      `&aggregation=${aggregation}` +
-      `&page=${page}` +
-      `&size=30`;
+      // `&fields=${fields}` +
+      `&sort=${sort}` +
+      `&page=1` +
+      `&size=21` +
+      `&hasimage=1` +
+      `&sortorder=${sortorder}`;
   }
 
   const response = await fetch(url);
 
   if (response.ok) {
     const results = await response.json();
+    console.log(results);
     return processFeed(results);
   }
 
@@ -59,8 +60,8 @@ const processRecord = results => {
 
 export const fetchRecord = async id => {
   const fields =
-    "people,technique,classification," +
-    "url,culture,accessionyear,accessionmethod,images";
+    "people,technique,classification,labeltext,totalpageviews," +
+    "url,culture,accessionyear,accessionmethod,images,dated";
 
   const url =
     `https://api.harvardartmuseums.org/object?apikey=${API_KEY}` +
@@ -71,9 +72,40 @@ export const fetchRecord = async id => {
 
   if (response.ok) {
     const results = await response.json();
-    // console.log(results);
-
     return processRecord(results);
+  }
+
+  const errMessage = await response.text();
+  throw new Error(errMessage);
+};
+
+export const fetchPerson = async () => {
+  const url =
+    `https://api.harvardartmuseums.org/person?apikey=${API_KEY}` +
+    `&q=displayname:"Claude Monet"`;
+
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const results = await response.json();
+    return results;
+  }
+
+  const errMessage = await response.text();
+  throw new Error(errMessage);
+};
+
+export const fetchObjectsFromPerson = async () => {
+  const url =
+    `https://api.harvardartmuseums.org/object?apikey=${API_KEY}` +
+    `&person=27651`;
+
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const results = await response.json();
+    console.log(results);
+    return results;
   }
 
   const errMessage = await response.text();

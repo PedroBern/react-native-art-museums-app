@@ -21,8 +21,7 @@ export const loadFeed = () => async (dispatch, getState) => {
     dispatch({
       type: FETCH_FEED__FULFILLED,
       payload: {
-        ...results,
-        nextPage: feed.nextPage + 1
+        ...results
       }
     });
   } catch (err) {
@@ -38,8 +37,23 @@ export const refreshFeed = () => async dispatch => {
     dispatch({
       type: FETCH_FEED__FULFILLED,
       payload: {
-        ...results,
-        nextPage: 2
+        ...results
+      }
+    });
+  } catch (err) {
+    dispatch({ type: FETCH_FEED__REJECTED, payload: err.message });
+  }
+};
+
+export const sortFeed = (sort, sortOrder) => async dispatch => {
+  dispatch({ type: REFRESH_FEED__SENT });
+  try {
+    const results = await fetchFeed(null, sort, sortOrder);
+    // const results = await delayMock(fetchFeedMock);
+    dispatch({
+      type: FETCH_FEED__FULFILLED,
+      payload: {
+        ...results
       }
     });
   } catch (err) {
