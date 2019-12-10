@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, FlatList, Text, Dimensions } from "react-native";
+import { View, StyleSheet, FlatList, Text } from "react-native";
 import { connect } from "react-redux";
 import { Appbar, Paragraph } from "react-native-paper";
 

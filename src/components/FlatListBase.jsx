@@ -49,10 +49,7 @@ const FlatListBase = memo(
           <FeedItem
             grid={grid}
             {...item}
-            fluiId={`${listKey}-${item.id}`}
-            onPress={fluidId =>
-              navigation.navigate("Details", { ...item, fluidId })
-            }
+            onPress={() => navigation.navigate("Details", { ...item })}
           />
         )}
         keyExtractor={item => item.id.toString()}

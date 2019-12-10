@@ -5,16 +5,17 @@ const processFeed = results => {
     info: {
       next: results.info.next
     },
-    records: results.records.filter(
-      r => ![undefined, null].includes(r.primaryimageurl)
-    )
+    records: results.records
+      .filter(r => ![undefined, null].includes(r.primaryimageurl))
+      .map(r => ({ ...r, id: r.objectnumber }))
   };
   return processed;
 };
 
 export const fetchFeed = async (url = null, page = 1) => {
   if (!url) {
-    const fields = `"fields":"dated,century,division,id,primaryimageurl,title,lastupdate"`;
+    const fields =
+      "objectnumber,dated,century,division,primaryimageurl,title,lastupdate";
     const aggregation = `{
       "by_lastupdate": {
         "terms": {
@@ -36,6 +37,43 @@ export const fetchFeed = async (url = null, page = 1) => {
   if (response.ok) {
     const results = await response.json();
     return processFeed(results);
+  }
+
+  const errMessage = await response.text();
+  throw new Error(errMessage);
+};
+
+const processRecordImages = images => images.map(image => image.baseimageurl);
+const processRecordPeople = people =>
+  people ? people.map(person => person.displayname) : null;
+
+const processRecord = results => {
+  const record = results.records[0];
+  const processed = {
+    ...record,
+    images: processRecordImages(record.images),
+    people: processRecordPeople(record.people)
+  };
+  return processed;
+};
+
+export const fetchRecord = async id => {
+  const fields =
+    "people,technique,classification," +
+    "url,culture,accessionyear,accessionmethod,images";
+
+  const url =
+    `https://api.harvardartmuseums.org/object?apikey=${API_KEY}` +
+    `&objectnumber=${id}` +
+    `&fields=${fields}`;
+
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const results = await response.json();
+    // console.log(results);
+
+    return processRecord(results);
   }
 
   const errMessage = await response.text();

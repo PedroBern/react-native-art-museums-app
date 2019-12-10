@@ -7,6 +7,24 @@ export const delayMock = async res => {
   return res;
 };
 
+export const fetchRecordMock = {
+  accessionmethod: "Gift",
+  accessionyear: 1950,
+  classification: "Vessels",
+  culture: "Greek",
+  id: 291270,
+  images: [
+    "https://nrs.harvard.edu/urn-3:HUAM:767068",
+    "https://nrs.harvard.edu/urn-3:HUAM:767067",
+    "https://nrs.harvard.edu/urn-3:HUAM:767069",
+    "https://nrs.harvard.edu/urn-3:HUAM:767066",
+    "https://nrs.harvard.edu/urn-3:HUAM:VRS45699_dynmc"
+  ],
+  people: ["The Otterlo Painter"],
+  technique: null,
+  url: "https://www.harvardartmuseums.org/collections/object/291270"
+};
+
 export const fetchFeedMock = {
   info: {
     next:

@@ -26,13 +26,14 @@ const FeedItem = memo(
     primaryimageurl,
     division,
     century,
+    dated,
     grid,
     onPress,
     fluiId
   }) => (
     <Card key={id} style={grid ? styles.grid : styles.root} elevation={0}>
       {!grid && <Card.Title title={title} subtitle={division} />}
-      <TouchableOpacity onPress={() => onPress(fluiId)}>
+      <TouchableOpacity onPress={onPress}>
         <Card.Cover
           source={{
             uri: `${primaryimageurl}`
@@ -51,7 +52,8 @@ const FeedItem = memo(
               title,
               primaryimageurl,
               division,
-              century
+              century,
+              dated
             }}
             style={styles.fab}
           />
