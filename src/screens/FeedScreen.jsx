@@ -60,7 +60,7 @@ const FeedScreen = ({
         ]}
       />
       <Appbar.Header>
-        <Appbar.Content title="Most recent updates" />
+        <Appbar.Content title="Feed" />
         <Appbar.Action icon={"sort-variant"} onPress={() => setVisible(true)} />
         <Appbar.Action
           icon={grid ? "view-agenda" : "view-grid"}
