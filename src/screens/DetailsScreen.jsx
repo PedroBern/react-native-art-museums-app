@@ -44,45 +44,35 @@ const DetailsScreen = ({
         <Appbar.Content title={title} subtitle={division} />
       </Appbar.Header>
       <ScrollView style={styles.content}>
-        <View style={styles.image}>
-          {[0, 1].includes(record.images.length) ? (
-            <Image source={{ uri: primaryimageurl }} style={styles.image} />
-          ) : (
-            <Swiper>
-              {record.images.map(uri => (
-                <Image key={uri} source={{ uri }} style={styles.image} />
-              ))}
-            </Swiper>
-          )}
-          <FavoriteFab
-            record={{
-              id,
-              title,
-              primaryimageurl,
-              division,
-              century
-            }}
-            style={styles.fab}
-          />
-        </View>
-        <View style={styles.body}>
-          {loading ? (
-            <Spinner />
-          ) : error ? (
-            <Text>{error}</Text>
-          ) : (
-            <React.Fragment>
+        {loading ? (
+          <Spinner />
+        ) : error ? (
+          <Text style={styles.body}>{error}</Text>
+        ) : (
+          <React.Fragment>
+            <View style={styles.image}>
+              <Swiper>
+                {record.images.map(uri => (
+                  <Image key={uri} source={{ uri }} style={[styles.image]} />
+                ))}
+              </Swiper>
+              <FavoriteFab
+                record={{
+                  id,
+                  title,
+                  primaryimageurl,
+                  division,
+                  century
+                }}
+                style={styles.fab}
+              />
+            </View>
+            <View style={styles.body}>
               <Title>Object number</Title>
               <Paragraph>{id}</Paragraph>
               <CustomDivider />
               <Title>Title</Title>
               <Paragraph>{title}</Paragraph>
-              <CustomDivider />
-              <Title>Century</Title>
-              <Paragraph>{century}</Paragraph>
-              <CustomDivider />
-              <Title>Culture</Title>
-              <Paragraph>{record.culture}</Paragraph>
               <CustomDivider />
               {record.people && (
                 <React.Fragment>
@@ -93,18 +83,38 @@ const DetailsScreen = ({
                   <CustomDivider />
                 </React.Fragment>
               )}
+              {record.labeltext && (
+                <React.Fragment>
+                  <Title>Gallery Text</Title>
+                  <Paragraph>{record.labeltext}</Paragraph>
+                  <CustomDivider />
+                </React.Fragment>
+              )}
+              <CustomDivider />
+              <Title>Century</Title>
+              <Paragraph>{century}</Paragraph>
+              <CustomDivider />
+              <Title>Dated</Title>
+              <Paragraph>{record.dated}</Paragraph>
+              <CustomDivider />
+              <Title>Culture</Title>
+              <Paragraph>{record.culture}</Paragraph>
+              <CustomDivider />
               <Title>Accesion year</Title>
               <Paragraph>{record.accessionyear}</Paragraph>
               <CustomDivider />
               <Title>Accesion method</Title>
               <Paragraph>{record.accessionmethod}</Paragraph>
               <CustomDivider />
+              <Title>Total page views</Title>
+              <Paragraph>{record.totalpageviews}</Paragraph>
+              <CustomDivider />
               <Link Component={Paragraph} url={record.url}>
                 Open on Harvard Art Museum
               </Link>
-            </React.Fragment>
-          )}
-        </View>
+            </View>
+          </React.Fragment>
+        )}
       </ScrollView>
     </View>
   );
@@ -127,7 +137,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width,
-    height: width
+    height: width * 1.5,
+    resizeMode: "contain"
   },
   fab: {
     position: "absolute",
