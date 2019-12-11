@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import { connect } from "react-redux";
 import {
   View,
@@ -6,119 +6,165 @@ import {
   StyleSheet,
   Text,
   Dimensions,
-  Image
+  Image,
+  TouchableOpacity
 } from "react-native";
-import { Appbar, Paragraph, Title, Divider } from "react-native-paper";
+import { Appbar, Paragraph, Title } from "react-native-paper";
 import Swiper from "react-native-swiper";
 
 import { loadRecord, resetDetails } from "../store/actions/details";
+import {
+  resetPerson,
+  loadPerson,
+  loadPersonRecords
+} from "../store/actions/person";
 import Spinner from "../components/Spinner";
 import FavoriteFab from "../components/FavoriteFab";
 import Link from "../components/Link";
+import Divider from "../components/Divider";
 
-const CustomDivider = () => <Divider style={styles.divider} />;
-
-const DetailsScreen = ({
-  navigation,
-  record,
-  loading,
-  error,
-  resetDetails,
-  loadRecord
-}) => {
-  const id = navigation.getParam("id", "");
-  const title = navigation.getParam("title", "Missing title");
-  const division = navigation.getParam("division", "");
-  const century = navigation.getParam("century", "");
-  const primaryimageurl = navigation.getParam("primaryimageurl", "");
-
-  useEffect(() => {
-    loadRecord(id);
-    return () => resetDetails();
-  }, []);
-
-  return (
-    <View style={styles.root}>
-      <Appbar.Header style={styles.header}>
-        <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title={title} subtitle={division} />
-      </Appbar.Header>
-      <ScrollView style={styles.content}>
-        {loading ? (
-          <Spinner />
-        ) : error ? (
-          <Text style={styles.body}>{error}</Text>
-        ) : (
-          <React.Fragment>
-            <View style={styles.image}>
-              <Swiper>
-                {record.images.map(uri => (
-                  <Image key={uri} source={{ uri }} style={styles.image} />
-                ))}
-              </Swiper>
-              <FavoriteFab
-                record={{
-                  id,
-                  title,
-                  primaryimageurl,
-                  division,
-                  century
-                }}
-                style={styles.fab}
-              />
-            </View>
-            <View style={styles.body}>
-              <Title>Object number</Title>
-              <Paragraph>{id}</Paragraph>
-              <CustomDivider />
-              <Title>Title</Title>
-              <Paragraph>{title}</Paragraph>
-              <CustomDivider />
-              {record.people && (
-                <React.Fragment>
-                  <Title>People</Title>
-                  {record.people.map(p => (
-                    <Paragraph key={p}>{p}</Paragraph>
-                  ))}
-                  <CustomDivider />
-                </React.Fragment>
-              )}
-              {record.labeltext && (
-                <React.Fragment>
-                  <Title>Gallery Text</Title>
-                  <Paragraph>{record.labeltext}</Paragraph>
-                  <CustomDivider />
-                </React.Fragment>
-              )}
-              <CustomDivider />
-              <Title>Century</Title>
-              <Paragraph>{century}</Paragraph>
-              <CustomDivider />
-              <Title>Dated</Title>
-              <Paragraph>{record.dated}</Paragraph>
-              <CustomDivider />
-              <Title>Culture</Title>
-              <Paragraph>{record.culture}</Paragraph>
-              <CustomDivider />
-              <Title>Accesion year</Title>
-              <Paragraph>{record.accessionyear}</Paragraph>
-              <CustomDivider />
-              <Title>Accesion method</Title>
-              <Paragraph>{record.accessionmethod}</Paragraph>
-              <CustomDivider />
-              <Title>Total page views</Title>
-              <Paragraph>{record.totalpageviews}</Paragraph>
-              <CustomDivider />
-              <Link Component={Paragraph} url={record.url}>
-                Open on Harvard Art Museum
-              </Link>
-            </View>
-          </React.Fragment>
-        )}
-      </ScrollView>
-    </View>
-  );
+const areEqual = (prevProps, nextProps) => {
+  if (prevProps.done) {
+    return true;
+  }
+  return false;
 };
+
+const DetailsScreen = memo(
+  ({
+    navigation,
+    record,
+    loading,
+    error,
+    resetDetails,
+    loadRecord,
+    done,
+    resetPerson,
+    loadPerson,
+    loadPersonRecords
+  }) => {
+    const id = navigation.getParam("id", "");
+    const title = navigation.getParam("title", "Missing title");
+    const division = navigation.getParam("division", "");
+    const century = navigation.getParam("century", "");
+    const primaryimageurl = navigation.getParam("primaryimageurl", "");
+
+    useEffect(() => {
+      loadRecord(id);
+    }, []);
+
+    useEffect(() => {
+      resetDetails();
+    }, [done]);
+
+    return (
+      <View style={styles.root}>
+        <Appbar.Header>
+          <Appbar.BackAction onPress={() => navigation.goBack()} />
+          <Appbar.Content title={title} subtitle={division} />
+        </Appbar.Header>
+        <ScrollView style={styles.content}>
+          {loading ? (
+            <Spinner />
+          ) : error ? (
+            <Text style={styles.body}>{error}</Text>
+          ) : (
+            <React.Fragment>
+              <View style={styles.image}>
+                <Swiper>
+                  {record.images.map(uri => (
+                    <Image key={uri} source={{ uri }} style={styles.image} />
+                  ))}
+                </Swiper>
+                <FavoriteFab
+                  record={{
+                    id,
+                    title,
+                    primaryimageurl,
+                    division,
+                    century
+                  }}
+                  style={styles.fab}
+                />
+              </View>
+              <View style={styles.body}>
+                <Title>Object number</Title>
+                <Paragraph>{id}</Paragraph>
+                <Divider />
+
+                <Title>Title</Title>
+                <Paragraph>{title}</Paragraph>
+                <Divider />
+
+                {record.people && (
+                  <React.Fragment>
+                    <Title>People</Title>
+                    {record.people.map(p => (
+                      <TouchableOpacity
+                        key={p.personid}
+                        onPress={
+                          () => {
+                            resetPerson(); //.then(() => {
+                            navigation.navigate("Person", { ...p });
+                            loadPerson(p.personid);
+                            loadPersonRecords(p.personid);
+                          } //
+                        }
+                      >
+                        <Paragraph>
+                          <Paragraph style={styles.link}>{p.name}</Paragraph> (
+                          {p.role})
+                        </Paragraph>
+                      </TouchableOpacity>
+                    ))}
+                    <Divider />
+                  </React.Fragment>
+                )}
+
+                {record.labeltext && (
+                  <React.Fragment>
+                    <Title>Gallery Text</Title>
+                    <Paragraph>{record.labeltext}</Paragraph>
+                    <Divider />
+                  </React.Fragment>
+                )}
+
+                <Title>Century</Title>
+                <Paragraph>{century}</Paragraph>
+                <Divider />
+
+                <Title>Dated</Title>
+                <Paragraph>{record.dated}</Paragraph>
+                <Divider />
+
+                <Title>Culture</Title>
+                <Paragraph>{record.culture}</Paragraph>
+                <Divider />
+
+                <Title>Accesion year</Title>
+                <Paragraph>{record.accessionyear}</Paragraph>
+                <Divider />
+
+                <Title>Accesion method</Title>
+                <Paragraph>{record.accessionmethod}</Paragraph>
+                <Divider />
+
+                <Title>Total page views</Title>
+                <Paragraph>{record.totalpageviews}</Paragraph>
+                <Divider />
+
+                <Link Component={Paragraph} url={record.url}>
+                  Open on Harvard Art Museum
+                </Link>
+              </View>
+            </React.Fragment>
+          )}
+        </ScrollView>
+      </View>
+    );
+  },
+  areEqual
+);
 
 const width = Dimensions.get("window").width;
 
@@ -146,9 +192,8 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0
   },
-  divider: {
-    marginTop: 8,
-    marginBottom: 8
+  link: {
+    color: "#2e78b7"
   }
 });
 
@@ -156,6 +201,10 @@ const mapStateToProps = state => ({
   ...state.details
 });
 
-export default connect(mapStateToProps, { loadRecord, resetDetails })(
-  DetailsScreen
-);
+export default connect(mapStateToProps, {
+  loadRecord,
+  resetDetails,
+  resetPerson,
+  loadPerson,
+  loadPersonRecords
+})(DetailsScreen);

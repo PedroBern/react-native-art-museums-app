@@ -90,6 +90,11 @@ const FlatListBase = memo(
   areEqual
 );
 
+FlatListBase.defaultProps = {
+  setVisibleIndex: () => {},
+  visibleIndex: 0
+};
+
 FlatListBase.propTypes = {
   records: PropTypes.array.isRequired,
   grid: PropTypes.bool.isRequired,
@@ -98,4 +103,4 @@ FlatListBase.propTypes = {
   listKey: PropTypes.string.isRequired
 };
 
-export default withNavigation(FlatListBase);
+export default FlatListBase;

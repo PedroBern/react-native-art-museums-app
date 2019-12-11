@@ -23,7 +23,7 @@ const feedReducer = (state = feedInitialState, action) => {
       return { ...state, loading: true };
 
     case FETCH_FEED__FULFILLED:
-      const { nextPage, info, records } = action.payload;
+      const { info, records } = action.payload;
       const toAdd = records.filter(
         r => !state.records.find(s => s.id === r.id)
       );
@@ -50,6 +50,7 @@ const feedReducer = (state = feedInitialState, action) => {
         records: [],
         info: {},
         loading: true,
+        visibleIndex: 0,
         refreshing: true
       };
 

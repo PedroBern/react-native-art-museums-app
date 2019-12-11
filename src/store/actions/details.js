@@ -14,7 +14,6 @@ export const loadRecord = id => async (dispatch, getState) => {
   dispatch({ type: FETCH_RECORD__SENT });
   try {
     const results = await fetchRecord(id);
-
     // const results = await delayMock(fetchFeedMock);
     dispatch({
       type: FETCH_RECORD__FULFILLED,

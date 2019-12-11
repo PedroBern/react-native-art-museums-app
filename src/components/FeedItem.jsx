@@ -24,14 +24,14 @@ const gridImage = Math.round(width / GRID_COLUMNS - 4);
 
 export const FeedItem = memo(
   ({ id, title, primaryimageurl, division, century, dated, onPress }) => {
-    const { navigate } = useNavigation();
+    const { push } = useNavigation();
 
     return (
       <Card key={id} style={styles.root} elevation={0}>
         <Card.Title title={title} subtitle={division} />
         <TouchableOpacity
           onPress={() =>
-            navigate("Details", {
+            push("Details", {
               id,
               title,
               primaryimageurl,
@@ -69,11 +69,11 @@ export const FeedItem = memo(
 
 export const FeedItemGrid = memo(
   ({ id, primaryimageurl, onPress, ...other }) => {
-    const { navigate } = useNavigation();
+    const { push } = useNavigation();
     return (
       <Card key={id} style={styles.grid} elevation={0}>
         <TouchableOpacity
-          onPress={() => navigate("Details", { id, primaryimageurl, ...other })}
+          onPress={() => push("Details", { id, primaryimageurl, ...other })}
         >
           <Card.Cover
             source={{
