@@ -4,8 +4,7 @@ import {
   FETCH_PERSON__REJECTED,
   FETCH_PERSON_RECORDS__SENT,
   FETCH_PERSON_RECORDS__FULFILLED,
-  FETCH_PERSON_RECORDS__REJECTED,
-  RESET_PERSON
+  FETCH_PERSON_RECORDS__REJECTED
 } from "../actions/person";
 
 export const personInitialState = {
@@ -74,11 +73,6 @@ const personReducer = (state = personInitialState, action) => {
           error: action.payload,
           loading: false
         }
-      };
-
-    case RESET_PERSON:
-      return {
-        ...personInitialState
       };
 
     default:

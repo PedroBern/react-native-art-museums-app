@@ -1,98 +1,102 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import { connect } from "react-redux";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
 import { Appbar, Paragraph, Title } from "react-native-paper";
+import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 
-import { loadPersonRecords, resetPerson } from "../store/actions/person";
+import { loadPersonRecords, loadPerson } from "../store/actions/person";
+import reducer, {
+  personInitialState as initialState
+} from "../store/reducers/person";
 import Spinner from "../components/Spinner";
 import Link from "../components/Link";
 import Divider from "../components/Divider";
 import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
 
-const PersonScreen = ({
-  navigation,
-  person,
-  records,
-  loadPersonRecords,
-  resetPerson
-}) => {
-  const id = navigation.getParam("personid", "");
-  const name = navigation.getParam("name", "");
-  const role = navigation.getParam("role", "");
+const PersonScreen = () => {
+  const { goBack } = useNavigation();
+
+  const id = useNavigationParam("personid");
+  const name = useNavigationParam("name");
+  const role = useNavigationParam("role");
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    return () => resetPerson();
+    loadPersonRecords(id)(dispatch);
+    loadPerson(id)(dispatch);
   }, []);
 
   return (
     <View style={styles.root}>
       <Appbar.Header>
-        <Appbar.BackAction onPress={() => navigation.goBack()} />
+        <Appbar.BackAction onPress={() => goBack()} />
         <Appbar.Content title={name} subtitle={role} />
       </Appbar.Header>
       <ScrollView style={styles.content}>
-        {person.loading ? (
+        {state.person.loading ? (
           <Spinner />
-        ) : person.error ? (
-          <Text style={styles.body}>{person.error}</Text>
+        ) : state.person.error ? (
+          <Text style={styles.body}>{state.person.error}</Text>
         ) : (
           <View style={styles.body}>
             <Title>Name</Title>
-            <Paragraph>{person.data.displayname}</Paragraph>
+            <Paragraph>{state.person.data.displayname}</Paragraph>
             <Divider />
 
             <Title>Gender</Title>
-            <Paragraph>{person.data.gender}</Paragraph>
+            <Paragraph>{state.person.data.gender}</Paragraph>
             <Divider />
 
             <Title>Culture</Title>
-            <Paragraph>{person.data.culture}</Paragraph>
+            <Paragraph>{state.person.data.culture}</Paragraph>
             <Divider />
 
             <Title>Birthplace</Title>
-            <Paragraph>{person.data.birthplace}</Paragraph>
+            <Paragraph>{state.person.data.birthplace}</Paragraph>
             <Divider />
 
             <Title>Deathplace</Title>
-            <Paragraph>{person.data.deathplace}</Paragraph>
+            <Paragraph>{state.person.data.deathplace}</Paragraph>
             <Divider />
 
             <Title>Date</Title>
-            <Paragraph>{person.data.displaydate}</Paragraph>
+            <Paragraph>{state.person.data.displaydate}</Paragraph>
             <Divider />
 
             <View style={styles.grow} />
 
             <Link
               Component={Paragraph}
-              url={`https://en.wikipedia.org/?curid=${person.data.wikipedia_id}`}
+              url={`https://en.wikipedia.org/?curid=${state.person.data.wikipedia_id}`}
             >
               Open on Wikipedia
             </Link>
             <Divider />
-            <Link Component={Paragraph} url={person.data.url}>
+            <Link Component={Paragraph} url={state.person.data.url}>
               Open on Harvard Art Museum
             </Link>
           </View>
         )}
-        {records.loading && records.data.length === 0 ? (
+        {state.records.loading && state.records.data.length === 0 ? (
           <Spinner />
-        ) : records.error ? (
-          <Text style={styles.body}>{records.error}</Text>
+        ) : state.records.error ? (
+          <Text style={styles.body}>{state.records.error}</Text>
         ) : (
           <View>
             <FlatListBase
               listKey="person-records"
-              records={records.data}
+              records={state.records.data}
               grid={true}
               onEndReached={() =>
-                records.next && loadPersonRecords(id, records.next)
+                state.records.next &&
+                loadPersonRecords(id, state.records.next)(dispatch)
               }
               ListFooterComponent={() => (
                 <ListFooter
-                  error={records.error}
-                  loading={records.loading}
+                  error={state.records.error}
+                  loading={state.records.loading}
                   refreshing={false}
                 />
               )}
@@ -116,17 +120,7 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     padding: 16
-  },
-  flatList: {
-    // max
   }
 });
 
-const mapStateToProps = state => ({
-  ...state.person
-});
-
-export default connect(mapStateToProps, {
-  loadPersonRecords,
-  resetPerson
-})(PersonScreen);
+export default PersonScreen;

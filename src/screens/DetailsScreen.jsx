@@ -13,11 +13,6 @@ import { Appbar, Paragraph, Title } from "react-native-paper";
 import Swiper from "react-native-swiper";
 
 import { loadRecord, resetDetails } from "../store/actions/details";
-import {
-  resetPerson,
-  loadPerson,
-  loadPersonRecords
-} from "../store/actions/person";
 import Spinner from "../components/Spinner";
 import FavoriteFab from "../components/FavoriteFab";
 import Link from "../components/Link";
@@ -31,18 +26,7 @@ const areEqual = (prevProps, nextProps) => {
 };
 
 const DetailsScreen = memo(
-  ({
-    navigation,
-    record,
-    loading,
-    error,
-    resetDetails,
-    loadRecord,
-    done,
-    resetPerson,
-    loadPerson,
-    loadPersonRecords
-  }) => {
+  ({ navigation, record, loading, error, resetDetails, loadRecord, done }) => {
     const id = navigation.getParam("id", "");
     const title = navigation.getParam("title", "Missing title");
     const division = navigation.getParam("division", "");
@@ -102,14 +86,7 @@ const DetailsScreen = memo(
                     {record.people.map(p => (
                       <TouchableOpacity
                         key={p.personid}
-                        onPress={
-                          () => {
-                            resetPerson(); //.then(() => {
-                            navigation.navigate("Person", { ...p });
-                            loadPerson(p.personid);
-                            loadPersonRecords(p.personid);
-                          } //
-                        }
+                        onPress={() => navigation.push("Person", { ...p })}
                       >
                         <Paragraph>
                           <Paragraph style={styles.link}>{p.name}</Paragraph> (
@@ -203,8 +180,5 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   loadRecord,
-  resetDetails,
-  resetPerson,
-  loadPerson,
-  loadPersonRecords
+  resetDetails
 })(DetailsScreen);

@@ -10,7 +10,6 @@ export const FETCH_PERSON_RECORDS__SENT = "FETCH_PERSON_RECORDS__SENT";
 export const FETCH_PERSON_RECORDS__FULFILLED =
   "FETCH_PERSON_RECORDS__FULFILLED";
 export const FETCH_PERSON_RECORDS__REJECTED = "FETCH_PERSON_RECORDS__REJECTED";
-export const RESET_PERSON = "RESET_PERSON";
 
 // action creators
 
@@ -31,9 +30,7 @@ export const loadPersonRecords = (id, next) => async (dispatch, getState) => {
   dispatch({ type: FETCH_PERSON_RECORDS__SENT });
   try {
     let results;
-    console.log("fetching");
     if (next) {
-      console.log("next", next);
       results = await fetchFeed(next);
     } else {
       results = await fetchPersonRecords(id);
@@ -46,6 +43,3 @@ export const loadPersonRecords = (id, next) => async (dispatch, getState) => {
     dispatch({ type: FETCH_PERSON_RECORDS__REJECTED, payload: err.message });
   }
 };
-
-export const resetPerson = () => async dispatch =>
-  dispatch({ type: RESET_PERSON });
