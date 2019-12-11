@@ -46,34 +46,42 @@ const PersonScreen = () => {
             <Divider />
 
             <Title>Gender</Title>
-            <Paragraph>{state.person.data.gender}</Paragraph>
+            <Paragraph>{state.person.data.gender || <Text>-</Text>}</Paragraph>
             <Divider />
 
             <Title>Culture</Title>
-            <Paragraph>{state.person.data.culture}</Paragraph>
+            <Paragraph>{state.person.data.culture || <Text>-</Text>}</Paragraph>
             <Divider />
 
             <Title>Birthplace</Title>
-            <Paragraph>{state.person.data.birthplace}</Paragraph>
+            <Paragraph>
+              {state.person.data.birthplace || <Text>-</Text>}
+            </Paragraph>
             <Divider />
 
             <Title>Deathplace</Title>
-            <Paragraph>{state.person.data.deathplace}</Paragraph>
+            <Paragraph>
+              {state.person.data.deathplace || <Text>-</Text>}
+            </Paragraph>
             <Divider />
 
             <Title>Date</Title>
-            <Paragraph>{state.person.data.displaydate}</Paragraph>
+            <Paragraph>
+              {state.person.data.displaydate || <Text>-</Text>}
+            </Paragraph>
             <Divider />
 
-            <View style={styles.grow} />
-
-            <Link
-              Component={Paragraph}
-              url={`https://en.wikipedia.org/?curid=${state.person.data.wikipedia_id}`}
-            >
-              Open on Wikipedia
-            </Link>
-            <Divider />
+            {state.person.data.wikipedia_id && (
+              <React.Fragment>
+                <Link
+                  Component={Paragraph}
+                  url={`https://en.wikipedia.org/?curid=${state.person.data.wikipedia_id}`}
+                >
+                  Open on Wikipedia
+                </Link>
+                <Divider />
+              </React.Fragment>
+            )}
             <Link Component={Paragraph} url={state.person.data.url}>
               Open on Harvard Art Museum
             </Link>

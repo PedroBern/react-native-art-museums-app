@@ -85,7 +85,7 @@ const DetailsScreen = memo(
                     <Title>People</Title>
                     {record.people.map(p => (
                       <TouchableOpacity
-                        key={p.personid}
+                        key={p.personid + p.role}
                         onPress={() => navigation.push("Person", { ...p })}
                       >
                         <Paragraph>
