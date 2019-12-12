@@ -29,7 +29,7 @@ function areEqual(p, n) {
 
 const renderItem = ({ item }) => <FeedItem {...item} />;
 const renderItemGrid = ({ item }) => <FeedItemGrid {...item} />;
-const getItemLayout = (data, index) => {
+const getItemLayoutGrid = (data, index) => {
   const height = width / GRID_COLUMNS;
   return {
     length: height,
@@ -37,7 +37,7 @@ const getItemLayout = (data, index) => {
     index
   };
 };
-const getItemLayoutGrid = (data, index) => {
+const getItemLayout = (data, index) => {
   const height = width + CARD_OFFSET;
   return {
     length: height,
@@ -47,18 +47,10 @@ const getItemLayoutGrid = (data, index) => {
 };
 
 const FlatListBase = memo(
-  ({
-    records,
-    grid,
-    setVisibleIndex,
-    visibleIndex,
-    listKey,
-    navigation,
-    ...other
-  }) => {
+  ({ records, grid, setVisibleIndex, visibleIndex, listKey, ...other }) => {
     return grid ? (
       <FlatList
-        key={"regular-list" + listKey}
+        key={listKey}
         initialScrollIndex={Math.max(
           (visibleIndex - (visibleIndex % GRID_COLUMNS)) / GRID_COLUMNS,
           0
@@ -66,7 +58,7 @@ const FlatListBase = memo(
         data={records}
         numColumns={GRID_COLUMNS}
         renderItem={renderItemGrid}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id}
         onViewableItemsChanged={setVisibleIndex}
         viewabilityConfig={viewabilityConfig}
         getItemLayout={getItemLayoutGrid}
@@ -74,12 +66,12 @@ const FlatListBase = memo(
       />
     ) : (
       <FlatList
-        key={"grid-list" + listKey}
+        key={listKey}
         initialScrollIndex={Math.max(visibleIndex, 0)}
         data={records}
         numColumns={1}
         renderItem={renderItem}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id}
         onViewableItemsChanged={setVisibleIndex}
         viewabilityConfig={viewabilityConfig}
         getItemLayout={getItemLayout}

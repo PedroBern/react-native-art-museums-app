@@ -4,7 +4,8 @@ import {
   FETCH_FEED__REJECTED,
   TOGGLE_FEED_VIEW,
   SET_VISIBLE_INDEX,
-  REFRESH_FEED__SENT
+  REFRESH_FEED__SENT,
+  SORT_FEED
 } from "../actions/feed";
 
 export const feedInitialState = {
@@ -14,7 +15,9 @@ export const feedInitialState = {
   error: null,
   grid: false,
   visibleIndex: 0,
-  refreshing: false
+  refreshing: false,
+  sort: "dateoflastpageview",
+  sortOrder: "desc"
 };
 
 const feedReducer = (state = feedInitialState, action) => {
@@ -52,6 +55,14 @@ const feedReducer = (state = feedInitialState, action) => {
         loading: true,
         visibleIndex: 0,
         refreshing: true
+      };
+
+    case SORT_FEED:
+      return {
+        ...state,
+        ...feedInitialState,
+        grid: state.grid,
+        ...action.payload
       };
 
     case TOGGLE_FEED_VIEW:

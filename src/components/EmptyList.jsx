@@ -2,11 +2,12 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Paragraph } from "react-native-paper";
 
-const EmptyList = () => (
-  <View style={styles.root}>
-    <Paragraph>Nothing to show.</Paragraph>
-  </View>
-);
+const EmptyList = ({ notShow }) =>
+  notShow ? null : (
+    <View style={styles.root}>
+      <Paragraph>Nothing to show.</Paragraph>
+    </View>
+  );
 
 const styles = StyleSheet.create({
   root: {

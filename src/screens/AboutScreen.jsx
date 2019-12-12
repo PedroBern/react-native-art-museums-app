@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import * as WebBrowser from "expo-web-browser";
-import { Appbar, Paragraph, Headline } from "react-native-paper";
+import { Appbar, Paragraph, Headline, Divider } from "react-native-paper";
 
 import Link from "../components/Link";
 
@@ -20,18 +20,23 @@ const AboutScreen = ({}) => {
             CS50 mobile on edX
           </Link>
         </View>
+        <Divider style={styles.divider} />
         <View style={styles.row}>
           <Headline style={styles.centeredText}>Source code on </Headline>
           <Link url="https://github.com/PedroBern/react-native-art-museums-app">
             GitHub
           </Link>
         </View>
+        <Divider style={styles.divider} />
         <View>
-          <Headline style={styles.centeredText}>Built with</Headline>
+          <Headline style={styles.centeredText}>
+            Built with the awesome
+          </Headline>
           <Link url="https://github.com/harvardartmuseums/api-docs">
             Harvard Art Museums API
           </Link>
         </View>
+        <Divider style={styles.divider} />
         <View style={styles.row}>
           <Paragraph style={styles.centeredText}>by </Paragraph>
           <Link url="https://github.com/pedrobern" Component={Paragraph}>
@@ -47,6 +52,10 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "#FFF"
+  },
+  divider: {
+    width: "100%",
+    padding: 1
   },
   content: {
     flex: 1,

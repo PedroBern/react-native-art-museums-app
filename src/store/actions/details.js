@@ -10,7 +10,7 @@ export const RESET_DETAILS = "RESET_DETAILS";
 
 // action creators
 
-export const loadRecord = id => async (dispatch, getState) => {
+export const loadRecord = id => async dispatch => {
   dispatch({ type: FETCH_RECORD__SENT });
   try {
     const results = await fetchRecord(id);

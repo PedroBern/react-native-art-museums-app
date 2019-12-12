@@ -26,7 +26,7 @@ export const loadPerson = id => async dispatch => {
   }
 };
 
-export const loadPersonRecords = (id, next) => async (dispatch, getState) => {
+export const loadPersonRecords = (id, next) => async dispatch => {
   dispatch({ type: FETCH_PERSON_RECORDS__SENT });
   try {
     let results;

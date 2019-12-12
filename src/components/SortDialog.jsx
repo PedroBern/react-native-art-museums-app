@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import PropTypes from "prop-types";
 import { Portal, Dialog, Paragraph, Button } from "react-native-paper";
 
-const SortDialog = ({ visible, onDismiss, buttons }) => (
+const SortDialog = memo(({ visible, onDismiss, buttons }) => (
   <Portal>
     <Dialog visible={visible} onDismiss={onDismiss}>
       <Dialog.Title>Sort by</Dialog.Title>
@@ -26,7 +26,7 @@ const SortDialog = ({ visible, onDismiss, buttons }) => (
       </Dialog.Actions>
     </Dialog>
   </Portal>
-);
+));
 
 SortDialog.defaultProps = {
   buttons: [

@@ -18,7 +18,7 @@ export const fetchFeed = async (
   url = null,
   sort = "dateoflastpageview",
   sortorder = "desc",
-  person = ""
+  extra = ""
 ) => {
   if (!url) {
     const fields = "objectnumber,dated,century,division,primaryimageurl,title";
@@ -27,13 +27,12 @@ export const fetchFeed = async (
       `&fields=${fields}` +
       `&sort=${sort}` +
       `&page=1` +
-      `&size=22` +
+      `&size=44` +
       `&hasimage=1` +
-      `&sortorder=${sortorder}`;
-    if (person) {
-      url += `&person=${person}`;
-    }
+      `&sortorder=${sortorder}` +
+      extra;
   }
+
   const response = await fetch(url);
   if (response.ok) {
     const results = await response.json();
@@ -57,8 +56,8 @@ const processRecord = results => {
   const record = results.records[0];
   const processed = {
     ...record,
-    images: processRecordImages(record.images),
-    people: processRecordPeople(record.people)
+    images: record.images ? processRecordImages(record.images) : [],
+    people: record.people ? processRecordPeople(record.people) : []
   };
   return processed;
 };
@@ -66,7 +65,7 @@ const processRecord = results => {
 export const fetchRecord = async id => {
   const fields =
     "people,technique,classification,labeltext,totalpageviews," +
-    "url,culture,accessionyear,accessionmethod,images,dated";
+    "url,culture,accessionyear,accessionmethod,images,dated,century";
   const url =
     `https://api.harvardartmuseums.org/object?apikey=${API_KEY}` +
     `&objectnumber=${id}` +
@@ -81,7 +80,7 @@ export const fetchRecord = async id => {
 };
 
 export const fetchPersonRecords = async personid => {
-  return fetchFeed(null, "totalpageviews", "desc", personid);
+  return fetchFeed(null, "totalpageviews", "desc", `&person=${personid}`);
 };
 
 export const fetchPerson = async id => {
@@ -96,6 +95,72 @@ export const fetchPerson = async id => {
   if (response.ok) {
     const results = await response.json();
     return results;
+  }
+  const errMessage = await response.text();
+  throw new Error(errMessage);
+};
+
+const processList = (results, target) => {
+  if (target === "person" || target === "object") {
+    const field = target === "person" ? "displayname" : "title";
+    const id = target === "person" ? "id" : "objectnumber";
+    return {
+      info: results.info,
+      records: results.records.map(r => ({
+        id: r[id],
+        objectcount: r.objectcount || null,
+        name: r[field]
+      }))
+    };
+  } else {
+    return results;
+  }
+};
+
+export const fetchListOf = async (url = null, target, desc = true) => {
+  if (!url) {
+    let fields;
+    let sort = "name";
+    let extra = "";
+    const sortorder = desc ? "desc" : "asc";
+
+    switch (target) {
+      case "person":
+        sort = "displayname";
+        fields = "id,objectcount,displayname";
+        break;
+      case "object":
+        sort = "title";
+        fields = "objectnumber,title";
+        extra = "&hasimage=1";
+        break;
+      case "gallery":
+        fields = "id,name,objectcount,theme";
+        break;
+      case "century":
+        sort = "temporalorder";
+        fields = "id,name,objectcount,temporalorder";
+        break;
+      default:
+        fields = "id,name,objectcount";
+        break;
+    }
+
+    url =
+      `https://api.harvardartmuseums.org/` +
+      `${target}?` +
+      `apikey=${API_KEY}` +
+      `&fields=${fields}` +
+      `&sort=${sort}` +
+      `&sortorder=${sortorder}` +
+      `&size=100` +
+      extra;
+  }
+
+  const response = await fetch(url);
+  if (response.ok) {
+    const results = await response.json();
+    return processList(results, target);
   }
   const errMessage = await response.text();
   throw new Error(errMessage);

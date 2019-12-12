@@ -5,6 +5,8 @@ import { createStackNavigator } from "react-navigation-stack";
 import MainTabNavigator from "./MainTabNavigator";
 import DetailsScreen from "../screens/DetailsScreen";
 import PersonScreen from "../screens/PersonScreen";
+import ListScreen from "../screens/ListScreen";
+import FeedScreen from "../screens/FeedScreen";
 
 const MainStack = createStackNavigator(
   {
@@ -12,7 +14,9 @@ const MainStack = createStackNavigator(
       screen: MainTabNavigator
     },
     Details: DetailsScreen,
-    Person: PersonScreen
+    Person: PersonScreen,
+    List: ListScreen,
+    Feed: FeedScreen
   },
   {
     initialRouteName: "Main",

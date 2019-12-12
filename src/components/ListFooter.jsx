@@ -1,21 +1,36 @@
-import React from "react";
+import React, { memo } from "react";
+import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
 import { Paragraph } from "react-native-paper";
 
 import Spinner from "./Spinner";
 
-const ListFooter = ({ loading, error, refreshing }) => (
+const ListFooter = memo(({ loading, error }) => (
   <View style={styles.root}>
-    {loading && !refreshing && <Spinner />}
-    {error && <Paragraph>{error}</Paragraph>}
+    {loading && <Spinner />}
+    {error && (
+      <View style={[styles.root, styles.error]}>
+        <Paragraph>{error}</Paragraph>
+      </View>
+    )}
   </View>
-);
+));
+
+ListFooter.defaultProps = {
+  loading: false,
+  error: null
+};
+
+ListFooter.propTypes = {
+  loading: PropTypes.bool.isRequired
+};
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
+  },
+  error: {
     height: 120,
     padding: 16
   }
