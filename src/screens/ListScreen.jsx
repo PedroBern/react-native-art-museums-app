@@ -7,6 +7,7 @@ import { loadListOf, sortList } from "../store/actions/explore";
 import reducer, { initialState } from "../store/reducers/explore";
 import ListFooter from "../components/ListFooter";
 import ListItem, { LIST_ITEM_HEIGHT } from "../components/ListItem";
+import SearchBar from "../components/SearchBar";
 
 const getItemLayout = (data, index) => {
   return {
@@ -58,6 +59,10 @@ const ListScreen = () => {
           onPress={handleSort}
         />
       </Appbar.Header>
+      <Appbar.Header statusBarHeight={0}>
+        <SearchBar />
+      </Appbar.Header>
+
       <MemoizedList
         inverted={
           state.totalRecords &&

@@ -1,28 +1,31 @@
 import React, { useState } from "react";
-import { SearchBar, Divider } from "react-native-elements";
+import { Searchbar } from "react-native-paper";
 import { View, StyleSheet } from "react-native";
 
 const SearchBarComponent = props => {
   const [search, setSearch] = useState("");
 
   return (
-    <View>
-      <SearchBar
-        containerStyle={styles.search}
-        platform="android"
-        placeholder="Type Here..."
-        onChangeText={value => setSearch(value)}
-        value={search}
-      />
-      <Divider />
-    </View>
+    <Searchbar
+      style={styles.root}
+      inputStyle={styles.input}
+      platform="android"
+      placeholder="Search..."
+      placeholderTextColor="white"
+      onChangeText={value => setSearch(value)}
+      value={search}
+      iconColor="white"
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  search: {
-    paddingLeft: 8,
-    paddingRight: 8
+  root: {
+    backgroundColor: "#212121",
+    marginBottom: 8
+  },
+  input: {
+    color: "white"
   }
 });
 

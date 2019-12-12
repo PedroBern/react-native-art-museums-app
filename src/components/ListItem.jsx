@@ -11,35 +11,30 @@ const ListItem = memo(({ name, id, objectcount, theme, target }) => {
   const { push } = useNavigation();
   return (
     <View style={styles.item}>
-      {/*<TouchableOpacity
-      key={id}
-      style={styles.item}
-      onPress={
-        target === "person"
-          ? () => push("Person", { personid: id, name, role: "" })
-          : target === "object"
-          ? () => push("Details", { title: name, id })
-          : () =>
-              push("Feed", {
-                title: name,
-                subtitle: theme || "",
-                filter: `&${target.toLowerCase()}=${id}`
-              })
-      }
-    >*/}
       <ScrollView horizontal style={styles.name} indicatorStyle="light">
-        <Title
-          numberOfLines={1} //ellipsizeMode="tail">
+        <TouchableOpacity
+          key={id}
+          onPress={
+            target === "person"
+              ? () => push("Person", { personid: id, name, role: "" })
+              : target === "object"
+              ? () => push("Details", { title: name, id })
+              : () =>
+                  push("Feed", {
+                    title: name,
+                    subtitle: theme || "",
+                    filter: `&${target.toLowerCase()}=${id}`
+                  })
+          }
         >
-          {name}
-        </Title>
+          <Title numberOfLines={1}>{name}</Title>
+        </TouchableOpacity>
       </ScrollView>
       <View style={styles.count}>
         <Caption numberOfLines={1} ellipsizeMode="tail">
           {objectcount}
         </Caption>
       </View>
-      {/*</TouchableOpacity>*/}
     </View>
   );
 });
