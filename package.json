@@ -12,6 +12,7 @@
     "@react-native-community/async-storage": "^1.6.3",
     "expo": "^35.0.0",
     "expo-font": "~7.0.0",
+    "fuse.js": "^3.4.6",
     "native-base": "^2.13.8",
     "react": "16.8.3",
     "react-dom": "16.8.3",

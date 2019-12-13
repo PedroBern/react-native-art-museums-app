@@ -31,7 +31,6 @@ const setVisibleIndexFactory = dispatch => ({ viewableItems, changed }) => {
 };
 
 const sortDialogButtons = (callback, filter) => {
-  console.log(Date.now());
   return [
     {
       title: "Recent page views",

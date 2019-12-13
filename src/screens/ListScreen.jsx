@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList, Text } from "react-native";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 import { Appbar } from "react-native-paper";
 
-import { loadListOf, sortList } from "../store/actions/explore";
+import { loadListOf, sortList, search } from "../store/actions/explore";
 import reducer, { initialState } from "../store/reducers/explore";
 import ListFooter from "../components/ListFooter";
 import ListItem, { LIST_ITEM_HEIGHT } from "../components/ListItem";
@@ -18,7 +18,11 @@ const getItemLayout = (data, index) => {
 };
 
 const areEqual = (prev, next) => {
-  if (prev.data.length === next.data.length) return true;
+  if (
+    prev.data.length === next.data.length &&
+    prev.ListFooterComponent === next.ListFooterComponent
+  )
+    return true;
   return false;
 };
 
@@ -34,13 +38,15 @@ const ListScreen = () => {
     loadListOf(target.toLowerCase())(dispatch);
   }, []);
 
+  const showingAllRecords = state.totalRecords === state.records.length;
+
   const handleSort = () => {
     sortList(state)(dispatch);
   };
 
-  const renderItem = memo(({ item, index }) => (
+  const renderItem = ({ item, index }) => (
     <ListItem key={item.id} {...item} target={state.target} />
-  ));
+  );
 
   const renderListFooter = () => (
     <ListFooter error={state.error} loading={state.loading} />
@@ -49,11 +55,21 @@ const ListScreen = () => {
   const onEndReached = () =>
     state.next && loadListOf(state.target, state.next)(dispatch);
 
+  const onSubmitSearch = text =>
+    search(
+      text,
+      state.target,
+      showingAllRecords ? state.records : null
+    )(dispatch);
+
   return (
     <View style={styles.root}>
       {showSearch ? (
         <Appbar.Header>
-          <SearchBar dismiss={() => setShowSearch(false)} />
+          <SearchBar
+            dismiss={() => setShowSearch(false)}
+            onSubmit={onSubmitSearch}
+          />
         </Appbar.Header>
       ) : (
         <Appbar.Header>
@@ -73,14 +89,10 @@ const ListScreen = () => {
       )}
 
       <MemoizedList
-        inverted={
-          state.totalRecords &&
-          state.desc &&
-          state.totalRecords === state.records.length
-        }
-        data={state.records}
+        inverted={state.totalRecords && state.desc && showingAllRecords}
+        data={showSearch ? state.filteredRecords : state.records}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id + ""}
         getItemLayout={getItemLayout}
         maxToRenderPerBatch={50}
         initialNumToRender={50}
