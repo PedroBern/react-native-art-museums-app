@@ -30,13 +30,13 @@ const ListItem = memo(({ name, id, objectcount, theme, target }) => {
           <Title numberOfLines={1}>{name}</Title>
         </TouchableOpacity>
       </ScrollView>
-      {objectcount && (
+      {objectcount > 0 ? (
         <View style={styles.count}>
           <Caption numberOfLines={1} ellipsizeMode="tail">
             {objectcount}
           </Caption>
         </View>
-      )}
+      ) : null}
     </View>
   );
 });
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   name: {
-    // flex: 1
+    flex: 1
   },
   count: {
     padding: 8

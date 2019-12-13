@@ -55,12 +55,15 @@ const localSearch = (records, value) => dispatch => {
     keys: ["name"]
   };
   const fuse = new Fuse(records, options);
-  const filteredRecords = fuse.search(value);
+  const filtered = fuse.search(value);
 
-  if (filteredRecords.length === 0) {
+  if (filtered.length === 0) {
     dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
-  } else if (filteredRecords.length <= 100) {
-    dispatch({ type: FILTER_RECORDS__FULFILLED, payload: { filteredRecords } });
+  } else if (filtered.length <= 100) {
+    dispatch({
+      type: FILTER_RECORDS__FULFILLED,
+      payload: { records: filtered, info: { next: null } }
+    });
   } else {
     dispatch({
       type: FILTER_RECORDS__REJECTED,
