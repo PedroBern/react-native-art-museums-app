@@ -16,7 +16,7 @@ const processFeed = results => {
 
 export const fetchFeed = async (
   url = null,
-  sort = "dateoflastpageview",
+  sort = "totalpageviews",
   sortorder = "desc",
   extra = ""
 ) => {

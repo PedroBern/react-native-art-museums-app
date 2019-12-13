@@ -16,7 +16,7 @@ export const feedInitialState = {
   grid: false,
   visibleIndex: 0,
   refreshing: false,
-  sort: "dateoflastpageview",
+  sort: "totalpageviews",
   sortOrder: "desc"
 };
 

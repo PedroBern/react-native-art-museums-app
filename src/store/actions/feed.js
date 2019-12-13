@@ -150,7 +150,7 @@ export const loadFeed = (extra, next) => async dispatch => {
   try {
     const results = next
       ? await fetchFeed(next)
-      : await fetchFeed(null, "dateoflastpageview", "desc", extra);
+      : await fetchFeed(null, "totalpageviews", "desc", extra);
     dispatch({
       type: FETCH_FEED__FULFILLED,
       payload: {
