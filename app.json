@@ -3,7 +3,7 @@
     "name": "cs50m-final-project",
     "slug": "cs50m-final-project",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,7 +11,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000000"
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
