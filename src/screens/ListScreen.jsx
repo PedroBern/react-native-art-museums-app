@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, memo } from "react";
+import React, { useReducer, useEffect, memo, useState } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 import { Appbar } from "react-native-paper";
@@ -28,6 +28,7 @@ const ListScreen = () => {
   const { push, goBack } = useNavigation();
   const target = useNavigationParam("target");
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     loadListOf(target.toLowerCase())(dispatch);
@@ -37,9 +38,9 @@ const ListScreen = () => {
     sortList(state)(dispatch);
   };
 
-  const renderItem = ({ item, index }) => (
-    <ListItem {...item} target={state.target} />
-  );
+  const renderItem = memo(({ item, index }) => (
+    <ListItem key={item.id} {...item} target={state.target} />
+  ));
 
   const renderListFooter = () => (
     <ListFooter error={state.error} loading={state.loading} />
@@ -50,18 +51,26 @@ const ListScreen = () => {
 
   return (
     <View style={styles.root}>
-      <Appbar.Header>
-        <Appbar.BackAction onPress={() => goBack()} />
-        <Appbar.Content title={target} />
-        <Appbar.Action
-          disabled={!state.totalRecords}
-          icon={state.desc ? "sort-descending" : "sort-ascending"}
-          onPress={handleSort}
-        />
-      </Appbar.Header>
-      <Appbar.Header statusBarHeight={0}>
-        <SearchBar />
-      </Appbar.Header>
+      {showSearch ? (
+        <Appbar.Header>
+          <SearchBar dismiss={() => setShowSearch(false)} />
+        </Appbar.Header>
+      ) : (
+        <Appbar.Header>
+          <Appbar.BackAction onPress={() => goBack()} />
+          <Appbar.Content title={target} />
+          <Appbar.Action
+            disabled={!state.totalRecords}
+            icon={state.desc ? "sort-descending" : "sort-ascending"}
+            onPress={handleSort}
+          />
+          <Appbar.Action
+            disabled={!state.totalRecords}
+            icon={"magnify"}
+            onPress={() => setShowSearch(true)}
+          />
+        </Appbar.Header>
+      )}
 
       <MemoizedList
         inverted={
@@ -71,7 +80,7 @@ const ListScreen = () => {
         }
         data={state.records}
         renderItem={renderItem}
-        keyExtractor={(item, index) => item.name + item.id}
+        keyExtractor={item => item.id}
         getItemLayout={getItemLayout}
         maxToRenderPerBatch={50}
         initialNumToRender={50}
