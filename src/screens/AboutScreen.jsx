@@ -13,11 +13,9 @@ const AboutScreen = ({}) => {
       </Appbar.Header>
       <View style={styles.content}>
         <View>
-          <Headline style={styles.centeredText}>
-            This is my first react-native App, made for the final project of
-          </Headline>
-          <Link url="https://www.edx.org/course/cs50s-mobile-app-development-with-react-native">
-            CS50 mobile on edX
+          <Headline style={styles.centeredText}>Built with the</Headline>
+          <Link url="https://github.com/harvardartmuseums/api-docs">
+            Harvard Art Museums API
           </Link>
         </View>
         <Divider style={styles.divider} />
@@ -25,15 +23,6 @@ const AboutScreen = ({}) => {
           <Headline style={styles.centeredText}>Source code on </Headline>
           <Link url="https://github.com/PedroBern/react-native-art-museums-app">
             GitHub
-          </Link>
-        </View>
-        <Divider style={styles.divider} />
-        <View>
-          <Headline style={styles.centeredText}>
-            Built with the awesome
-          </Headline>
-          <Link url="https://github.com/harvardartmuseums/api-docs">
-            Harvard Art Museums API
           </Link>
         </View>
         <Divider style={styles.divider} />

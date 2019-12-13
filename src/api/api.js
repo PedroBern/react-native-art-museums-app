@@ -117,7 +117,12 @@ const processList = (results, target) => {
   }
 };
 
-export const fetchListOf = async (url = null, target, desc = true) => {
+export const fetchListOf = async (
+  url = null,
+  target,
+  desc = true,
+  search = null
+) => {
   if (!url) {
     let fields;
     let sort = "name";
@@ -146,15 +151,23 @@ export const fetchListOf = async (url = null, target, desc = true) => {
         break;
     }
 
+    if (search) {
+      if (target == "object") extra += `&title=${search}`;
+      else extra += `&q=${sort}:${search}`;
+    }
+
     url =
       `https://api.harvardartmuseums.org/` +
       `${target}?` +
       `apikey=${API_KEY}` +
       `&fields=${fields}` +
-      `&sort=${sort}` +
       `&sortorder=${sortorder}` +
       `&size=100` +
       extra;
+
+    if (!search) {
+      url += `&sort=${sort}`;
+    }
   }
 
   const response = await fetch(url);

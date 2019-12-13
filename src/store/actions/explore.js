@@ -1,4 +1,4 @@
-import { fetchListOf } from "../../api/api";
+import { fetchListOf, fetchFeed } from "../../api/api";
 import Fuse from "fuse.js";
 
 // action types
@@ -18,17 +18,21 @@ export const FILTER_RECORDS__RESET = "FILTER_RECORDS__RESET";
 export const loadListOf = (
   target,
   url = null,
-  desc = false
+  desc = false,
+  search = false
 ) => async dispatch => {
   dispatch({ type: FETCH_TARGET__SENT });
   try {
     const results = await fetchListOf(url, target, desc);
     dispatch({
-      type: FETCH_TARGET__FULFILLED,
+      type: search ? FILTER_RECORDS__FULFILLED : FETCH_TARGET__FULFILLED,
       payload: { ...results, target, desc }
     });
   } catch (err) {
-    dispatch({ type: FETCH_TARGET__REJECTED, payload: err.message });
+    dispatch({
+      type: search ? FILTER_RECORDS__REJECTED : FETCH_TARGET__REJECTED,
+      payload: err.message
+    });
   }
 };
 
@@ -42,32 +46,60 @@ export const sortList = state => dispatch => {
   }
 };
 
+const localSearch = (records, value) => dispatch => {
+  const options = {
+    shouldSort: true,
+    threshold: 0.5,
+    maxPatternLength: 100,
+    minMatchCharLength: 1,
+    keys: ["name"]
+  };
+  const fuse = new Fuse(records, options);
+  const filteredRecords = fuse.search(value);
+
+  if (filteredRecords.length === 0) {
+    dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
+  } else if (filteredRecords.length <= 100) {
+    dispatch({ type: FILTER_RECORDS__FULFILLED, payload: { filteredRecords } });
+  } else {
+    dispatch({
+      type: FILTER_RECORDS__REJECTED,
+      payload: "Too many results, try to be more specific."
+    });
+  }
+};
+
+const apiSearch = (value, target, url = null) => async dispatch => {
+  dispatch({ type: FILTER_RECORDS__SENT });
+  let results;
+  try {
+    results = url
+      ? await fetchFeed(url)
+      : await fetchListOf(null, target, false, value);
+  } catch (err) {
+    dispatch({ type: FILTER_RECORDS__REJECTED, payload: err.message });
+  }
+  if (results.records.length === 0) {
+    dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
+  } else {
+    dispatch({
+      type: FILTER_RECORDS__FULFILLED,
+      payload: { ...results }
+    });
+  }
+};
+
 export const search = (
   value = "",
   target,
-  records = null
+  records = null,
+  url = null
 ) => async dispatch => {
   if (records) {
-    const options = {
-      shouldSort: true,
-      threshold: 0.5,
-      maxPatternLength: 100,
-      minMatchCharLength: 1,
-      keys: ["name"]
-    };
-    const fuse = new Fuse(records, options);
-    const result = fuse.search(value);
-    if (result.length === 0) {
-      dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
-    } else if (result.length <= 10) {
-      dispatch({ type: FILTER_RECORDS__FULFILLED, payload: result });
-    } else {
-      dispatch({
-        type: FILTER_RECORDS__REJECTED,
-        payload: "Too many results, try to be more specific."
-      });
-    }
+    localSearch(records, value)(dispatch);
   } else {
-    dispatch({ type: FILTER_RECORDS__SENT });
+    apiSearch(value, target, url)(dispatch);
   }
 };
+
+export const resetSearch = () => ({ type: FILTER_RECORDS__RESET });

@@ -11,7 +11,7 @@ import {
 } from "../actions/explore";
 
 export const initialState = {
-  loading: true,
+  loading: false,
   refreshing: false,
   desc: false,
   records: [],
@@ -20,7 +20,8 @@ export const initialState = {
   next: "",
   target: "",
   search: "",
-  filteredRecords: []
+  filteredRecords: [],
+  nextSearchUrl: null
 };
 
 const exploreReducer = (state = exploreInitialState, action) => {
@@ -55,7 +56,8 @@ const exploreReducer = (state = exploreInitialState, action) => {
       return {
         ...state,
         error: action.payload,
-        loading: false
+        loading: false,
+        nextSearchUrl: null
       };
 
     case FILTER_RECORDS__FULFILLED:
@@ -63,11 +65,17 @@ const exploreReducer = (state = exploreInitialState, action) => {
         ...state,
         loading: false,
         error: null,
-        filteredRecords: action.payload
+        filteredRecords: [...state.filteredRecords, ...action.payload.records],
+        nextSearchUrl: action.payload.info.next
       };
 
     case FILTER_RECORDS__RESET:
-      return { ...state, error: null, filteredRecords: [] };
+      return {
+        ...state,
+        error: null,
+        filteredRecords: [],
+        nextSearchUrl: null
+      };
 
     case SORT_LIST:
       return { ...state, desc: !state.desc };

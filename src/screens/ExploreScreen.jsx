@@ -51,11 +51,13 @@ const styles = StyleSheet.create({
     flex: 1
   },
   card: {
-    padding: 16
+    padding: 16,
+    paddingLeft: 32
   },
   surface: {
     margin: 8,
-    backgroundColor: "#fafafa"
+    borderRadius: 16
+    // backgroundColor: "#fafafa"
   }
 });
 

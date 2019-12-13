@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Searchbar } from "react-native-paper";
+import { Searchbar, TouchableRipple } from "react-native-paper";
 import { TextInput } from "react-native";
-import { connect } from "react-redux";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const SearchBarComponent = ({ dismiss, onSubmit, ...rest }) => {
   const [search, setSearch] = useState("");

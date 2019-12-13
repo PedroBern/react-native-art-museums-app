@@ -62,6 +62,8 @@ const FlatListBase = memo(
         onViewableItemsChanged={setVisibleIndex}
         viewabilityConfig={viewabilityConfig}
         getItemLayout={getItemLayoutGrid}
+        maxToRenderPerBatch={10}
+        initialNumToRender={20}
         {...other}
       />
     ) : (
@@ -75,6 +77,8 @@ const FlatListBase = memo(
         onViewableItemsChanged={setVisibleIndex}
         viewabilityConfig={viewabilityConfig}
         getItemLayout={getItemLayout}
+        maxToRenderPerBatch={5}
+        initialNumToRender={10}
         {...other}
       />
     );
