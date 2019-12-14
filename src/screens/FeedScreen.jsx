@@ -52,6 +52,7 @@ const sortDialogButtons = (callback, filter) => {
 };
 
 const FeedScreen = () => {
+  const abort = { value: false };
   const title = useNavigationParam("title") || "Feed";
   const subtitle = useNavigationParam("subtitle");
   const filter = useNavigationParam("filter");
@@ -59,16 +60,20 @@ const FeedScreen = () => {
 
   const [state, dispatch] = useReducer(reducer, {
     ...feedInitialState,
-    loadFeed: next => loadFeed(filter, next)(a => dispatch(a)),
+    loadFeed: next => loadFeed(filter, next)(a => dispatch(a), abort),
     refreshFeed: (sort, sortOrder) =>
-      refreshFeed(filter, sort, sortOrder)(a => dispatch(a)),
+      refreshFeed(filter, sort, sortOrder)(a => dispatch(a), abort),
     toggleFeedView: () => dispatch(toggleFeedView()),
-    sortFeed: (sort, order) => sortFeed(sort, order, filter)(a => dispatch(a)),
+    sortFeed: (sort, order) =>
+      sortFeed(sort, order, filter)(a => dispatch(a), abort),
     setVisibleIndex: setVisibleIndexFactory(a => dispatch(a))
   });
 
   useEffect(() => {
     state.loadFeed();
+    return () => {
+      abort.value = true;
+    };
   }, []);
 
   const [visible, setVisible] = useState(false);

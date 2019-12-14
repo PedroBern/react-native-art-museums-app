@@ -20,19 +20,21 @@ export const loadListOf = (
   url = null,
   desc = false,
   search = false
-) => async dispatch => {
+) => async (dispatch, abort) => {
   dispatch({ type: FETCH_TARGET__SENT });
   try {
     const results = await fetchListOf(url, target, desc);
-    dispatch({
-      type: search ? FILTER_RECORDS__FULFILLED : FETCH_TARGET__FULFILLED,
-      payload: { ...results, target, desc }
-    });
+    !abort.value &&
+      dispatch({
+        type: search ? FILTER_RECORDS__FULFILLED : FETCH_TARGET__FULFILLED,
+        payload: { ...results, target, desc }
+      });
   } catch (err) {
-    dispatch({
-      type: search ? FILTER_RECORDS__REJECTED : FETCH_TARGET__REJECTED,
-      payload: err.message
-    });
+    !abort.value &&
+      dispatch({
+        type: search ? FILTER_RECORDS__REJECTED : FETCH_TARGET__REJECTED,
+        payload: err.message
+      });
   }
 };
 
@@ -72,7 +74,7 @@ const localSearch = (records, value) => dispatch => {
   }
 };
 
-const apiSearch = (value, target, url = null) => async dispatch => {
+const apiSearch = (value, target, url = null) => async (dispatch, abort) => {
   dispatch({ type: FILTER_RECORDS__SENT });
   let results;
   try {
@@ -80,15 +82,18 @@ const apiSearch = (value, target, url = null) => async dispatch => {
       ? await fetchFeed(url)
       : await fetchListOf(null, target, false, value);
   } catch (err) {
-    dispatch({ type: FILTER_RECORDS__REJECTED, payload: err.message });
+    !abort.value &&
+      dispatch({ type: FILTER_RECORDS__REJECTED, payload: err.message });
   }
   if (results.records.length === 0) {
-    dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
+    !abort.value &&
+      dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
   } else {
-    dispatch({
-      type: FILTER_RECORDS__FULFILLED,
-      payload: { ...results }
-    });
+    !abort.value &&
+      dispatch({
+        type: FILTER_RECORDS__FULFILLED,
+        payload: { ...results }
+      });
   }
 };
 
@@ -97,11 +102,11 @@ export const search = (
   target,
   records = null,
   url = null
-) => async dispatch => {
+) => async (dispatch, abort) => {
   if (records) {
     localSearch(records, value)(dispatch);
   } else {
-    apiSearch(value, target, url)(dispatch);
+    apiSearch(value, target, url)(dispatch, abort);
   }
 };
 

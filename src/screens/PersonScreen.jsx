@@ -15,6 +15,8 @@ import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
 
 const PersonScreen = () => {
+  const abort = { value: false };
+
   const { goBack } = useNavigation();
 
   const id = useNavigationParam("personid");
@@ -24,8 +26,12 @@ const PersonScreen = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    loadPersonRecords(id)(dispatch);
-    loadPerson(id)(dispatch);
+    loadPersonRecords(id)(dispatch, abort);
+    loadPerson(id)(dispatch, abort);
+
+    return () => {
+      abort.value = true;
+    };
   }, []);
 
   return (
@@ -99,7 +105,7 @@ const PersonScreen = () => {
               grid={true}
               onEndReached={() =>
                 state.records.next &&
-                loadPersonRecords(id, state.records.next)(dispatch)
+                loadPersonRecords(id, state.records.next)(dispatch, abort)
               }
               ListFooterComponent={() => (
                 <ListFooter

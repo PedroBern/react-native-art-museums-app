@@ -39,18 +39,23 @@ const MemoizedList = memo(
 );
 
 const ListScreen = () => {
+  const abort = { value: false };
   const { push, goBack } = useNavigation();
   const target = useNavigationParam("target");
   const [state, dispatch] = useReducer(reducer, initialState);
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
-    loadListOf(target.toLowerCase())(dispatch);
+    loadListOf(target.toLowerCase())(dispatch, abort);
+
+    return () => {
+      abort.value = true;
+    };
   }, []);
 
   const showingAllRecords = state.totalRecords === state.records.length;
 
-  const handleSort = () => sortList(state)(dispatch);
+  const handleSort = () => sortList(state)(dispatch, abort);
 
   const renderItem = ({ item, index }) => (
     <ListItem key={item.id + ""} {...item} target={state.target} />
@@ -61,7 +66,7 @@ const ListScreen = () => {
   );
 
   const onEndReached = () =>
-    state.next && loadListOf(state.target, state.next)(dispatch);
+    state.next && loadListOf(state.target, state.next)(dispatch, abort);
 
   const onSubmitSearch = text => {
     dispatch(resetSearch());
@@ -69,19 +74,12 @@ const ListScreen = () => {
       text,
       state.target,
       showingAllRecords ? state.records : null
-    )(dispatch);
+    )(dispatch, abort);
   };
 
   const onEndReachedSearch = () =>
     state.nextSearchUrl &&
-    loadListOf(state.target, state.nextSearchUrl, false, true)(dispatch);
-  // state.nextSearchUrl &&
-  // search(
-  //   null,
-  //   state.target,
-  //   showingAllRecords ? state.records : null,
-  //   state.nextSearchUrl
-  // )(dispatch);
+    loadListOf(state.target, state.nextSearchUrl, false, true)(dispatch, abort);
 
   return (
     <View style={styles.root}>
@@ -135,18 +133,6 @@ const ListScreen = () => {
           ListFooterComponent={renderListFooter}
         />
       )}
-      {/*<MemoizedList
-      listKey={showSearch ? "search" : "regular"}
-      inverted={state.totalRecords && state.desc && showingAllRecords}
-      data={showSearch ? state.filteredRecords : state.records}
-      renderItem={renderItem}
-      keyExtractor={item => item.id + ""}
-      getItemLayout={getItemLayout}
-      maxToRenderPerBatch={20}
-      initialNumToRender={20}
-      onEndReached={showSearch ? onEndReachedSearch : onEndReached}
-      ListFooterComponent={renderListFooter}
-    />*/}
     </View>
   );
 };

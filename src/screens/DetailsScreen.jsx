@@ -22,6 +22,7 @@ import Link from "../components/Link";
 import Divider from "../components/Divider";
 
 const DetailsScreen = () => {
+  const abort = { value: false };
   const id = useNavigationParam("id");
   const title = useNavigationParam("title");
   const division = useNavigationParam("division");
@@ -33,7 +34,11 @@ const DetailsScreen = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    loadRecord(id)(dispatch);
+    loadRecord(id)(dispatch, abort);
+
+    return () => {
+      abort.value = true;
+    };
   }, []);
 
   return (

@@ -1,5 +1,4 @@
 import { fetchPersonRecords, fetchPerson, fetchFeed } from "../../api/api";
-// import { delayMock, fetchRecordMock } from "../../api/mock";
 
 // action types
 
@@ -13,20 +12,22 @@ export const FETCH_PERSON_RECORDS__REJECTED = "FETCH_PERSON_RECORDS__REJECTED";
 
 // action creators
 
-export const loadPerson = id => async dispatch => {
+export const loadPerson = id => async (dispatch, abort) => {
   dispatch({ type: FETCH_PERSON__SENT });
   try {
     const results = await fetchPerson(id);
-    dispatch({
-      type: FETCH_PERSON__FULFILLED,
-      payload: results
-    });
+    !abort.value &&
+      dispatch({
+        type: FETCH_PERSON__FULFILLED,
+        payload: results
+      });
   } catch (err) {
-    dispatch({ type: FETCH_PERSON__REJECTED, payload: err.message });
+    !abort.value &&
+      dispatch({ type: FETCH_PERSON__REJECTED, payload: err.message });
   }
 };
 
-export const loadPersonRecords = (id, next) => async dispatch => {
+export const loadPersonRecords = (id, next) => async (dispatch, abort) => {
   dispatch({ type: FETCH_PERSON_RECORDS__SENT });
   try {
     let results;
@@ -35,11 +36,13 @@ export const loadPersonRecords = (id, next) => async dispatch => {
     } else {
       results = await fetchPersonRecords(id);
     }
-    dispatch({
-      type: FETCH_PERSON_RECORDS__FULFILLED,
-      payload: results
-    });
+    !abort.value &&
+      dispatch({
+        type: FETCH_PERSON_RECORDS__FULFILLED,
+        payload: results
+      });
   } catch (err) {
-    dispatch({ type: FETCH_PERSON_RECORDS__REJECTED, payload: err.message });
+    !abort.value &&
+      dispatch({ type: FETCH_PERSON_RECORDS__REJECTED, payload: err.message });
   }
 };

@@ -10,17 +10,18 @@ export const RESET_DETAILS = "RESET_DETAILS";
 
 // action creators
 
-export const loadRecord = id => async dispatch => {
+export const loadRecord = id => async (dispatch, abort) => {
   dispatch({ type: FETCH_RECORD__SENT });
   try {
     const results = await fetchRecord(id);
-    // const results = await delayMock(fetchFeedMock);
-    dispatch({
-      type: FETCH_RECORD__FULFILLED,
-      payload: results
-    });
+    !abort.value &&
+      dispatch({
+        type: FETCH_RECORD__FULFILLED,
+        payload: results
+      });
   } catch (err) {
-    dispatch({ type: FETCH_RECORD__REJECTED, payload: err.message });
+    !abort.value &&
+      dispatch({ type: FETCH_RECORD__REJECTED, payload: err.message });
   }
 };
 
