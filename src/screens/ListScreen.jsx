@@ -55,7 +55,7 @@ const ListScreen = () => {
 
   const showingAllRecords = state.totalRecords === state.records.length;
 
-  const handleSort = () => sortList(state)(dispatch, abort);
+  // const handleSort = () => sortList(state)(dispatch, abort);
 
   const renderItem = ({ item, index }) => (
     <ListItem key={item.id + ""} {...item} target={state.target} />
@@ -94,11 +94,11 @@ const ListScreen = () => {
         <Appbar.Header>
           <Appbar.BackAction onPress={() => goBack()} />
           <Appbar.Content title={target} />
-          <Appbar.Action
+          {/*<Appbar.Action
             disabled={!state.totalRecords}
             icon={state.desc ? "sort-descending" : "sort-ascending"}
             onPress={handleSort}
-          />
+          />*/}
           <Appbar.Action
             disabled={!state.totalRecords}
             icon={"magnify"}
