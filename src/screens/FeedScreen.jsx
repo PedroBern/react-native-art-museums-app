@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useReducer, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
 import { connect } from "react-redux";
 import { Appbar, Paragraph, ProgressBar } from "react-native-paper";
 import { useNavigationParam, useNavigation } from "react-navigation-hooks";
 
+import useAbortableReducer from "../hooks/useAbortableReducer";
 import SortDialog from "../components/SortDialog";
 import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
@@ -52,28 +53,23 @@ const sortDialogButtons = (callback, filter) => {
 };
 
 const FeedScreen = () => {
-  const abort = { value: false };
   const title = useNavigationParam("title") || "Feed";
   const subtitle = useNavigationParam("subtitle");
   const filter = useNavigationParam("filter");
   const { goBack } = useNavigation();
 
-  const [state, dispatch] = useReducer(reducer, {
+  const { state, dispatch } = useAbortableReducer(reducer, {
     ...feedInitialState,
-    loadFeed: next => loadFeed(filter, next)(a => dispatch(a), abort),
+    loadFeed: next => loadFeed(filter, next)(a => dispatch(a)),
     refreshFeed: (sort, sortOrder) =>
-      refreshFeed(filter, sort, sortOrder)(a => dispatch(a), abort),
+      refreshFeed(filter, sort, sortOrder)(a => dispatch(a)),
     toggleFeedView: () => dispatch(toggleFeedView()),
-    sortFeed: (sort, order) =>
-      sortFeed(sort, order, filter)(a => dispatch(a), abort),
+    sortFeed: (sort, order) => sortFeed(sort, order, filter)(a => dispatch(a)),
     setVisibleIndex: setVisibleIndexFactory(a => dispatch(a))
   });
 
   useEffect(() => {
     state.loadFeed();
-    return () => {
-      abort.value = true;
-    };
   }, []);
 
   const [visible, setVisible] = useState(false);

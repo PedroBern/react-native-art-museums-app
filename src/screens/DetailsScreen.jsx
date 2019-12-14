@@ -12,6 +12,7 @@ import { Appbar, Paragraph, Title } from "react-native-paper";
 import Swiper from "react-native-swiper";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 
+import useAbortableReducer from "../hooks/useAbortableReducer";
 import { loadRecord } from "../store/actions/details";
 import reducer, {
   detailsInitialState as initialState
@@ -22,7 +23,6 @@ import Link from "../components/Link";
 import Divider from "../components/Divider";
 
 const DetailsScreen = () => {
-  const abort = { value: false };
   const id = useNavigationParam("id");
   const title = useNavigationParam("title");
   const division = useNavigationParam("division");
@@ -31,14 +31,10 @@ const DetailsScreen = () => {
 
   const { goBack, push } = useNavigation();
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { state, dispatch } = useAbortableReducer(reducer, initialState);
 
   useEffect(() => {
-    loadRecord(id)(dispatch, abort);
-
-    return () => {
-      abort.value = true;
-    };
+    loadRecord(id)(dispatch);
   }, []);
 
   return (

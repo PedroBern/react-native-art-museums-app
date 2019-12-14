@@ -1,9 +1,10 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
 import { Appbar, Paragraph, Title } from "react-native-paper";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 
+import useAbortableReducer from "../hooks/useAbortableReducer";
 import { loadPersonRecords, loadPerson } from "../store/actions/person";
 import reducer, {
   personInitialState as initialState
@@ -15,23 +16,17 @@ import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
 
 const PersonScreen = () => {
-  const abort = { value: false };
-
   const { goBack } = useNavigation();
 
   const id = useNavigationParam("personid");
   const name = useNavigationParam("name");
   const role = useNavigationParam("role");
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { state, dispatch } = useAbortableReducer(reducer, initialState);
 
   useEffect(() => {
-    loadPersonRecords(id)(dispatch, abort);
-    loadPerson(id)(dispatch, abort);
-
-    return () => {
-      abort.value = true;
-    };
+    loadPersonRecords(id)(dispatch);
+    loadPerson(id)(dispatch);
   }, []);
 
   return (
@@ -105,7 +100,7 @@ const PersonScreen = () => {
               grid={true}
               onEndReached={() =>
                 state.records.next &&
-                loadPersonRecords(id, state.records.next)(dispatch, abort)
+                loadPersonRecords(id, state.records.next)(dispatch)
               }
               ListFooterComponent={() => (
                 <ListFooter

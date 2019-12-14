@@ -10,18 +10,17 @@ export const RESET_DETAILS = "RESET_DETAILS";
 
 // action creators
 
-export const loadRecord = id => async (dispatch, abort) => {
+export const loadRecord = id => async dispatch => {
   dispatch({ type: FETCH_RECORD__SENT });
   try {
     const results = await fetchRecord(id);
-    !abort.value &&
-      dispatch({
-        type: FETCH_RECORD__FULFILLED,
-        payload: results
-      });
+
+    dispatch({
+      type: FETCH_RECORD__FULFILLED,
+      payload: results
+    });
   } catch (err) {
-    !abort.value &&
-      dispatch({ type: FETCH_RECORD__REJECTED, payload: err.message });
+    dispatch({ type: FETCH_RECORD__REJECTED, payload: err.message });
   }
 };
 

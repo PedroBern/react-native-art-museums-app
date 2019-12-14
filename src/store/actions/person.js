@@ -12,22 +12,21 @@ export const FETCH_PERSON_RECORDS__REJECTED = "FETCH_PERSON_RECORDS__REJECTED";
 
 // action creators
 
-export const loadPerson = id => async (dispatch, abort) => {
+export const loadPerson = id => async dispatch => {
   dispatch({ type: FETCH_PERSON__SENT });
   try {
     const results = await fetchPerson(id);
-    !abort.value &&
-      dispatch({
-        type: FETCH_PERSON__FULFILLED,
-        payload: results
-      });
+
+    dispatch({
+      type: FETCH_PERSON__FULFILLED,
+      payload: results
+    });
   } catch (err) {
-    !abort.value &&
-      dispatch({ type: FETCH_PERSON__REJECTED, payload: err.message });
+    dispatch({ type: FETCH_PERSON__REJECTED, payload: err.message });
   }
 };
 
-export const loadPersonRecords = (id, next) => async (dispatch, abort) => {
+export const loadPersonRecords = (id, next) => async dispatch => {
   dispatch({ type: FETCH_PERSON_RECORDS__SENT });
   try {
     let results;
@@ -36,13 +35,12 @@ export const loadPersonRecords = (id, next) => async (dispatch, abort) => {
     } else {
       results = await fetchPersonRecords(id);
     }
-    !abort.value &&
-      dispatch({
-        type: FETCH_PERSON_RECORDS__FULFILLED,
-        payload: results
-      });
+
+    dispatch({
+      type: FETCH_PERSON_RECORDS__FULFILLED,
+      payload: results
+    });
   } catch (err) {
-    !abort.value &&
-      dispatch({ type: FETCH_PERSON_RECORDS__REJECTED, payload: err.message });
+    dispatch({ type: FETCH_PERSON_RECORDS__REJECTED, payload: err.message });
   }
 };

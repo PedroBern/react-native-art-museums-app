@@ -1,8 +1,9 @@
-import React, { useReducer, useEffect, memo, useState } from "react";
+import React, { useEffect, memo, useState } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 import { Appbar } from "react-native-paper";
 
+import useAbortableReducer from "../hooks/useAbortableReducer";
 import {
   loadListOf,
   sortList,
@@ -39,23 +40,18 @@ const MemoizedList = memo(
 );
 
 const ListScreen = () => {
-  const abort = { value: false };
   const { push, goBack } = useNavigation();
   const target = useNavigationParam("target");
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { state, dispatch } = useAbortableReducer(reducer, initialState);
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
-    loadListOf(target.toLowerCase())(dispatch, abort);
-
-    return () => {
-      abort.value = true;
-    };
+    loadListOf(target.toLowerCase())(dispatch);
   }, []);
 
   const showingAllRecords = state.totalRecords === state.records.length;
 
-  // const handleSort = () => sortList(state)(dispatch, abort);
+  // const handleSort = () => sortList(state)(dispatch);
 
   const renderItem = ({ item, index }) => (
     <ListItem key={item.id + ""} {...item} target={state.target} />
@@ -66,7 +62,7 @@ const ListScreen = () => {
   );
 
   const onEndReached = () =>
-    state.next && loadListOf(state.target, state.next)(dispatch, abort);
+    state.next && loadListOf(state.target, state.next)(dispatch);
 
   const onSubmitSearch = text => {
     dispatch(resetSearch());
@@ -74,12 +70,12 @@ const ListScreen = () => {
       text,
       state.target,
       showingAllRecords ? state.records : null
-    )(dispatch, abort);
+    )(dispatch);
   };
 
   const onEndReachedSearch = () =>
     state.nextSearchUrl &&
-    loadListOf(state.target, state.nextSearchUrl, false, true)(dispatch, abort);
+    loadListOf(state.target, state.nextSearchUrl, false, true)(dispatch);
 
   return (
     <View style={styles.root}>

@@ -1,5 +1,5 @@
 import { fetchFeed } from "../../api/api";
-import { delayMock, fetchFeedMock } from "../../api/mock";
+import { delayMock, fetchFeedMock, sleep } from "../../api/mock";
 
 // action types
 
@@ -13,43 +13,33 @@ export const SORT_FEED = "SORT_FEED";
 
 // action creators
 
-export const refreshFeed = (extra, sort, sortOrder) => async (
-  dispatch,
-  abort
-) => {
+export const refreshFeed = (extra, sort, sortOrder) => async dispatch => {
   dispatch({ type: REFRESH_FEED__SENT });
   try {
     const results = await fetchFeed(null, sort, sortOrder, extra);
-    !abort.value &&
-      dispatch({
-        type: FETCH_FEED__FULFILLED,
-        payload: {
-          ...results
-        }
-      });
+    dispatch({
+      type: FETCH_FEED__FULFILLED,
+      payload: {
+        ...results
+      }
+    });
   } catch (err) {
-    !abort.value &&
-      dispatch({ type: FETCH_FEED__REJECTED, payload: err.message });
+    dispatch({ type: FETCH_FEED__REJECTED, payload: err.message });
   }
 };
 
-export const sortFeed = (sort, sortOrder, extra = "") => async (
-  dispatch,
-  abort
-) => {
+export const sortFeed = (sort, sortOrder, extra = "") => async dispatch => {
   dispatch({ type: SORT_FEED, payload: { sort, sortOrder } });
   try {
     const results = await fetchFeed(null, sort, sortOrder, extra);
-    !abort.value &&
-      dispatch({
-        type: FETCH_FEED__FULFILLED,
-        payload: {
-          ...results
-        }
-      });
+    dispatch({
+      type: FETCH_FEED__FULFILLED,
+      payload: {
+        ...results
+      }
+    });
   } catch (err) {
-    !abort.value &&
-      dispatch({ type: FETCH_FEED__REJECTED, payload: err.message });
+    dispatch({ type: FETCH_FEED__REJECTED, payload: err.message });
   }
 };
 
@@ -60,22 +50,21 @@ export const setVisibleIndex = index => ({
   payload: index
 });
 
-export const loadFeed = (extra, next) => async (dispatch, abort) => {
+export const loadFeed = (extra, next) => async dispatch => {
+  await sleep(5000);
   dispatch({ type: FETCH_FEED__SENT });
   try {
     const results = next
       ? await fetchFeed(next)
       : await fetchFeed(null, "totalpageviews", "desc", extra);
 
-    !abort.value &&
-      dispatch({
-        type: FETCH_FEED__FULFILLED,
-        payload: {
-          ...results
-        }
-      });
+    dispatch({
+      type: FETCH_FEED__FULFILLED,
+      payload: {
+        ...results
+      }
+    });
   } catch (err) {
-    !abort.value &&
-      dispatch({ type: FETCH_FEED__REJECTED, payload: err.message });
+    dispatch({ type: FETCH_FEED__REJECTED, payload: err.message });
   }
 };
