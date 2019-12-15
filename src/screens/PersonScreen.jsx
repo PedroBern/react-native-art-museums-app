@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
 import { Appbar, Paragraph, Title } from "react-native-paper";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
+import useCancelableThunkReducer from "use-cancelable-thunk-reducer";
 
-import useAbortableReducer from "../hooks/useAbortableReducer";
 import { loadPersonRecords, loadPerson } from "../store/actions/person";
 import reducer, {
   personInitialState as initialState
@@ -22,11 +22,11 @@ const PersonScreen = () => {
   const name = useNavigationParam("name");
   const role = useNavigationParam("role");
 
-  const { state, dispatch } = useAbortableReducer(reducer, initialState);
+  const [state, dispatch] = useCancelableThunkReducer(reducer, initialState);
 
   useEffect(() => {
-    loadPersonRecords(id)(dispatch);
-    loadPerson(id)(dispatch);
+    dispatch(loadPersonRecords(id));
+    dispatch(loadPerson(id));
   }, []);
 
   return (
@@ -99,8 +99,7 @@ const PersonScreen = () => {
               records={state.records.data}
               grid={true}
               onEndReached={() =>
-                state.records.next &&
-                loadPersonRecords(id, state.records.next)(dispatch)
+                state.records.next && loadPersonRecords(id, state.records.next)
               }
               ListFooterComponent={() => (
                 <ListFooter

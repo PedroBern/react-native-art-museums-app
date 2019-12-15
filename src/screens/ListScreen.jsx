@@ -2,8 +2,8 @@ import React, { useEffect, memo, useState } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 import { Appbar } from "react-native-paper";
+import useCancelableThunkReducer from "use-cancelable-thunk-reducer";
 
-import useAbortableReducer from "../hooks/useAbortableReducer";
 import {
   loadListOf,
   sortList,
@@ -42,11 +42,11 @@ const MemoizedList = memo(
 const ListScreen = () => {
   const { push, goBack } = useNavigation();
   const target = useNavigationParam("target");
-  const { state, dispatch } = useAbortableReducer(reducer, initialState);
+  const [state, dispatch] = useCancelableThunkReducer(reducer, initialState);
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
-    loadListOf(target.toLowerCase())(dispatch);
+    dispatch(loadListOf(target.toLowerCase()));
   }, []);
 
   const showingAllRecords = state.totalRecords === state.records.length;
@@ -62,20 +62,18 @@ const ListScreen = () => {
   );
 
   const onEndReached = () =>
-    state.next && loadListOf(state.target, state.next)(dispatch);
+    state.next && dispatch(loadListOf(state.target, state.next));
 
   const onSubmitSearch = text => {
     dispatch(resetSearch());
-    search(
-      text,
-      state.target,
-      showingAllRecords ? state.records : null
-    )(dispatch);
+    dispatch(
+      search(text, state.target, showingAllRecords ? state.records : null)
+    );
   };
 
   const onEndReachedSearch = () =>
     state.nextSearchUrl &&
-    loadListOf(state.target, state.nextSearchUrl, false, true)(dispatch);
+    dispatch(loadListOf(state.target, state.nextSearchUrl, false, true));
 
   return (
     <View style={styles.root}>

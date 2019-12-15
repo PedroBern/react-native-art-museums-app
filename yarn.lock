@@ -5613,6 +5613,11 @@ url-parse@^1.4.4:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+use-cancelable-thunk-reducer@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/use-cancelable-thunk-reducer/-/use-cancelable-thunk-reducer-1.0.2.tgz#9f93741db0f670aba8a2af3557ac44abd7c5d963"
+  integrity sha512-aJ6aZGV2RoP+au7CucZ/MMX7R8WlEe90S+dUf5clwsi5IAybNflgTapTiMoDMjk8jbFhK9EEoomx0EtdQmb5xQ==
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"

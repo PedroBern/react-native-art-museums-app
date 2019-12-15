@@ -3,8 +3,8 @@ import { View, StyleSheet, FlatList, Text } from "react-native";
 import { connect } from "react-redux";
 import { Appbar, Paragraph, ProgressBar } from "react-native-paper";
 import { useNavigationParam, useNavigation } from "react-navigation-hooks";
+import useCancelableThunkReducer from "use-cancelable-thunk-reducer";
 
-import useAbortableReducer from "../hooks/useAbortableReducer";
 import SortDialog from "../components/SortDialog";
 import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
@@ -18,7 +18,7 @@ import {
 } from "../store/actions/feed";
 import reducer, { feedInitialState } from "../store/reducers/feed";
 
-const setVisibleIndexFactory = dispatch => ({ viewableItems, changed }) => {
+const setVisibleIndexFactory = ({ viewableItems, changed }) => dispatch => {
   if (viewableItems[0]) {
     const firstViewable = changed.find(el => el.isViewable);
     if (firstViewable) {
@@ -35,19 +35,19 @@ const sortDialogButtons = (callback, filter) => {
   return [
     {
       title: "Recent page views",
-      onPress: () => callbacl("dateoflastpageview", "desc", filter)
+      onPress: () => callback("dateoflastpageview", "desc", filter)
     },
     {
       title: "Older page views",
-      onPress: () => callbacl("dateoflastpageview", "asc", filter)
+      onPress: () => callback("dateoflastpageview", "asc", filter)
     },
     {
       title: "More total views",
-      onPress: () => callbacl("totalpageviews", "desc", filter)
+      onPress: () => callback("totalpageviews", "desc", filter)
     },
     {
       title: "Less total views",
-      onPress: () => callbacl("totalpageviews", "asc", filter)
+      onPress: () => callback("totalpageviews", "asc", filter)
     }
   ];
 };
@@ -58,14 +58,15 @@ const FeedScreen = () => {
   const filter = useNavigationParam("filter");
   const { goBack } = useNavigation();
 
-  const { state, dispatch } = useAbortableReducer(reducer, {
+  const [state, dispatch] = useCancelableThunkReducer(reducer, {
     ...feedInitialState,
-    loadFeed: next => loadFeed(filter, next)(a => dispatch(a)),
+    loadFeed: next => dispatch(loadFeed(filter, next)),
     refreshFeed: (sort, sortOrder) =>
-      refreshFeed(filter, sort, sortOrder)(a => dispatch(a)),
+      dispatch(refreshFeed(filter, sort, sortOrder)),
     toggleFeedView: () => dispatch(toggleFeedView()),
-    sortFeed: (sort, order) => sortFeed(sort, order, filter)(a => dispatch(a)),
-    setVisibleIndex: setVisibleIndexFactory(a => dispatch(a))
+    sortFeed: (sort, order) => dispatch(sortFeed(sort, order, filter)),
+    setVisibleIndex: ({ viewableItems, changed }) =>
+      dispatch(setVisibleIndexFactory({ viewableItems, changed }))
   });
 
   useEffect(() => {

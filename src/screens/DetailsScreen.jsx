@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import {
   View,
   ScrollView,
@@ -11,8 +11,8 @@ import {
 import { Appbar, Paragraph, Title } from "react-native-paper";
 import Swiper from "react-native-swiper";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
+import useCancelableThunkReducer from 'use-cancelable-thunk-reducer';
 
-import useAbortableReducer from "../hooks/useAbortableReducer";
 import { loadRecord } from "../store/actions/details";
 import reducer, {
   detailsInitialState as initialState
@@ -31,10 +31,10 @@ const DetailsScreen = () => {
 
   const { goBack, push } = useNavigation();
 
-  const { state, dispatch } = useAbortableReducer(reducer, initialState);
+  const [state, dispatch] = useCancelableThunkReducer(reducer, initialState);
 
   useEffect(() => {
-    loadRecord(id)(dispatch);
+    dispatch(loadRecord(id));
   }, []);
 
   return (
