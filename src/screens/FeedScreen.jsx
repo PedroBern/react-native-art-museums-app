@@ -31,27 +31,6 @@ const setVisibleIndexFactory = ({ viewableItems, changed }) => dispatch => {
   }
 };
 
-const sortDialogButtons = (callback, filter) => {
-  return [
-    {
-      title: "Recent page views",
-      onPress: () => callback("dateoflastpageview", "desc", filter)
-    },
-    {
-      title: "Older page views",
-      onPress: () => callback("dateoflastpageview", "asc", filter)
-    },
-    {
-      title: "More total views",
-      onPress: () => callback("totalpageviews", "desc", filter)
-    },
-    {
-      title: "Less total views",
-      onPress: () => callback("totalpageviews", "asc", filter)
-    }
-  ];
-};
-
 const FeedScreen = () => {
   const title = useNavigationParam("title") || "Feed";
   const subtitle = useNavigationParam("subtitle");
