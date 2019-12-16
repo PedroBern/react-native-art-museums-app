@@ -6,7 +6,7 @@ import { Paragraph } from "react-native-paper";
 import Spinner from "./Spinner";
 
 const ListFooter = memo(({ loading, error }) => (
-  <View style={styles.root}>
+  <View style={[styles.root, styles.height]}>
     {loading && <Spinner />}
     {error && (
       <View style={[styles.root, styles.error]}>
@@ -30,8 +30,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+  height: {
+    height: 120
+  },
   error: {
-    height: 120,
     padding: 16
   }
 });

@@ -11,12 +11,8 @@ import {
 import { Appbar, Paragraph, Title } from "react-native-paper";
 import Swiper from "react-native-swiper";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
-import useCancelableThunkReducer from 'use-cancelable-thunk-reducer';
 
-import { loadRecord } from "../store/actions/details";
-import reducer, {
-  detailsInitialState as initialState
-} from "../store/reducers/details";
+import useDetailsReducer from '../store/hooks/details';
 import Spinner from "../components/Spinner";
 import FavoriteFab from "../components/FavoriteFab";
 import Link from "../components/Link";
@@ -31,10 +27,10 @@ const DetailsScreen = () => {
 
   const { goBack, push } = useNavigation();
 
-  const [state, dispatch] = useCancelableThunkReducer(reducer, initialState);
+  const { state, actions } = useDetailsReducer(id);
 
   useEffect(() => {
-    dispatch(loadRecord(id));
+    actions.loadRecord();
   }, []);
 
   return (

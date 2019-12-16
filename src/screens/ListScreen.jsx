@@ -1,16 +1,9 @@
-import React, { useEffect, memo, useState } from "react";
+import React, { useEffect, memo, useState, useCallback } from "react";
 import { View, StyleSheet, FlatList, Text } from "react-native";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 import { Appbar } from "react-native-paper";
-import useCancelableThunkReducer from "use-cancelable-thunk-reducer";
 
-import {
-  loadListOf,
-  sortList,
-  search,
-  resetSearch
-} from "../store/actions/explore";
-import reducer, { initialState } from "../store/reducers/explore";
+import useExploreReducer from "../store/hooks/explore";
 import ListFooter from "../components/ListFooter";
 import ListItem, { LIST_ITEM_HEIGHT } from "../components/ListItem";
 import SearchBar from "../components/SearchBar";
@@ -42,38 +35,24 @@ const MemoizedList = memo(
 const ListScreen = () => {
   const { push, goBack } = useNavigation();
   const target = useNavigationParam("target");
-  const [state, dispatch] = useCancelableThunkReducer(reducer, initialState);
+  const { state, actions } = useExploreReducer(target.toLowerCase());
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
-    dispatch(loadListOf(target.toLowerCase()));
+    actions.loadList();
   }, []);
 
-  const showingAllRecords = state.totalRecords === state.records.length;
-
-  // const handleSort = () => sortList(state)(dispatch);
-
-  const renderItem = ({ item, index }) => (
-    <ListItem key={item.id + ""} {...item} target={state.target} />
+  const renderItem = useCallback(
+    ({ item, index }) => (
+      <ListItem key={item.id + ""} {...item} target={state.target} />
+    ),
+    [state.target]
   );
 
-  const renderListFooter = () => (
-    <ListFooter error={state.error} loading={state.loading} />
+  const renderListFooter = useCallback(
+    () => <ListFooter error={state.error} loading={state.loading} />,
+    [state.error, state.loading]
   );
-
-  const onEndReached = () =>
-    state.next && dispatch(loadListOf(state.target, state.next));
-
-  const onSubmitSearch = text => {
-    dispatch(resetSearch());
-    dispatch(
-      search(text, state.target, showingAllRecords ? state.records : null)
-    );
-  };
-
-  const onEndReachedSearch = () =>
-    state.nextSearchUrl &&
-    dispatch(loadListOf(state.target, state.nextSearchUrl, false, true));
 
   return (
     <View style={styles.root}>
@@ -81,18 +60,13 @@ const ListScreen = () => {
         <Appbar.Header>
           <SearchBar
             dismiss={() => setShowSearch(false)}
-            onSubmit={onSubmitSearch}
+            onSubmit={actions.onSubmitSearch}
           />
         </Appbar.Header>
       ) : (
         <Appbar.Header>
           <Appbar.BackAction onPress={() => goBack()} />
           <Appbar.Content title={target} />
-          {/*<Appbar.Action
-            disabled={!state.totalRecords}
-            icon={state.desc ? "sort-descending" : "sort-ascending"}
-            onPress={handleSort}
-          />*/}
           <Appbar.Action
             disabled={!state.totalRecords}
             icon={"magnify"}
@@ -110,20 +84,19 @@ const ListScreen = () => {
           getItemLayout={getItemLayout}
           maxToRenderPerBatch={20}
           initialNumToRender={20}
-          onEndReached={onEndReachedSearch}
+          onEndReached={actions.onEndReachedSearch}
           ListFooterComponent={renderListFooter}
         />
       ) : (
         <MemoizedList
           listKey={"regular"}
-          inverted={state.totalRecords && state.desc && showingAllRecords}
           data={state.records}
           renderItem={renderItem}
           keyExtractor={item => item.id + ""}
           getItemLayout={getItemLayout}
           maxToRenderPerBatch={20}
           initialNumToRender={20}
-          onEndReached={onEndReached}
+          onEndReached={actions.onEndReached}
           ListFooterComponent={renderListFooter}
         />
       )}

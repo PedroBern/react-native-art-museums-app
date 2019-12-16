@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
 import { Appbar, Paragraph, Title } from "react-native-paper";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
-import useCancelableThunkReducer from "use-cancelable-thunk-reducer";
 
-import { loadPersonRecords, loadPerson } from "../store/actions/person";
-import reducer, {
-  personInitialState as initialState
-} from "../store/reducers/person";
+import usePresonReducer from "../store/hooks/person";
 import Spinner from "../components/Spinner";
 import Link from "../components/Link";
 import Divider from "../components/Divider";
 import FlatListBase from "../components/FlatListBase";
 import ListFooter from "../components/ListFooter";
+import PersonInfo from "../components/PersonInfo";
 
 const PersonScreen = () => {
   const { goBack } = useNavigation();
@@ -22,12 +19,28 @@ const PersonScreen = () => {
   const name = useNavigationParam("name");
   const role = useNavigationParam("role");
 
-  const [state, dispatch] = useCancelableThunkReducer(reducer, initialState);
+  const { person, records, actions } = usePresonReducer(id);
 
   useEffect(() => {
-    dispatch(loadPersonRecords(id));
-    dispatch(loadPerson(id));
+    actions.loadPersonRecords();
+    actions.loadPerson();
   }, []);
+
+  const ListFooterComponent = useCallback(
+    () => (
+      <ListFooter
+        error={records.error}
+        loading={records.loading}
+        refreshing={false}
+      />
+    ),
+    [records.error, records.loading]
+  );
+
+  const ListHeaderComponent = useCallback(
+    () => <PersonInfo person={person} />,
+    [person.loading]
+  );
 
   return (
     <View style={styles.root}>
@@ -35,83 +48,14 @@ const PersonScreen = () => {
         <Appbar.BackAction onPress={() => goBack()} />
         <Appbar.Content title={name} subtitle={role} />
       </Appbar.Header>
-      <ScrollView style={styles.content}>
-        {state.person.loading ? (
-          <Spinner />
-        ) : state.person.error ? (
-          <Text style={styles.body}>{state.person.error}</Text>
-        ) : (
-          <View style={styles.body}>
-            <Title>Name</Title>
-            <Paragraph>{state.person.data.displayname}</Paragraph>
-            <Divider />
-
-            <Title>Gender</Title>
-            <Paragraph>{state.person.data.gender || <Text>-</Text>}</Paragraph>
-            <Divider />
-
-            <Title>Culture</Title>
-            <Paragraph>{state.person.data.culture || <Text>-</Text>}</Paragraph>
-            <Divider />
-
-            <Title>Birthplace</Title>
-            <Paragraph>
-              {state.person.data.birthplace || <Text>-</Text>}
-            </Paragraph>
-            <Divider />
-
-            <Title>Deathplace</Title>
-            <Paragraph>
-              {state.person.data.deathplace || <Text>-</Text>}
-            </Paragraph>
-            <Divider />
-
-            <Title>Date</Title>
-            <Paragraph>
-              {state.person.data.displaydate || <Text>-</Text>}
-            </Paragraph>
-            <Divider />
-
-            {state.person.data.wikipedia_id && (
-              <React.Fragment>
-                <Link
-                  Component={Paragraph}
-                  url={`https://en.wikipedia.org/?curid=${state.person.data.wikipedia_id}`}
-                >
-                  Open on Wikipedia
-                </Link>
-                <Divider />
-              </React.Fragment>
-            )}
-            <Link Component={Paragraph} url={state.person.data.url}>
-              Open on Harvard Art Museum
-            </Link>
-          </View>
-        )}
-        {state.records.loading && state.records.data.length === 0 ? (
-          <Spinner />
-        ) : state.records.error ? (
-          <Text style={styles.body}>{state.records.error}</Text>
-        ) : (
-          <View>
-            <FlatListBase
-              listKey="person-records"
-              records={state.records.data}
-              grid={true}
-              onEndReached={() =>
-                state.records.next && loadPersonRecords(id, state.records.next)
-              }
-              ListFooterComponent={() => (
-                <ListFooter
-                  error={state.records.error}
-                  loading={state.records.loading}
-                  refreshing={false}
-                />
-              )}
-            />
-          </View>
-        )}
-      </ScrollView>
+      <FlatListBase
+        listKey="person-records"
+        records={records.data}
+        grid={true}
+        onEndReached={() => actions.onEndReached()}
+        ListHeaderComponent={ListHeaderComponent}
+        ListFooterComponent={ListFooterComponent}
+      />
     </View>
   );
 };
@@ -119,7 +63,7 @@ const PersonScreen = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "black"
+    backgroundColor: "white"
   },
   content: {
     flex: 1,

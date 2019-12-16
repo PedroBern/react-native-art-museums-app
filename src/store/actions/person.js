@@ -35,7 +35,6 @@ export const loadPersonRecords = (id, next) => async dispatch => {
     } else {
       results = await fetchPersonRecords(id);
     }
-
     dispatch({
       type: FETCH_PERSON_RECORDS__FULFILLED,
       payload: results
