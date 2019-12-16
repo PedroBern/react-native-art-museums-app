@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`setVisibleIndex returns an action 1`] = `
+Object {
+  "payload": 1,
+  "type": "SET_VISIBLE_INDEX",
+}
+`;
+
+exports[`setVisibleIndex returns an action 2 1`] = `
+Object {
+  "payload": undefined,
+  "type": "SET_VISIBLE_INDEX",
+}
+`;
+
+exports[`toggleFeedView returns an action 1`] = `
+Object {
+  "payload": undefined,
+  "type": "SET_VISIBLE_INDEX",
+}
+`;

@@ -1,5 +1,4 @@
 import { fetchFeed } from "../../api/api";
-import { delayMock, fetchFeedMock, sleep } from "../../api/mock";
 
 // action types
 
@@ -51,7 +50,6 @@ export const setVisibleIndex = index => ({
 });
 
 export const loadFeed = (extra, next) => async dispatch => {
-  await sleep(5000);
   dispatch({ type: FETCH_FEED__SENT });
   try {
     const results = next
