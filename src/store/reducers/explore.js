@@ -24,7 +24,7 @@ export const initialState = {
   nextSearchUrl: null
 };
 
-const exploreReducer = (state = exploreInitialState, action) => {
+const exploreReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TARGET__SENT:
       return { ...state, loading: true };

@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`person reducer defaults to state 1`] = `
+Object {
+  "person": Object {
+    "data": null,
+    "error": null,
+    "loading": true,
+  },
+  "records": Object {
+    "data": Array [],
+    "error": null,
+    "loading": true,
+    "next": null,
+  },
+}
+`;
+
+exports[`person reducer receives person fetch fail 1`] = `
+Object {
+  "person": Object {
+    "data": null,
+    "error": "error",
+    "loading": false,
+  },
+  "records": Object {
+    "data": Array [],
+    "error": null,
+    "loading": true,
+    "next": null,
+  },
+}
+`;
+
+exports[`person reducer receives person fetch response 1`] = `
+Object {
+  "person": Object {
+    "data": Object {
+      "some": "data",
+    },
+    "error": null,
+    "loading": false,
+  },
+  "records": Object {
+    "data": Array [],
+    "error": null,
+    "loading": true,
+    "next": null,
+  },
+}
+`;
+
+exports[`person reducer receives record fetch fail 1`] = `
+Object {
+  "person": Object {
+    "data": null,
+    "error": null,
+    "loading": true,
+  },
+  "records": Object {
+    "data": null,
+    "error": "error",
+    "loading": false,
+    "next": null,
+  },
+}
+`;
+
+exports[`person reducer receives records fetch response 1`] = `
+Object {
+  "person": Object {
+    "data": null,
+    "error": null,
+    "loading": true,
+  },
+  "records": Object {
+    "data": Array [
+      Object {
+        "some": "data",
+      },
+    ],
+    "error": null,
+    "loading": false,
+    "next": "url",
+  },
+}
+`;
+
+exports[`person reducer starts person loading 1`] = `
+Object {
+  "person": Object {
+    "data": null,
+    "error": null,
+    "loading": true,
+  },
+  "records": Object {
+    "data": Array [],
+    "error": null,
+    "loading": true,
+    "next": null,
+  },
+}
+`;
+
+exports[`person reducer starts records loading 1`] = `
+Object {
+  "person": Object {
+    "data": null,
+    "error": null,
+    "loading": true,
+  },
+  "records": Object {
+    "data": Array [],
+    "error": null,
+    "loading": true,
+    "next": null,
+  },
+}
+`;

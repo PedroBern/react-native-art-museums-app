@@ -17,30 +17,27 @@ export const detailsInitialState = {
     technique: "",
     url: ""
   },
-  error: null,
-  done: false
+  error: null
 };
 
 const detailsReducer = (state = detailsInitialState, action) => {
   switch (action.type) {
     case FETCH_RECORD__SENT:
-      return { ...state, loading: true, done: false };
+      return { ...state, loading: true };
 
     case FETCH_RECORD__FULFILLED:
       return {
         ...state,
         record: action.payload,
         loading: false,
-        error: null,
-        done: true
+        error: null
       };
 
     case FETCH_RECORD__REJECTED:
       return {
         ...state,
         error: action.payload,
-        loading: false,
-        done: true
+        loading: false
       };
 
     case RESET_DETAILS:

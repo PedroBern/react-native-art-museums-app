@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`explore reducer change sort order 1`] = `
+Object {
+  "desc": true,
+  "error": null,
+  "filteredRecords": Array [],
+  "loading": false,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer defaults to state 1`] = `
+Object {
+  "desc": false,
+  "error": null,
+  "filteredRecords": Array [],
+  "loading": false,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer receives fetch fail 1`] = `
+Object {
+  "desc": false,
+  "error": "error",
+  "filteredRecords": Array [],
+  "loading": false,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer receives fetch response 1`] = `
+Object {
+  "desc": true,
+  "error": null,
+  "filteredRecords": Array [],
+  "loading": false,
+  "next": "url",
+  "nextSearchUrl": null,
+  "records": Array [
+    Object {
+      "some": "data",
+    },
+  ],
+  "refreshing": false,
+  "search": "",
+  "target": "target",
+  "totalRecords": 10,
+}
+`;
+
+exports[`explore reducer receives filter fail 1`] = `
+Object {
+  "desc": false,
+  "error": "error",
+  "filteredRecords": Array [],
+  "loading": false,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer receives filter fetch response 1`] = `
+Object {
+  "desc": false,
+  "error": null,
+  "filteredRecords": Array [
+    Object {
+      "some": "data",
+    },
+  ],
+  "loading": false,
+  "next": "",
+  "nextSearchUrl": "url",
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer reset filter 1`] = `
+Object {
+  "desc": false,
+  "error": null,
+  "filteredRecords": Array [],
+  "loading": false,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer reset list 1`] = `
+Object {
+  "desc": false,
+  "error": null,
+  "filteredRecords": Array [],
+  "loading": false,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer starts loading 1`] = `
+Object {
+  "desc": false,
+  "error": null,
+  "filteredRecords": Array [],
+  "loading": true,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;
+
+exports[`explore reducer starts loading on filter 1`] = `
+Object {
+  "desc": false,
+  "error": null,
+  "filteredRecords": Array [],
+  "loading": true,
+  "next": "",
+  "nextSearchUrl": null,
+  "records": Array [],
+  "refreshing": false,
+  "search": "",
+  "target": "",
+  "totalRecords": undefined,
+}
+`;

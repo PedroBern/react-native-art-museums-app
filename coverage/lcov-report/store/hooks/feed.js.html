@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">40.91% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/22</span>
+        <span class='fraction'>9/22</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">10% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/10</span>
+        <span class='fraction'>1/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/18</span>
+        <span class='fraction'>9/18</span>
       </div>
     </div>
     <p class="quiet">
@@ -123,17 +123,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,29 +136,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,7 +188,7 @@ import {
 } from "../actions/feed";
 import reducer, { feedInitialState } from "../reducers/feed";
 &nbsp;
-const setVisibleIndexFactory = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> viewableItems, changed }) =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span></span>
+const setVisibleIndexFactory = <span class="fstat-no" title="function not covered" >({</span> viewableItems, changed }) =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  if (viewableItems[0]) {</span>
     const firstViewable = <span class="cstat-no" title="statement not covered" >changed.find(<span class="fstat-no" title="function not covered" >el</span> =&gt; <span class="cstat-no" title="statement not covered" >el.isViewable)</span>;</span>
 <span class="cstat-no" title="statement not covered" >    if (firstViewable) {</span>
@@ -201,35 +201,35 @@ const setVisibleIndexFactory = <span class="cstat-no" title="statement not cover
   }
 };
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >useFeedReducer(</span>filter) {
-  const [state, dispatch] = <span class="cstat-no" title="statement not covered" >useCancelableThunkReducer(</span>
+export default function useFeedReducer(filter) {
+  const [state, dispatch] = useCancelableThunkReducer(
     reducer,
     feedInitialState
   );
 &nbsp;
-  const _loadFeed = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >ne</span>xt =&gt; <span class="cstat-no" title="statement not covered" >dispatch(loadFeed(filter, next)),</span> [</span>
+  const _loadFeed = useCallback(<span class="fstat-no" title="function not covered" >ne</span>xt =&gt; <span class="cstat-no" title="statement not covered" >dispatch(loadFeed(filter, next)),</span> [
     filter
   ]);
-  const _refreshFeed = <span class="cstat-no" title="statement not covered" >useCallback(</span>
+  const _refreshFeed = useCallback(
 <span class="fstat-no" title="function not covered" >    (s</span>ort, sortOrder) =&gt; <span class="cstat-no" title="statement not covered" >dispatch(refreshFeed(filter, sort, sortOrder)),</span>
     [filter]
   );
-  const _toggleFeedView = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dispatch(toggleFeedView()),</span> []);</span>
-  const _sortFeed = <span class="cstat-no" title="statement not covered" >useCallback(</span>
+  const _toggleFeedView = useCallback(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dispatch(toggleFeedView()),</span> []);
+  const _sortFeed = useCallback(
 <span class="fstat-no" title="function not covered" >    (s</span>ort, order) =&gt; <span class="cstat-no" title="statement not covered" >dispatch(sortFeed(sort, order, filter)),</span>
     [filter]
   );
-  const _setVisibleIndex = <span class="cstat-no" title="statement not covered" >useCallback(</span>
+  const _setVisibleIndex = useCallback(
 <span class="fstat-no" title="function not covered" >    ({</span> viewableItems, changed }) =&gt;
 <span class="cstat-no" title="statement not covered" >      dispatch(setVisibleIndexFactory({ viewableItems, changed })),</span>
     []
   );
-  const _onEndReached = <span class="cstat-no" title="statement not covered" >useCallback(</span>
+  const _onEndReached = useCallback(
 <span class="fstat-no" title="function not covered" >    ()</span> =&gt; <span class="cstat-no" title="statement not covered" >state.info.next &amp;&amp; _loadFeed(state.info.next),</span>
     [state.info.next]
   );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return {</span>
+  return {
     state,
     actions: {
       loadFeed: _loadFeed,
@@ -247,7 +247,7 @@ export default function <span class="fstat-no" title="function not covered" >use
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Dec 16 2019 19:26:04 GMT-0200 (GMT-02:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Dec 16 2019 22:01:26 GMT-0200 (GMT-02:00)
 </div>
 </div>
 <script src="../../prettify.js"></script>

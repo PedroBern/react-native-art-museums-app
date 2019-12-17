@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exploreReducer render 1`] = `
+Object {
+  "actions": Object {
+    "loadList": [Function],
+    "onEndReached": [Function],
+    "onEndReachedSearch": [Function],
+    "onSubmitSearch": [Function],
+  },
+  "state": Object {
+    "desc": false,
+    "error": null,
+    "filteredRecords": Array [],
+    "loading": false,
+    "next": "",
+    "nextSearchUrl": null,
+    "records": Array [],
+    "refreshing": false,
+    "search": "",
+    "target": "",
+    "totalRecords": undefined,
+  },
+}
+`;

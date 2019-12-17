@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`detailsReducer render 1`] = `
+Object {
+  "actions": Object {
+    "loadRecord": [Function],
+  },
+  "state": Object {
+    "error": null,
+    "loading": true,
+    "record": Object {
+      "accessionmethod": "",
+      "accessionyear": null,
+      "classification": "",
+      "culture": "",
+      "images": Array [],
+      "people": Array [],
+      "technique": "",
+      "url": "",
+    },
+  },
+}
+`;

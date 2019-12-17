@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`feedReducer render 1`] = `
+Object {
+  "actions": Object {
+    "loadFeed": [Function],
+    "onEndReached": [Function],
+    "refreshFeed": [Function],
+    "setVisibleIndex": [Function],
+    "sortFeed": [Function],
+    "toggleFeedView": [Function],
+  },
+  "state": Object {
+    "error": null,
+    "grid": false,
+    "info": Object {},
+    "loading": true,
+    "records": Array [],
+    "refreshing": false,
+    "sort": "totalpageviews",
+    "sortOrder": "desc",
+    "visibleIndex": 0,
+  },
+}
+`;
+
+exports[`feedReducer render with argument 1`] = `
+Object {
+  "actions": Object {
+    "loadFeed": [Function],
+    "onEndReached": [Function],
+    "refreshFeed": [Function],
+    "setVisibleIndex": [Function],
+    "sortFeed": [Function],
+    "toggleFeedView": [Function],
+  },
+  "state": Object {
+    "error": null,
+    "grid": false,
+    "info": Object {},
+    "loading": true,
+    "records": Array [],
+    "refreshing": false,
+    "sort": "totalpageviews",
+    "sortOrder": "desc",
+    "visibleIndex": 0,
+  },
+}
+`;
