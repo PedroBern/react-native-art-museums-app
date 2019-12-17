@@ -594,3 +594,289 @@ export const fetchFeedMock = {
     }
   ]
 };
+
+export const fetchRecordMock__raw = {
+  info: {
+    page: 1,
+    pages: 1,
+    totalrecords: 1,
+    totalrecordsperquery: 10
+  },
+  records: [
+    {
+      accessionmethod: "Bequest",
+      accessionyear: 1951,
+      century: "19th century",
+      classification: "Paintings",
+      culture: "Dutch",
+      dated: "1888",
+      id: 299843,
+      imagepermissionlevel: 0,
+      images: [
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:DDC251942_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 1,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 47174896,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/47174896",
+          imageid: 429030,
+          publiccaption: null,
+          renditionnumber: "DDC251942",
+          width: 2087
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:DDC000072_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 2,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 18737483,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/18737483",
+          imageid: 185978,
+          publiccaption: null,
+          renditionnumber: "DDC000072",
+          width: 2088
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:DDC251934_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 3,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 47174892,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/47174892",
+          imageid: 429028,
+          publiccaption: null,
+          renditionnumber: "DDC251934",
+          width: 2259
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:30033_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 4,
+          format: "image/jpeg",
+          height: 1024,
+          idsid: 43182083,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/43182083",
+          imageid: 25781,
+          publiccaption: null,
+          renditionnumber: "30033",
+          width: 844
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:50493_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 5,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 43183405,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/43183405",
+          imageid: 19801,
+          publiccaption: null,
+          renditionnumber: "50493",
+          width: 2082
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:50849_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 6,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 43183422,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/43183422",
+          imageid: 42292,
+          publiccaption: null,
+          renditionnumber: "50849",
+          width: 2093
+        }
+      ],
+      labeltext:
+        "In early 1888, Van Gogh moved to Arles in the south of France, where he hoped to establish an art colony. Believing that painting could be reinvented through the genre of portraiture, he encouraged his fellow artists to paint themselves, and then to exchange the canvases. After receiving self-portraits from Emile Bernard and Gauguin, who were working together in Brittany at the time, Van Gogh inscribed this painting “To my friend Paul Gauguin,” and sent it to him. He described the process of creating his arresting likeness in several letters to his brother Theo, an art dealer in Paris, explaining how he manipulated his features in response to Japanese prints, changed the contours of his jacket for coloristic effect, and painted the background “pale veronese green” without any shadows. Shortly after he sent the work to Gauguin, however, their friendship deteriorated, and Gauguin sold it for three hundred francs.",
+      people: [
+        {
+          alphasort: "Gogh, Vincent van",
+          birthplace: "Groot Zundert (Zundert), The Netherlands",
+          culture: "Dutch",
+          deathplace: "Auvers-sur-Oise, France",
+          displaydate: "1853 - 1890",
+          displayname: "Vincent van Gogh",
+          displayorder: 1,
+          gender: "male",
+          name: "Vincent van Gogh",
+          personid: 22730,
+          prefix: null,
+          role: "Artist"
+        }
+      ],
+      seeAlso: [
+        {
+          format: "application/json",
+          id: "https://iiif.harvardartmuseums.org/manifests/object/299843",
+          profile: "http://iiif.io/api/presentation/2/context.json",
+          type: "IIIF Manifest"
+        }
+      ],
+      technique: null,
+      totalpageviews: 31189,
+      url: "https://www.harvardartmuseums.org/collections/object/299843"
+    }
+  ]
+};
+
+export const fetchRecordMock = {
+  info: {
+    page: 1,
+    pages: 1,
+    totalrecords: 1,
+    totalrecordsperquery: 10
+  },
+  records: [
+    {
+      accessionmethod: "Bequest",
+      accessionyear: 1951,
+      century: "19th century",
+      classification: "Paintings",
+      culture: "Dutch",
+      dated: "1888",
+      id: 299843,
+      imagepermissionlevel: 0,
+      images: [
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:DDC251942_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 1,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 47174896,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/47174896",
+          imageid: 429030,
+          publiccaption: null,
+          renditionnumber: "DDC251942",
+          width: 2087
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:DDC000072_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 2,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 18737483,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/18737483",
+          imageid: 185978,
+          publiccaption: null,
+          renditionnumber: "DDC000072",
+          width: 2088
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:DDC251934_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 3,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 47174892,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/47174892",
+          imageid: 429028,
+          publiccaption: null,
+          renditionnumber: "DDC251934",
+          width: 2259
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:30033_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 4,
+          format: "image/jpeg",
+          height: 1024,
+          idsid: 43182083,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/43182083",
+          imageid: 25781,
+          publiccaption: null,
+          renditionnumber: "30033",
+          width: 844
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:50493_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 5,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 43183405,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/43183405",
+          imageid: 19801,
+          publiccaption: null,
+          renditionnumber: "50493",
+          width: 2082
+        },
+        {
+          baseimageurl: "https://nrs.harvard.edu/urn-3:HUAM:50849_dynmc",
+          copyright: "President and Fellows of Harvard College",
+          displayorder: 6,
+          format: "image/jpeg",
+          height: 2550,
+          idsid: 43183422,
+          iiifbaseuri: "https://ids.lib.harvard.edu/ids/iiif/43183422",
+          imageid: 42292,
+          publiccaption: null,
+          renditionnumber: "50849",
+          width: 2093
+        }
+      ],
+      labeltext:
+        "In early 1888, Van Gogh moved to Arles in the south of France, where he hoped to establish an art colony. Believing that painting could be reinvented through the genre of portraiture, he encouraged his fellow artists to paint themselves, and then to exchange the canvases. After receiving self-portraits from Emile Bernard and Gauguin, who were working together in Brittany at the time, Van Gogh inscribed this painting “To my friend Paul Gauguin,” and sent it to him. He described the process of creating his arresting likeness in several letters to his brother Theo, an art dealer in Paris, explaining how he manipulated his features in response to Japanese prints, changed the contours of his jacket for coloristic effect, and painted the background “pale veronese green” without any shadows. Shortly after he sent the work to Gauguin, however, their friendship deteriorated, and Gauguin sold it for three hundred francs.",
+      people: [
+        {
+          alphasort: "Gogh, Vincent van",
+          birthplace: "Groot Zundert (Zundert), The Netherlands",
+          culture: "Dutch",
+          deathplace: "Auvers-sur-Oise, France",
+          displaydate: "1853 - 1890",
+          displayname: "Vincent van Gogh",
+          displayorder: 1,
+          gender: "male",
+          name: "Vincent van Gogh",
+          personid: 22730,
+          prefix: null,
+          role: "Artist"
+        }
+      ],
+      seeAlso: [
+        {
+          format: "application/json",
+          id: "https://iiif.harvardartmuseums.org/manifests/object/299843",
+          profile: "http://iiif.io/api/presentation/2/context.json",
+          type: "IIIF Manifest"
+        }
+      ],
+      technique: null,
+      totalpageviews: 31189,
+      url: "https://www.harvardartmuseums.org/collections/object/299843"
+    }
+  ]
+};
+
+export const fetchPersonRecordsMock__raw = fetchFeedMock__raw;
+
+export const fetchPersonRecordsMock = fetchFeedMock;
+
+export const fetchPersonMock = {
+  info: {
+    page: 1,
+    pages: 1,
+    totalrecords: 1,
+    totalrecordsperquery: 10
+  },
+  records: [
+    {
+      birthplace: "Groot Zundert (Zundert), The Netherlands",
+      culture: "Dutch",
+      deathplace: "Auvers-sur-Oise, France",
+      displaydate: "1853 - 1890",
+      displayname: "Vincent van Gogh",
+      gender: "male",
+      id: 22730,
+      url: "https://www.harvardartmuseums.org/collections/person/22730",
+      wikipedia_id: "32603"
+    }
+  ]
+};

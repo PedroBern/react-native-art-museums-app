@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resetDetails returns an action 1`] = `
+Object {
+  "type": "RESET_DETAILS",
+}
+`;

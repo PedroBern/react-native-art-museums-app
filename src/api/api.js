@@ -94,6 +94,7 @@ export const fetchPerson = async id => {
   const response = await fetch(url);
   if (response.ok) {
     const results = await response.json();
+    console.log(results);
     return results;
   }
   const errMessage = await response.text();
