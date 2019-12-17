@@ -880,3 +880,451 @@ export const fetchPersonMock = {
     }
   ]
 };
+
+export const fetchListOfMock = {
+  info: {
+    next:
+      "https://api.harvardartmuseums.org/person?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=id%2Cobjectcount%2Cdisplayname&sortorder=asc&size=100&sort=displayname&page=2",
+    page: 1,
+    pages: 394,
+    totalrecords: 39352,
+    totalrecordsperquery: 100
+  },
+  records: [
+    {
+      id: 6156,
+      name: "P.S.1 Contemporary Art Center",
+      objectcount: null
+    },
+    {
+      id: 43955,
+      name: "Quai des Celestins, 10",
+      objectcount: null
+    },
+    {
+      id: 43974,
+      name: "Rue Saint-Anastase, 10",
+      objectcount: null
+    },
+    {
+      id: 55553,
+      name: "Actes du 116e Congrès National des Sociétés Savantes",
+      objectcount: null
+    },
+    {
+      id: 34117,
+      name: "Anonymous Germany 1199",
+      objectcount: 1
+    },
+    {
+      id: 43986,
+      name: "12, Rue Chaptal (Chaussé d'Antin)",
+      objectcount: null
+    },
+    {
+      id: 27561,
+      name: "The Painter of London D 12",
+      objectcount: 3
+    },
+    {
+      id: 1291,
+      name: "Confidential 1291",
+      objectcount: null
+    },
+    {
+      id: 18808,
+      name: "Anonymous Germany 1470",
+      objectcount: 4
+    },
+    {
+      id: 34079,
+      name: "Anonymous Italy (Verona) 1472",
+      objectcount: 3
+    },
+    {
+      id: 34120,
+      name: "Anonymous Germany (Augsburg) 1476",
+      objectcount: 167
+    },
+    {
+      id: 24331,
+      name: "Anonymous Germany 1479",
+      objectcount: 1
+    },
+    {
+      id: 23738,
+      name: "Anonymous Italy (Venice) 1482",
+      objectcount: 1
+    },
+    {
+      id: 34127,
+      name: "Anonymous Germany (Ulm) 1483",
+      objectcount: 13
+    },
+    {
+      id: 23740,
+      name: "Anonymous Italy (Venice) 1485",
+      objectcount: 1
+    },
+    {
+      id: 34074,
+      name: "Anonymous Italy (Brescia) 1487",
+      objectcount: 1
+    },
+    {
+      id: 18252,
+      name: "Anonymous Germany (Magdeburg) 1487",
+      objectcount: 1
+    },
+    {
+      id: 24359,
+      name: "Anonymous Germany 1488",
+      objectcount: 1
+    },
+    {
+      id: 19397,
+      name: "Anonymous Italy (Venice) 1489",
+      objectcount: 5
+    },
+    {
+      id: 24329,
+      name: "Anonymous Italy (Florence) 1490",
+      objectcount: null
+    },
+    {
+      id: 23741,
+      name: "Anonymous Italy (Venice) 1490",
+      objectcount: 1
+    },
+    {
+      id: 19794,
+      name: "Anonymous Italy (Venice) 1491",
+      objectcount: 110
+    },
+    {
+      id: 23519,
+      name: "Anonymous Italy (Venice) 1493",
+      objectcount: 147
+    },
+    {
+      id: 23518,
+      name: "Anonymous Italy (Venice) 1494",
+      objectcount: 1
+    },
+    {
+      id: 24330,
+      name: "Anonymous Italy (Florence) 1495",
+      objectcount: null
+    },
+    {
+      id: 34143,
+      name: "Anonymous Germany (Strassburg) 1495",
+      objectcount: 7
+    },
+    {
+      id: 24586,
+      name: "Anonymous Italy 1497",
+      objectcount: null
+    },
+    {
+      id: 34075,
+      name: "Anonymous Italy (Ferrara) 1497",
+      objectcount: 180
+    },
+    {
+      id: 23742,
+      name: "Anonymous Italy (Venice) 1498",
+      objectcount: 64
+    },
+    {
+      id: 34112,
+      name: "Anonymous Switzerland (Basle) 1499",
+      objectcount: 61
+    },
+    {
+      id: 34073,
+      name: "Anonymous Italy 1499",
+      objectcount: 10
+    },
+    {
+      id: 34076,
+      name: "Anonymous Italy (Pavia) 1499",
+      objectcount: 1
+    },
+    {
+      id: 34126,
+      name: "Anonymous Germany (Strassburg) 1499",
+      objectcount: 21
+    },
+    {
+      id: 34057,
+      name: "Anonymous France (Lyons) 1499",
+      objectcount: 7
+    },
+    {
+      id: 34080,
+      name: "Anonymous Italy (Florence) 1499",
+      objectcount: 16
+    },
+    {
+      id: 34056,
+      name: "Anonymous France 1499",
+      objectcount: 11
+    },
+    {
+      id: 34058,
+      name: "Anonymous France (Paris) 1499",
+      objectcount: 105
+    },
+    {
+      id: 34123,
+      name: "Anonymous Germany (Munich) 1499",
+      objectcount: 2
+    },
+    {
+      id: 34124,
+      name: "Anonymous Germany (Nuremberg) 1499",
+      objectcount: 13
+    },
+    {
+      id: 23743,
+      name: "Anonymous Italy (Venice) 1499",
+      objectcount: 162
+    },
+    {
+      id: 34118,
+      name: "Anonymous Germany 1499",
+      objectcount: 26
+    },
+    {
+      id: 34122,
+      name: "Anonymous Germany (Mainz) 1499",
+      objectcount: 2
+    },
+    {
+      id: 34121,
+      name: "Anonymous Germany (Cologne) 1499",
+      objectcount: 5
+    },
+    {
+      id: 34081,
+      name: "Anonymous Italy (North Italian School) 1499",
+      objectcount: 16
+    },
+    {
+      id: 34104,
+      name: "Anonymous Netherlands (Antwerp) 1499",
+      objectcount: 2
+    },
+    {
+      id: 24290,
+      name: "Anonymous England 14th c.",
+      objectcount: 1
+    },
+    {
+      id: 34128,
+      name: "Anonymous Germany 1500",
+      objectcount: 235
+    },
+    {
+      id: 25544,
+      name: "Anonymous Germany (Lübeck) 1507",
+      objectcount: 1
+    },
+    {
+      id: 18092,
+      name: "Anonymous Germany 1510",
+      objectcount: 1
+    },
+    {
+      id: 24327,
+      name: "Anonymous Italy (Venice) 1515",
+      objectcount: null
+    },
+    {
+      id: 27488,
+      name: "Master of 1518",
+      objectcount: 5
+    },
+    {
+      id: 34060,
+      name: "Anonymous France (Avignon?) 1525",
+      objectcount: 2
+    },
+    {
+      id: 18824,
+      name: "Master of 1527",
+      objectcount: 1
+    },
+    {
+      id: 34064,
+      name: "Anonymous France (Paris) 1528",
+      objectcount: 320
+    },
+    {
+      id: 23181,
+      name: "Anonymous Germany 1530",
+      objectcount: null
+    },
+    {
+      id: 30653,
+      name: "Master MF 1536",
+      objectcount: 2
+    },
+    {
+      id: 34049,
+      name: "Anonymous England 1539",
+      objectcount: 90
+    },
+    {
+      id: 27489,
+      name: "Master of the 1540s",
+      objectcount: 1
+    },
+    {
+      id: 15468,
+      name: "Confidential 15468",
+      objectcount: null
+    },
+    {
+      id: 34093,
+      name: "Anonymous Italy 1553",
+      objectcount: 1
+    },
+    {
+      id: 24591,
+      name: "Anonymous Italy (Venice) 1563",
+      objectcount: null
+    },
+    {
+      id: 63157,
+      name: "Joachim Fries (1579-1620)",
+      objectcount: null
+    },
+    {
+      id: 22270,
+      name: "Anonymous Netherlands 1580",
+      objectcount: 1
+    },
+    {
+      id: 22835,
+      name: "Anonymous France (Paris) 1587",
+      objectcount: 1
+    },
+    {
+      id: 18259,
+      name: "Anonymous Netherlands 1593",
+      objectcount: 1
+    },
+    {
+      id: 34144,
+      name: "Anonymous Germany (Wittenberg) 1599",
+      objectcount: 26
+    },
+    {
+      id: 34137,
+      name: "Anonymous Germany (Cologne) 1599",
+      objectcount: 29
+    },
+    {
+      id: 34065,
+      name: "Anonymous France (Poitiers) 1599",
+      objectcount: 1
+    },
+    {
+      id: 34068,
+      name: "Anonymous France (Troyes) 1599",
+      objectcount: 1
+    },
+    {
+      id: 34142,
+      name: "Anonymous Germany (Palatinate) 1599",
+      objectcount: 10
+    },
+    {
+      id: 18054,
+      name: "Anonymous Netherlands 1599",
+      objectcount: 34
+    },
+    {
+      id: 34085,
+      name: "Anonymous Italy (Florence) 1599",
+      objectcount: 8
+    },
+    {
+      id: 34061,
+      name: "Anonymous France (School of Fontainebleau) 1599",
+      objectcount: 3
+    },
+    {
+      id: 34140,
+      name: "Anonymous Germany (Mainz) 1599",
+      objectcount: 5
+    },
+    {
+      id: 34138,
+      name: "Anonymous Germany (Frankfort on the Main) 1599",
+      objectcount: 4
+    },
+    {
+      id: 34092,
+      name: "Anonymous Italy (Verona) 1599",
+      objectcount: 1
+    },
+    {
+      id: 34089,
+      name: "Anonymous Italy (Venice) 1599",
+      objectcount: 272
+    },
+    {
+      id: 34084,
+      name: "Anonymous Italy (Fano) 1599",
+      objectcount: 8
+    },
+    {
+      id: 34139,
+      name: "Anonymous Germany (Lübeck) 1599",
+      objectcount: 72
+    },
+    {
+      id: 34111,
+      name: "Anonymous Spain 1599",
+      objectcount: 72
+    },
+    {
+      id: 34063,
+      name: "Anonymous France (Orthez) 1599",
+      objectcount: 1
+    },
+    {
+      id: 34088,
+      name: "Anonymous Italy (Naples) 1599",
+      objectcount: 1
+    },
+    {
+      id: 34113,
+      name: "Anonymous Switzerland (Basle) 1599",
+      objectcount: 34
+    },
+    {
+      id: 34115,
+      name: "Anonymous Switzerland (Zürich) 1599",
+      objectcount: 20
+    },
+    {
+      id: 34067,
+      name: "Anonymous France (Rouen) 1599",
+      objectcount: 2
+    },
+    {
+      id: 34082,
+      name: "Anonymous Italy 1599",
+      objectcount: 213
+    },
+    {
+      id: 34141,
+      name: "Anonymous Germany (Oppenheim) 1599",
+      objectcount: 1
+    }
+  ]
+};

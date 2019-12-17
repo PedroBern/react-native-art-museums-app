@@ -6,7 +6,8 @@ export const initialState = {
 };
 
 const reducer = combineReducers({
-  favorites
+  favorites // objects
+  // TODO: favorites people
 });
 
 export default reducer;

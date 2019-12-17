@@ -31,6 +31,21 @@ describe("feed reducer", () => {
     ).toMatchSnapshot();
   });
 
+  it("receives fetch response and add only new records", () => {
+    expect(
+      reducer(
+        { ...DEFAULT_STATE, records: [{ id: 1 }] },
+        {
+          type: FETCH_FEED__FULFILLED,
+          payload: {
+            info: "some info",
+            records: [{ id: 1 }, { id: 2 }]
+          }
+        }
+      )
+    ).toMatchSnapshot();
+  });
+
   it("receives fetch fail", () => {
     expect(
       reducer(DEFAULT_STATE, { type: FETCH_FEED__REJECTED, payload: "error" })

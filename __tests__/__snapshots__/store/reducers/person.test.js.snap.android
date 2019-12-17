@@ -86,6 +86,29 @@ Object {
 }
 `;
 
+exports[`person reducer receives records fetch response and add only new records 1`] = `
+Object {
+  "person": Object {
+    "data": null,
+    "error": null,
+    "loading": true,
+  },
+  "records": Object {
+    "data": Array [
+      Object {
+        "id": 1,
+      },
+      Object {
+        "id": 2,
+      },
+    ],
+    "error": null,
+    "loading": false,
+    "next": "url",
+  },
+}
+`;
+
 exports[`person reducer starts person loading 1`] = `
 Object {
   "person": Object {

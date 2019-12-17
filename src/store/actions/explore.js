@@ -24,7 +24,6 @@ export const loadListOf = (
   dispatch({ type: FETCH_TARGET__SENT });
   try {
     const results = await fetchListOf(url, target, desc);
-
     dispatch({
       type: search ? FILTER_RECORDS__FULFILLED : FETCH_TARGET__FULFILLED,
       payload: { ...results, target, desc }
@@ -47,7 +46,7 @@ export const sortList = state => dispatch => {
   }
 };
 
-const localSearch = (records, value) => dispatch => {
+export const localSearch = (records, value) => dispatch => {
   const options = {
     shouldSort: true,
     threshold: 0.5,
@@ -73,7 +72,7 @@ const localSearch = (records, value) => dispatch => {
   }
 };
 
-const apiSearch = (value, target, url = null) => async dispatch => {
+export const apiSearch = (value, target, url = null) => async dispatch => {
   dispatch({ type: FILTER_RECORDS__SENT });
   let results;
   try {

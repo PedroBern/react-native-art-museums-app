@@ -42,6 +42,21 @@ describe("person reducer", () => {
     ).toMatchSnapshot();
   });
 
+  it("receives records fetch response and add only new records", () => {
+    expect(
+      reducer(
+        { ...DEFAULT_STATE, records: { data: [{ id: 1 }] } },
+        {
+          type: FETCH_PERSON_RECORDS__FULFILLED,
+          payload: {
+            info: { next: "url" },
+            records: [{ id: 1 }, { id: 2 }]
+          }
+        }
+      )
+    ).toMatchSnapshot();
+  });
+
   it("receives person fetch fail", () => {
     expect(
       reducer(DEFAULT_STATE, {

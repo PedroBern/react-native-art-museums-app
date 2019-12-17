@@ -21,6 +21,6 @@ describe("toggleFavoritesView", () => {
 
 describe("setVisibleIndex", () => {
   it("returns an action", () => {
-    expect(toggleFavoritesView(1)).toMatchSnapshot();
+    expect(setVisibleIndex(1)).toMatchSnapshot();
   });
 });

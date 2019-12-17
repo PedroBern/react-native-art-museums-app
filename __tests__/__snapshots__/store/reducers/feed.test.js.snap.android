@@ -77,6 +77,27 @@ Object {
 }
 `;
 
+exports[`feed reducer receives fetch response and add only new records 1`] = `
+Object {
+  "error": null,
+  "grid": false,
+  "info": "some info",
+  "loading": false,
+  "records": Array [
+    Object {
+      "id": 1,
+    },
+    Object {
+      "id": 2,
+    },
+  ],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
 exports[`feed reducer reset on refresh 1`] = `
 Object {
   "error": null,

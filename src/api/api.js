@@ -1,6 +1,6 @@
 const API_KEY = "a3a79800-15f2-11ea-af26-8529a4665017";
 
-const processFeed = results => {
+export const processFeed = results => {
   const processed = {
     info: {
       next: results.info.next
@@ -42,8 +42,9 @@ export const fetchFeed = async (
   throw new Error(errMessage);
 };
 
-const processRecordImages = images => images.map(image => image.baseimageurl);
-const processRecordPeople = people =>
+export const processRecordImages = images =>
+  images.map(image => image.baseimageurl);
+export const processRecordPeople = people =>
   people
     ? people.map(person => ({
         name: person.name,
@@ -52,7 +53,7 @@ const processRecordPeople = people =>
       }))
     : null;
 
-const processRecord = results => {
+export const processRecord = results => {
   const record = results.records[0];
   const processed = {
     ...record,
@@ -94,14 +95,13 @@ export const fetchPerson = async id => {
   const response = await fetch(url);
   if (response.ok) {
     const results = await response.json();
-    console.log(results);
     return results;
   }
   const errMessage = await response.text();
   throw new Error(errMessage);
 };
 
-const processList = (results, target) => {
+export const processList = (results, target) => {
   if (target === "person" || target === "object") {
     const field = target === "person" ? "displayname" : "title";
     const id = target === "person" ? "id" : "objectnumber";
@@ -174,6 +174,7 @@ export const fetchListOf = async (
   const response = await fetch(url);
   if (response.ok) {
     const results = await response.json();
+    console.log(processList(results, target));
     return processList(results, target);
   }
   const errMessage = await response.text();

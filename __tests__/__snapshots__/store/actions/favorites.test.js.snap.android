@@ -2,7 +2,8 @@
 
 exports[`setVisibleIndex returns an action 1`] = `
 Object {
-  "type": "TOGGLE_FAVORITES_VIEW",
+  "payload": 1,
+  "type": "SET_VISIBLE_INDEX_FAVORITES",
 }
 `;
 

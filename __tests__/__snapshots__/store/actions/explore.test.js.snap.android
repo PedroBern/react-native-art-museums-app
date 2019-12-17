@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resetSearch returns an action 1`] = `
+Object {
+  "type": "FILTER_RECORDS__RESET",
+}
+`;
