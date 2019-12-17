@@ -5,5 +5,10 @@ module.exports = {
     // withEnzyme(require('jest-expo/ios/jest-preset')),
     withEnzyme(require("jest-expo/android/jest-preset"))
   ],
-  collectCoverageFrom: ["src/**/*.js", "!src/api/mock*.js", "!src/**/index.js"]
+  collectCoverageFrom: [
+    "src/**/*.js",
+    "!src/api/mock*.js",
+    "!src/**/index.js",
+    "!src/constants/*.js"
+  ]
 };
