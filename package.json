@@ -53,13 +53,14 @@
     "react-test-renderer": "^16.12.0"
   },
   "jest": {
-    "preset": "jest-expo",
+    "preset": "jest-expo-enzyme",
     "automock": false,
     "setupFiles": [
       "./jest.config.js"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)",
+      "/node_modules/(?!react-native-paper)/"
     ],
     "transform": {
       "^.+\\.jsx?$": "babel-jest"

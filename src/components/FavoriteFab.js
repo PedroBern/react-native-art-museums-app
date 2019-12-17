@@ -1,11 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { FAB } from "react-native-paper";
 
 import { toggleFavorite } from "../store/actions/favorites";
 
-const FavoriteFab = ({ record, favorites, toggleFavorite, ...other }) => {
+export const FavoriteFab = ({
+  record,
+  favorites,
+  toggleFavorite,
+  ...other
+}) => {
   return (
     <FAB
       icon="heart"
@@ -14,6 +20,12 @@ const FavoriteFab = ({ record, favorites, toggleFavorite, ...other }) => {
       {...other}
     />
   );
+};
+
+FavoriteFab.propTypes = {
+  record: PropTypes.object.isRequired,
+  favorites: PropTypes.array.isRequired,
+  toggleFavorite: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

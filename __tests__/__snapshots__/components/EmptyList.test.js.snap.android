@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyList prop notShow = false 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "height": 120,
+      "justifyContent": "center",
+      "padding": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "sans-serif",
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Nothing to show.
+  </Text>
+</View>
+`;
+
+exports[`EmptyList prop notShow = true 1`] = `null`;

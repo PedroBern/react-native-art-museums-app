@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Ionicons";
 import { View, StyleSheet } from "react-native";
 
@@ -16,5 +17,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+TabBarIcon.propTypes = {
+  route: PropTypes.object.isRequired,
+  focused: PropTypes.bool,
+  color: PropTypes.string
+};
 
 export default TabBarIcon;

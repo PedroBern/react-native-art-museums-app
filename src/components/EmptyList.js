@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
 import { Paragraph } from "react-native-paper";
 
@@ -18,5 +19,9 @@ const styles = StyleSheet.create({
     padding: 16
   }
 });
+
+EmptyList.propTypes = {
+  notShow: PropTypes.bool.isRequired
+};
 
 export default EmptyList;

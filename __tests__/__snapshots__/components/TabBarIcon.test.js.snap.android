@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabBarIcon renders 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "width": 24,
+    }
+  }
+>
+  <Text />
+</View>
+`;
+
+exports[`TabBarIcon renders focused 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "width": 24,
+    }
+  }
+>
+  <Text />
+</View>
+`;
