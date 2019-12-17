@@ -3,7 +3,7 @@ import {
   fetchRecordMock,
   fetchPersonRecordsMock,
   fetchPersonMock,
-  fetchListOfMock
+  fetchListOfMock__other
 } from "./mockResponses";
 
 // -
@@ -56,7 +56,7 @@ export const fetchPersonFail = async personid => {
 
 // -
 export const fetchListOfSuccess = async (url, target, desc, search) => {
-  return { ...fetchListOfMock };
+  return { ...fetchListOfMock__other };
 };
 
 export const fetchListOfFailMessage = "Internal server error";

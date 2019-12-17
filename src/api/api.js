@@ -174,7 +174,6 @@ export const fetchListOf = async (
   const response = await fetch(url);
   if (response.ok) {
     const results = await response.json();
-    console.log(processList(results, target));
     return processList(results, target);
   }
   const errMessage = await response.text();

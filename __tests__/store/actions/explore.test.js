@@ -123,7 +123,7 @@ describe("search", () => {
     });
     expect(mockDispatch.mock.calls[1][0]).toEqual({
       type: FILTER_RECORDS__FULFILLED,
-      payload: { ...apiResponses.fetchListOfMock }
+      payload: { ...apiResponses.fetchListOfMock__other }
     });
   });
 
@@ -202,7 +202,7 @@ describe("loadListOf", () => {
       payload: {
         target,
         desc,
-        ...apiResponses.fetchListOfMock
+        ...apiResponses.fetchListOfMock__other
       }
     });
   });
@@ -250,7 +250,7 @@ describe("loadListOf", () => {
       payload: {
         target,
         desc,
-        ...apiResponses.fetchListOfMock
+        ...apiResponses.fetchListOfMock__other
       }
     });
   });
