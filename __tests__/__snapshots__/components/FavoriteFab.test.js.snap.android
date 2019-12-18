@@ -23,6 +23,7 @@ exports[`FavoriteFab renders 1`] = `
       ],
     }
   }
+  testID="favorite-fab"
 >
   <View
     accessibilityRole="button"
