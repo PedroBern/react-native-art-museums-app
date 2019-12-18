@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Searchbar, TouchableRipple } from "react-native-paper";
-import { TextInput } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Searchbar } from "react-native-paper";
+import PropTypes from "prop-types";
 
 const SearchBarComponent = ({ dismiss, onSubmit, ...rest }) => {
   const [search, setSearch] = useState("");
 
   return (
     <Searchbar
+      testID="search-bar"
       platform="android"
       placeholder="Search..."
       onChangeText={value => setSearch(value)}
@@ -24,6 +24,11 @@ const SearchBarComponent = ({ dismiss, onSubmit, ...rest }) => {
       {...rest}
     />
   );
+};
+
+SearchBarComponent.propTypes = {
+  dismiss: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default SearchBarComponent;

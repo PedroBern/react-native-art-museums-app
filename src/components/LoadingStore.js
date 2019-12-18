@@ -4,7 +4,7 @@ import { Paragraph } from "react-native-paper";
 
 import Spinner from "./Spinner";
 
-const LoadingStore = ({ route, focused, color }) => (
+const LoadingStore = () => (
   <View style={styles.root}>
     <Spinner />
     <Paragraph>Loading previous state...</Paragraph>

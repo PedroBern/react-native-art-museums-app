@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListFooter render with error 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 120,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgba(0, 0, 0, 0.87)",
+          "fontFamily": "sans-serif",
+          "fontSize": 14,
+          "fontWeight": "normal",
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+          "marginVertical": 2,
+          "textAlign": "left",
+          "writingDirection": "ltr",
+        }
+      }
+    >
+      some error
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ListFooter render with loading 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 120,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "height": 48,
+          "opacity": 1,
+          "width": 48,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 48,
+              "transform": Array [
+                Object {
+                  "rotate": "45deg",
+                },
+              ],
+              "width": 48,
+            }
+          }
+        >
+          <View
+            collapsable={false}
+            style={
+              Object {
+                "height": 24,
+                "overflow": "hidden",
+                "width": 48,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 48,
+                  "transform": Array [
+                    Object {
+                      "translateY": 0,
+                    },
+                    Object {
+                      "rotate": "-165deg",
+                    },
+                  ],
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "height": 24,
+                    "overflow": "hidden",
+                    "width": 48,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderColor": "#000",
+                      "borderRadius": 24,
+                      "borderWidth": 4.8,
+                      "height": 48,
+                      "width": 48,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 48,
+              "transform": Array [
+                Object {
+                  "rotate": "45deg",
+                },
+              ],
+              "width": 48,
+            }
+          }
+        >
+          <View
+            collapsable={false}
+            style={
+              Object {
+                "height": 24,
+                "overflow": "hidden",
+                "top": 24,
+                "width": 48,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 48,
+                  "transform": Array [
+                    Object {
+                      "translateY": -24,
+                    },
+                    Object {
+                      "rotate": "345deg",
+                    },
+                  ],
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "height": 24,
+                    "overflow": "hidden",
+                    "width": 48,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "borderColor": "#000",
+                      "borderRadius": 24,
+                      "borderWidth": 4.8,
+                      "height": 48,
+                      "width": 48,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
