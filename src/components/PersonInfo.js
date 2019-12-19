@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { Paragraph, Title } from "react-native-paper";
+import PropTypes from "prop-types";
 
 import Spinner from "../components/Spinner";
 import Link from "../components/Link";
@@ -53,6 +54,22 @@ const PersonInfo = ({ person }) => {
       </Link>
     </View>
   );
+};
+
+PersonInfo.propTypes = {
+  person: PropTypes.shape({
+    loading: PropTypes.bool,
+    data: PropTypes.shape({
+      displayname: PropTypes.string,
+      gender: PropTypes.string,
+      culture: PropTypes.string,
+      birthplace: PropTypes.string,
+      deathplace: PropTypes.string,
+      displaydate: PropTypes.string,
+      wikipedia_id: PropTypes.string,
+      url: PropTypes.string
+    })
+  })
 };
 
 const styles = StyleSheet.create({

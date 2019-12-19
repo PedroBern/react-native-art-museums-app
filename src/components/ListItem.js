@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import PropTypes from "prop-types";
 import { View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { Title, Caption } from "react-native-paper";
 import { useNavigation } from "react-navigation-hooks";
@@ -13,6 +14,7 @@ const ListItem = memo(({ name, id, objectcount, theme, target }) => {
     <View style={styles.item}>
       <ScrollView horizontal style={styles.name} indicatorStyle="light">
         <TouchableOpacity
+          testID="list-item"
           key={id}
           onPress={
             target === "person"
@@ -40,6 +42,14 @@ const ListItem = memo(({ name, id, objectcount, theme, target }) => {
     </View>
   );
 });
+
+ListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  objectcount: PropTypes.number,
+  theme: PropTypes.string,
+  target: PropTypes.string.isRequired
+};
 
 const styles = StyleSheet.create({
   item: {
