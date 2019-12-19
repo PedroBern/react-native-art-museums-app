@@ -1,0 +1,853 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlatListBase renders grid 1`] = `
+<RCTScrollView
+  data={
+    Array [
+      Object {
+        "century": "19th century",
+        "dated": "1888",
+        "division": "European and American Art",
+        "id": "1951.65",
+        "imagepermissionlevel": 0,
+        "objectnumber": "1951.65",
+        "primaryimageurl": "https://nrs.harvard.edu/urn-3:HUAM:DDC251942_dynmc",
+        "title": "Self-Portrait Dedicated to Paul Gauguin",
+      },
+      Object {
+        "century": "19th century",
+        "dated": "1877",
+        "division": "European and American Art",
+        "id": "1951.53",
+        "imagepermissionlevel": 0,
+        "objectnumber": "1951.53",
+        "primaryimageurl": "https://nrs.harvard.edu/urn-3:HUAM:DDC231456_dynmc",
+        "title": "The Gare Saint-Lazare: Arrival of a Train",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  getItemLayout={[Function]}
+  horizontal={false}
+  initialNumToRender={20}
+  initialScrollIndex={0}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={2}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  onViewableItemsChanged={[MockFunction]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  viewabilityConfig={
+    Object {
+      "itemVisiblePercentThreshold": 95,
+    }
+  }
+  viewabilityConfigCallbackPairs={
+    Array [
+      Object {
+        "onViewableItemsChanged": [Function],
+        "viewabilityConfig": Object {
+          "itemVisiblePercentThreshold": 95,
+        },
+      },
+    ]
+  }
+  windowSize={21}
+>
+  <View>
+    <View
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 4,
+              "elevation": 0,
+              "padding": 2,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0.24,
+              "shadowRadius": 0,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexGrow": 1,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="feed-item-grid"
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#eeeeee",
+                    "height": 371,
+                    "overflow": "hidden",
+                    "width": 371,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "https://nrs.harvard.edu/urn-3:HUAM:DDC251942_dynmc?height=371&width=371",
+                    }
+                  }
+                  style={
+                    Object {
+                      "flex": 1,
+                      "height": undefined,
+                      "justifyContent": "flex-end",
+                      "padding": 16,
+                      "resizeMode": "cover",
+                      "width": undefined,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 4,
+              "elevation": 0,
+              "padding": 2,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0.24,
+              "shadowRadius": 0,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flexGrow": 1,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="feed-item-grid"
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#eeeeee",
+                    "height": 371,
+                    "overflow": "hidden",
+                    "width": 371,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "https://nrs.harvard.edu/urn-3:HUAM:DDC231456_dynmc?height=371&width=371",
+                    }
+                  }
+                  style={
+                    Object {
+                      "flex": 1,
+                      "height": undefined,
+                      "justifyContent": "flex-end",
+                      "padding": 16,
+                      "resizeMode": "cover",
+                      "width": undefined,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`FlatListBase renders not grid 1`] = `
+<RCTScrollView
+  data={
+    Array [
+      Object {
+        "century": "19th century",
+        "dated": "1888",
+        "division": "European and American Art",
+        "id": "1951.65",
+        "imagepermissionlevel": 0,
+        "objectnumber": "1951.65",
+        "primaryimageurl": "https://nrs.harvard.edu/urn-3:HUAM:DDC251942_dynmc",
+        "title": "Self-Portrait Dedicated to Paul Gauguin",
+      },
+      Object {
+        "century": "19th century",
+        "dated": "1877",
+        "division": "European and American Art",
+        "id": "1951.53",
+        "imagepermissionlevel": 0,
+        "objectnumber": "1951.53",
+        "primaryimageurl": "https://nrs.harvard.edu/urn-3:HUAM:DDC231456_dynmc",
+        "title": "The Gare Saint-Lazare: Arrival of a Train",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  getItemLayout={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  initialScrollIndex={1}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={5}
+  numColumns={1}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  onViewableItemsChanged={[MockFunction]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  viewabilityConfig={
+    Object {
+      "itemVisiblePercentThreshold": 95,
+    }
+  }
+  viewabilityConfigCallbackPairs={
+    Array [
+      Object {
+        "onViewableItemsChanged": [Function],
+        "viewabilityConfig": Object {
+          "itemVisiblePercentThreshold": 95,
+        },
+      },
+    ]
+  }
+  windowSize={21}
+>
+  <View>
+    <View
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 4,
+            "elevation": 0,
+            "marginTop": 24,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "height": 72,
+                "justifyContent": "space-between",
+                "paddingLeft": 16,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "height": 50,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "sans-serif-medium",
+                    "fontSize": 20,
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.15,
+                    "lineHeight": 30,
+                    "marginBottom": 0,
+                    "marginVertical": 2,
+                    "minHeight": 30,
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  }
+                }
+              >
+                Self-Portrait Dedicated to Paul Gauguin
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "sans-serif",
+                    "fontSize": 12,
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.4,
+                    "lineHeight": 20,
+                    "marginVertical": 0,
+                    "minHeight": 20,
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  }
+                }
+              >
+                European and American Art
+              </Text>
+            </View>
+            <View />
+          </View>
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="feed-item"
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#eeeeee",
+                  "height": 750,
+                  "overflow": "hidden",
+                  "width": 750,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://nrs.harvard.edu/urn-3:HUAM:DDC251942_dynmc?height=750&width=750",
+                  }
+                }
+                style={
+                  Object {
+                    "flex": 1,
+                    "height": undefined,
+                    "justifyContent": "flex-end",
+                    "padding": 16,
+                    "resizeMode": "cover",
+                    "width": undefined,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "paddingHorizontal": 16,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "rgba(0, 0, 0, 0.54)",
+                  "fontFamily": "sans-serif",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.4,
+                  "lineHeight": 20,
+                  "marginVertical": 2,
+                  "textAlign": "left",
+                  "writingDirection": "ltr",
+                }
+              }
+            >
+              19th century
+            </Text>
+          </View>
+          <View
+            index={3}
+            pointerEvents="auto"
+            siblings={
+              Array [
+                "withTheme(Card.Title)",
+                "TouchableOpacity",
+                "Card.Content",
+                "Connect(FavoriteFab)",
+              ]
+            }
+            style={
+              Object {
+                "backgroundColor": "#03dac4",
+                "borderRadius": 28,
+                "bottom": 0,
+                "elevation": 6,
+                "margin": 16,
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 5,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.24,
+                "shadowRadius": 6,
+                "transform": Array [
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+              }
+            }
+            testID="favorite-fab"
+            total={4}
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityStates={Array []}
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "borderRadius": 28,
+                  "overflow": "hidden",
+                }
+              }
+            >
+              <View
+                pointerEvents="none"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 24,
+                      "justifyContent": "center",
+                      "width": 24,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "opacity": 1,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                        "transform": Array [
+                          Object {
+                            "rotate": "0deg",
+                          },
+                        ],
+                      }
+                    }
+                  >
+                    <Text />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 4,
+            "elevation": 0,
+            "marginTop": 24,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "height": 72,
+                "justifyContent": "space-between",
+                "paddingLeft": 16,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "height": 50,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "sans-serif-medium",
+                    "fontSize": 20,
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.15,
+                    "lineHeight": 30,
+                    "marginBottom": 0,
+                    "marginVertical": 2,
+                    "minHeight": 30,
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  }
+                }
+              >
+                The Gare Saint-Lazare: Arrival of a Train
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.54)",
+                    "fontFamily": "sans-serif",
+                    "fontSize": 12,
+                    "fontWeight": "normal",
+                    "letterSpacing": 0.4,
+                    "lineHeight": 20,
+                    "marginVertical": 0,
+                    "minHeight": 20,
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  }
+                }
+              >
+                European and American Art
+              </Text>
+            </View>
+            <View />
+          </View>
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="feed-item"
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#eeeeee",
+                  "height": 750,
+                  "overflow": "hidden",
+                  "width": 750,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://nrs.harvard.edu/urn-3:HUAM:DDC231456_dynmc?height=750&width=750",
+                  }
+                }
+                style={
+                  Object {
+                    "flex": 1,
+                    "height": undefined,
+                    "justifyContent": "flex-end",
+                    "padding": 16,
+                    "resizeMode": "cover",
+                    "width": undefined,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "paddingHorizontal": 16,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "rgba(0, 0, 0, 0.54)",
+                  "fontFamily": "sans-serif",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.4,
+                  "lineHeight": 20,
+                  "marginVertical": 2,
+                  "textAlign": "left",
+                  "writingDirection": "ltr",
+                }
+              }
+            >
+              19th century
+            </Text>
+          </View>
+          <View
+            index={3}
+            pointerEvents="auto"
+            siblings={
+              Array [
+                "withTheme(Card.Title)",
+                "TouchableOpacity",
+                "Card.Content",
+                "Connect(FavoriteFab)",
+              ]
+            }
+            style={
+              Object {
+                "backgroundColor": "#03dac4",
+                "borderRadius": 28,
+                "bottom": 0,
+                "elevation": 6,
+                "margin": 16,
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 5,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.24,
+                "shadowRadius": 6,
+                "transform": Array [
+                  Object {
+                    "scale": 1,
+                  },
+                ],
+              }
+            }
+            testID="favorite-fab"
+            total={4}
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityStates={Array []}
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "borderRadius": 28,
+                  "overflow": "hidden",
+                }
+              }
+            >
+              <View
+                pointerEvents="none"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 56,
+                    "justifyContent": "center",
+                    "width": 56,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "height": 24,
+                      "justifyContent": "center",
+                      "width": 24,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "opacity": 1,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                        "transform": Array [
+                          Object {
+                            "rotate": "0deg",
+                          },
+                        ],
+                      }
+                    }
+                  >
+                    <Text />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

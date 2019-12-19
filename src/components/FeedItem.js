@@ -24,13 +24,14 @@ const listImage = Math.round(width);
 const gridImage = Math.round(width / GRID_COLUMNS - 4);
 
 export const FeedItem = memo(
-  ({ id, title, primaryimageurl, division, century, dated, onPress }) => {
+  ({ id, title, primaryimageurl, division, century, dated }) => {
     const { push } = useNavigation();
 
     return (
       <Card key={id} style={styles.root} elevation={0}>
         <Card.Title title={title} subtitle={division} />
         <TouchableOpacity
+          testID="feed-item"
           onPress={() =>
             push("Details", {
               id,
@@ -68,25 +69,38 @@ export const FeedItem = memo(
   }
 );
 
-export const FeedItemGrid = memo(
-  ({ id, primaryimageurl, onPress, ...other }) => {
-    const { push } = useNavigation();
-    return (
-      <Card key={id} style={styles.grid} elevation={0}>
-        <TouchableOpacity
-          onPress={() => push("Details", { id, primaryimageurl, ...other })}
-        >
-          <Card.Cover
-            source={{
-              uri: `${primaryimageurl}?height=${gridImage}&width=${gridImage}`
-            }}
-            style={styles.imageGrid}
-          />
-        </TouchableOpacity>
-      </Card>
-    );
-  }
-);
+FeedItem.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  primaryimageurl: PropTypes.string,
+  division: PropTypes.string,
+  century: PropTypes.string,
+  dated: PropTypes.string
+};
+
+export const FeedItemGrid = memo(({ id, primaryimageurl, ...other }) => {
+  const { push } = useNavigation();
+  return (
+    <Card key={id} style={styles.grid} elevation={0}>
+      <TouchableOpacity
+        testID="feed-item-grid"
+        onPress={() => push("Details", { id, primaryimageurl, ...other })}
+      >
+        <Card.Cover
+          source={{
+            uri: `${primaryimageurl}?height=${gridImage}&width=${gridImage}`
+          }}
+          style={styles.imageGrid}
+        />
+      </TouchableOpacity>
+    </Card>
+  );
+});
+
+FeedItemGrid.propTypes = {
+  id: PropTypes.number,
+  primaryimageurl: PropTypes.string
+};
 
 const styles = StyleSheet.create({
   root: {

@@ -10,6 +10,7 @@ const SortDialog = memo(({ visible, onDismiss, buttons }) => (
       <Dialog.Content>
         {buttons.map(b => (
           <Button
+            testID={`sort-dialog-button-${b.title}`}
             key={b.title}
             style={styles.button}
             onPress={() => {
@@ -22,13 +23,17 @@ const SortDialog = memo(({ visible, onDismiss, buttons }) => (
         ))}
       </Dialog.Content>
       <Dialog.Actions>
-        <Button onPress={onDismiss}>Cancel</Button>
+        <Button testID="sort-dialog-cancel" onPress={onDismiss}>
+          Cancel
+        </Button>
       </Dialog.Actions>
     </Dialog>
   </Portal>
 ));
 
 SortDialog.defaultProps = {
+  onDismiss: () => {},
+  visible: false,
   buttons: [
     { title: "Title (A-Z)", onPress: () => {} },
     { title: "Title (Z-A)", onPress: () => {} },
@@ -40,6 +45,8 @@ SortDialog.defaultProps = {
 };
 
 SortDialog.propTypes = {
+  visible: PropTypes.bool,
+  onDismiss: PropTypes.func,
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
