@@ -70,7 +70,7 @@ export const FeedItem = memo(
 );
 
 FeedItem.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
   primaryimageurl: PropTypes.string,
   division: PropTypes.string,
@@ -98,7 +98,7 @@ export const FeedItemGrid = memo(({ id, primaryimageurl, ...other }) => {
 });
 
 FeedItemGrid.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   primaryimageurl: PropTypes.string
 };
 

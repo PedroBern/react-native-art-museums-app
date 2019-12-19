@@ -9,6 +9,7 @@ module.exports = {
     "src/**/*.js",
     "!src/api/mock*.js",
     "!src/**/index.js",
-    "!src/constants/*.js"
+    "!src/constants/*.js",
+    "App.js"
   ]
 };

@@ -1,0 +1,695 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsScreen renders 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+      "flex": 1,
+    }
+  }
+  testID="details-screen"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#6200ee",
+        "elevation": 4,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 3,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 4,
+        "zIndex": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#6200ee",
+          "elevation": 0,
+          "flexDirection": "row",
+          "height": 56,
+          "marginTop": 0,
+          "paddingHorizontal": 4,
+        }
+      }
+    >
+      <View
+        accessibilityLabel="Back"
+        accessibilityRole="button"
+        accessibilityStates={Array []}
+        accessible={true}
+        hitSlop={
+          Object {
+            "bottom": 6,
+            "left": 6,
+            "right": 6,
+            "top": 6,
+          }
+        }
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "justifyContent": "center",
+            "margin": 6,
+            "overflow": "hidden",
+            "width": 36,
+          }
+        }
+        testID="go-back-details-screen"
+      >
+        <View
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 24,
+                "justifyContent": "center",
+                "width": 24,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                }
+              }
+            >
+              <Text />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 8,
+            "paddingHorizontal": 12,
+          }
+        }
+      >
+        <Text
+          accessibilityRole="header"
+          accessibilityTraits="header"
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "sans-serif-medium",
+              "fontSize": 20,
+              "fontWeight": "normal",
+              "textAlign": "left",
+            }
+          }
+        >
+          some-title
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(255, 255, 255, 0.7)",
+              "fontFamily": "sans-serif",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "textAlign": "left",
+            }
+          }
+        >
+          some-division
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "white",
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "padding": 16,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 48,
+              "opacity": 1,
+              "width": 48,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "bottom": 0,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 48,
+                  "transform": Array [
+                    Object {
+                      "rotate": "45deg",
+                    },
+                  ],
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "height": 24,
+                    "overflow": "hidden",
+                    "width": 48,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 48,
+                      "transform": Array [
+                        Object {
+                          "translateY": 0,
+                        },
+                        Object {
+                          "rotate": "-165deg",
+                        },
+                      ],
+                      "width": 48,
+                    }
+                  }
+                >
+                  <View
+                    collapsable={false}
+                    style={
+                      Object {
+                        "height": 24,
+                        "overflow": "hidden",
+                        "width": 48,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "borderColor": "#000",
+                          "borderRadius": 24,
+                          "borderWidth": 4.8,
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "bottom": 0,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 48,
+                  "transform": Array [
+                    Object {
+                      "rotate": "45deg",
+                    },
+                  ],
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "height": 24,
+                    "overflow": "hidden",
+                    "top": 24,
+                    "width": 48,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 48,
+                      "transform": Array [
+                        Object {
+                          "translateY": -24,
+                        },
+                        Object {
+                          "rotate": "345deg",
+                        },
+                      ],
+                      "width": 48,
+                    }
+                  }
+                >
+                  <View
+                    collapsable={false}
+                    style={
+                      Object {
+                        "height": 24,
+                        "overflow": "hidden",
+                        "width": 48,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "borderColor": "#000",
+                          "borderRadius": 24,
+                          "borderWidth": 4.8,
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`DetailsScreen renders with error 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+      "flex": 1,
+    }
+  }
+  testID="details-screen"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#6200ee",
+        "elevation": 4,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 3,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 4,
+        "zIndex": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#6200ee",
+          "elevation": 0,
+          "flexDirection": "row",
+          "height": 56,
+          "marginTop": 0,
+          "paddingHorizontal": 4,
+        }
+      }
+    >
+      <View
+        accessibilityLabel="Back"
+        accessibilityRole="button"
+        accessibilityStates={Array []}
+        accessible={true}
+        hitSlop={
+          Object {
+            "bottom": 6,
+            "left": 6,
+            "right": 6,
+            "top": 6,
+          }
+        }
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "justifyContent": "center",
+            "margin": 6,
+            "overflow": "hidden",
+            "width": 36,
+          }
+        }
+        testID="go-back-details-screen"
+      >
+        <View
+          style={null}
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 24,
+                "justifyContent": "center",
+                "width": 24,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                }
+              }
+            >
+              <Text />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 8,
+            "paddingHorizontal": 12,
+          }
+        }
+      >
+        <Text
+          accessibilityRole="header"
+          accessibilityTraits="header"
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "sans-serif-medium",
+              "fontSize": 20,
+              "fontWeight": "normal",
+              "textAlign": "left",
+            }
+          }
+        >
+          some-title
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(255, 255, 255, 0.7)",
+              "fontFamily": "sans-serif",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "textAlign": "left",
+            }
+          }
+        >
+          some-division
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "white",
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "padding": 16,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 48,
+              "opacity": 1,
+              "width": 48,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "bottom": 0,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 48,
+                  "transform": Array [
+                    Object {
+                      "rotate": "45deg",
+                    },
+                  ],
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "height": 24,
+                    "overflow": "hidden",
+                    "width": 48,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 48,
+                      "transform": Array [
+                        Object {
+                          "translateY": 0,
+                        },
+                        Object {
+                          "rotate": "-165deg",
+                        },
+                      ],
+                      "width": 48,
+                    }
+                  }
+                >
+                  <View
+                    collapsable={false}
+                    style={
+                      Object {
+                        "height": 24,
+                        "overflow": "hidden",
+                        "width": 48,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "borderColor": "#000",
+                          "borderRadius": 24,
+                          "borderWidth": 4.8,
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "bottom": 0,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 48,
+                  "transform": Array [
+                    Object {
+                      "rotate": "45deg",
+                    },
+                  ],
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "height": 24,
+                    "overflow": "hidden",
+                    "top": 24,
+                    "width": 48,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 48,
+                      "transform": Array [
+                        Object {
+                          "translateY": -24,
+                        },
+                        Object {
+                          "rotate": "345deg",
+                        },
+                      ],
+                      "width": 48,
+                    }
+                  }
+                >
+                  <View
+                    collapsable={false}
+                    style={
+                      Object {
+                        "height": 24,
+                        "overflow": "hidden",
+                        "width": 48,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "borderColor": "#000",
+                          "borderRadius": 24,
+                          "borderWidth": 4.8,
+                          "height": 48,
+                          "width": 48,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

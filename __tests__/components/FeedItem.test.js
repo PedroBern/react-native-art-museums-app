@@ -9,7 +9,7 @@ import { FeedItem, FeedItemGrid } from "../../src/components/FeedItem";
 import { store } from "../../src/store";
 
 const props = {
-  id: 1,
+  id: "1",
   title: "title",
   primaryimageurl: "url",
   division: "division",

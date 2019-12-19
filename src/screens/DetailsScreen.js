@@ -12,7 +12,7 @@ import { Appbar, Paragraph, Title } from "react-native-paper";
 import Swiper from "react-native-swiper";
 import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 
-import useDetailsReducer from '../store/hooks/details';
+import useDetailsReducer from "../store/hooks/details";
 import Spinner from "../components/Spinner";
 import FavoriteFab from "../components/FavoriteFab";
 import Link from "../components/Link";
@@ -34,9 +34,12 @@ const DetailsScreen = () => {
   }, []);
 
   return (
-    <View style={styles.root}>
+    <View style={styles.root} testID="details-screen">
       <Appbar.Header>
-        <Appbar.BackAction onPress={() => goBack()} />
+        <Appbar.BackAction
+          testID="go-back-details-screen"
+          onPress={() => goBack()}
+        />
         <Appbar.Content title={title} subtitle={division} />
       </Appbar.Header>
       <ScrollView style={styles.content}>
@@ -76,6 +79,7 @@ const DetailsScreen = () => {
               {state.record.people ? (
                 state.record.people.map(p => (
                   <TouchableOpacity
+                    testID="push-details-screen"
                     key={p.personid + p.role}
                     onPress={() => push("Person", { ...p })}
                   >
