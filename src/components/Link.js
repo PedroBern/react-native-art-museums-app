@@ -5,7 +5,7 @@ import * as WebBrowser from "expo-web-browser";
 import { Headline } from "react-native-paper";
 
 const Link = ({ url, children, Component, style }) => (
-  <TouchableOpacity onPress={() => handleLinkPress(url)}>
+  <TouchableOpacity testID="hyperlink" onPress={() => handleLinkPress(url)}>
     <Component style={[styles.link, styles.centeredText, style]}>
       {children}
     </Component>

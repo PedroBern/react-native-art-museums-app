@@ -1,22 +1,16 @@
 import React from "react";
-import renderer from "react-test-renderer";
 
 import TabBarIcon from "../../src/components/TabBarIcon";
+import { renderAndSnap } from "../utils";
 
 jest.mock("NativeAnimatedHelper");
 
 describe("TabBarIcon", () => {
   it("renders", () => {
-    const tabBar = renderer
-      .create(<TabBarIcon route={{ icon: "icon" }} />)
-      .toJSON();
-    expect(tabBar).toMatchSnapshot();
+    renderAndSnap(<TabBarIcon route={{ icon: "icon" }} />);
   });
 
   it("renders focused", () => {
-    const tabBar = renderer
-      .create(<TabBarIcon route={{ icon: "icon" }} focused={true} />)
-      .toJSON();
-    expect(tabBar).toMatchSnapshot();
+    renderAndSnap(<TabBarIcon route={{ icon: "icon" }} focused={true} />);
   });
 });

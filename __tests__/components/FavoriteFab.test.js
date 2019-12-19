@@ -4,6 +4,7 @@ import { render, fireEvent } from "react-native-testing-library";
 import { FAB } from "react-native-paper";
 
 import { FavoriteFab } from "../../src/components/FavoriteFab";
+import { renderAndSnap } from "../utils";
 
 const recordsMock = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
@@ -12,16 +13,13 @@ const getUnderlyingComponent = testInstance =>
 
 describe("FavoriteFab", () => {
   it("renders", () => {
-    const favoriteFab = renderer
-      .create(
-        <FavoriteFab
-          favorites={recordsMock}
-          record={recordsMock[0]}
-          toggleFavorite={() => {}}
-        />
-      )
-      .toJSON();
-    expect(favoriteFab).toMatchSnapshot();
+    renderAndSnap(
+      <FavoriteFab
+        favorites={recordsMock}
+        record={recordsMock[0]}
+        toggleFavorite={() => {}}
+      />
+    );
   });
 
   it("fire callback on press with record argument", () => {

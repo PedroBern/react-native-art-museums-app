@@ -1,16 +1,14 @@
 import React from "react";
-import renderer from "react-test-renderer";
 
 import EmptyList from "../../src/components/EmptyList";
+import { renderAndSnap } from "../utils";
 
 describe("EmptyList", () => {
   it("prop notShow = true", () => {
-    const emptyList = renderer.create(<EmptyList notShow={true} />).toJSON();
-    expect(emptyList).toMatchSnapshot();
+    renderAndSnap(<EmptyList notShow={true} />);
   });
 
   it("prop notShow = false", () => {
-    const emptyList = renderer.create(<EmptyList notShow={false} />).toJSON();
-    expect(emptyList).toMatchSnapshot();
+    renderAndSnap(<EmptyList notShow={false} />);
   });
 });

@@ -15,6 +15,7 @@ exports[`Link renders 1`] = `
       "opacity": 1,
     }
   }
+  testID="hyperlink"
 >
   <Text
     style={

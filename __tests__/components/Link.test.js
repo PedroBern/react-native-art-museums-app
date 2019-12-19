@@ -1,25 +1,21 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { render, fireEvent } from "react-native-testing-library";
 import * as WebBrowser from "expo-web-browser";
-import { mount } from "enzyme";
-import { TouchableOpacity } from "react-native";
 
 import Link from "../../src/components/Link";
-import mockPressable from "../_mockPressable";
+import { renderAndSnap } from "../utils";
 
 describe("Link", () => {
   it("renders", () => {
-    const link = renderer.create(<Link url="url">Hello</Link>).toJSON();
-    expect(link).toMatchSnapshot();
+    renderAndSnap(<Link url="url">Hello</Link>);
   });
 
-  it("open WebBrowser", () => {
-    jest.mock("TouchableOpacity", () => mockPressable("TouchableOpacity"));
+  it("open WebBrowser 2", () => {
     WebBrowser.openBrowserAsync = jest.fn();
 
-    const wrapper = mount(<Link url="url">Hello</Link>);
-    const touchable = wrapper.find(TouchableOpacity);
-    touchable.simulate("click");
+    const { getByTestId } = render(<Link url="url">Hello</Link>);
+
+    fireEvent.press(getByTestId("hyperlink"));
     expect(WebBrowser.openBrowserAsync).toHaveBeenCalledTimes(1);
     expect(WebBrowser.openBrowserAsync.mock.calls[0][0]).toBe("url");
   });

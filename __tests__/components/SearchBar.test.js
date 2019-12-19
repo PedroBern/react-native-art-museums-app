@@ -1,19 +1,18 @@
 import React from "react";
-import renderer from "react-test-renderer";
 import { render, fireEvent } from "react-native-testing-library";
 import { Searchbar } from "react-native-paper";
 
 import SearchBarComponent from "../../src/components/SearchBar";
+import { renderAndSnap } from "../utils";
 
 const getUnderlyingComponent = testInstance =>
   testInstance.root.findByType(Searchbar);
 
 describe("SearchBar", () => {
   it("renders", () => {
-    const search = renderer
-      .create(<SearchBarComponent dismiss={() => {}} onSubmit={() => {}} />)
-      .toJSON();
-    expect(search).toMatchSnapshot();
+    renderAndSnap(
+      <SearchBarComponent dismiss={() => {}} onSubmit={() => {}} />
+    );
   });
 
   it("handle submit", () => {
