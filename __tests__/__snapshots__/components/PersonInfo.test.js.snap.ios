@@ -1,0 +1,868 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonInfo renders error 1`] = `
+<Text
+  style={
+    Object {
+      "flex": 1,
+      "padding": 16,
+    }
+  }
+>
+  Some error
+</Text>
+`;
+
+exports[`PersonInfo renders loading 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "padding": 16,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 48,
+        "opacity": 1,
+        "width": 48,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 48,
+            "transform": Array [
+              Object {
+                "rotate": "45deg",
+              },
+            ],
+            "width": 48,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "height": 24,
+              "overflow": "hidden",
+              "width": 48,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "height": 48,
+                "transform": Array [
+                  Object {
+                    "translateY": 0,
+                  },
+                  Object {
+                    "rotate": "-165deg",
+                  },
+                ],
+                "width": 48,
+              }
+            }
+          >
+            <View
+              collapsable={false}
+              style={
+                Object {
+                  "height": 24,
+                  "overflow": "hidden",
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "borderColor": "#000",
+                    "borderRadius": 24,
+                    "borderWidth": 4.8,
+                    "height": 48,
+                    "width": 48,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 48,
+            "transform": Array [
+              Object {
+                "rotate": "45deg",
+              },
+            ],
+            "width": 48,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "height": 24,
+              "overflow": "hidden",
+              "top": 24,
+              "width": 48,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "height": 48,
+                "transform": Array [
+                  Object {
+                    "translateY": -24,
+                  },
+                  Object {
+                    "rotate": "345deg",
+                  },
+                ],
+                "width": 48,
+              }
+            }
+          >
+            <View
+              collapsable={false}
+              style={
+                Object {
+                  "height": 24,
+                  "overflow": "hidden",
+                  "width": 48,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "borderColor": "#000",
+                    "borderRadius": 24,
+                    "borderWidth": 4.8,
+                    "height": 48,
+                    "width": 48,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`PersonInfo renders ok 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "padding": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Name
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Vincent van Gogh
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Gender
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    male
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Culture
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Dutch
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Birthplace
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Groot Zundert (Zundert), The Netherlands
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Deathplace
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Auvers-sur-Oise, France
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Date
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    1853 - 1890
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="hyperlink"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#2e78b7",
+          "fontFamily": "System",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+          "marginVertical": 2,
+          "textAlign": "center",
+          "writingDirection": "ltr",
+        }
+      }
+    >
+      Open on Wikipedia
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="hyperlink"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#2e78b7",
+          "fontFamily": "System",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+          "marginVertical": 2,
+          "textAlign": "center",
+          "writingDirection": "ltr",
+        }
+      }
+    >
+      Open on Harvard Art Museum
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`PersonInfo renders ok bare 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "padding": 16,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Name
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Vincent van Gogh
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Gender
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    <Text>
+      -
+    </Text>
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Culture
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    <Text>
+      -
+    </Text>
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Birthplace
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    <Text>
+      -
+    </Text>
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Deathplace
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    <Text>
+      -
+    </Text>
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 20,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 30,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Date
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20,
+        "marginVertical": 2,
+        "textAlign": "left",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    <Text>
+      -
+    </Text>
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.12)",
+        "height": 0.5,
+        "marginBottom": 8,
+        "marginTop": 8,
+      }
+    }
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="hyperlink"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#2e78b7",
+          "fontFamily": "System",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "letterSpacing": 0.25,
+          "lineHeight": 20,
+          "marginVertical": 2,
+          "textAlign": "center",
+          "writingDirection": "ltr",
+        }
+      }
+    >
+      Open on Harvard Art Museum
+    </Text>
+  </View>
+</View>
+`;

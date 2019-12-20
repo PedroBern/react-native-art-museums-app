@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem renders any 0 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "height": 48,
+      "justifyContent": "flex-start",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+    }
+  }
+>
+  <RCTScrollView
+    horizontal={true}
+    indicatorStyle="light"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="list-item"
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontSize": 20,
+              "fontWeight": "500",
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          name
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "padding": 8,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "rgba(0, 0, 0, 0.54)",
+          "fontFamily": "System",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "letterSpacing": 0.4,
+          "lineHeight": 20,
+          "marginVertical": 2,
+          "textAlign": "left",
+          "writingDirection": "ltr",
+        }
+      }
+    >
+      10
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ListItem renders any 1 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "height": 48,
+      "justifyContent": "flex-start",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+    }
+  }
+>
+  <RCTScrollView
+    horizontal={true}
+    indicatorStyle="light"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="list-item"
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontSize": 20,
+              "fontWeight": "500",
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          name
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "padding": 8,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "rgba(0, 0, 0, 0.54)",
+          "fontFamily": "System",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "letterSpacing": 0.4,
+          "lineHeight": 20,
+          "marginVertical": 2,
+          "textAlign": "left",
+          "writingDirection": "ltr",
+        }
+      }
+    >
+      10
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ListItem renders object 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "height": 48,
+      "justifyContent": "flex-start",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+    }
+  }
+>
+  <RCTScrollView
+    horizontal={true}
+    indicatorStyle="light"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="list-item"
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontSize": 20,
+              "fontWeight": "500",
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          name
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`ListItem renders person 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "height": 48,
+      "justifyContent": "flex-start",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+    }
+  }
+>
+  <RCTScrollView
+    horizontal={true}
+    indicatorStyle="light"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="list-item"
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontSize": 20,
+              "fontWeight": "500",
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginVertical": 2,
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          name
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "padding": 8,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "rgba(0, 0, 0, 0.54)",
+          "fontFamily": "System",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "letterSpacing": 0.4,
+          "lineHeight": 20,
+          "marginVertical": 2,
+          "textAlign": "left",
+          "writingDirection": "ltr",
+        }
+      }
+    >
+      10
+    </Text>
+  </View>
+</View>
+`;

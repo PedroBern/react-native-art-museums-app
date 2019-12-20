@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`details reducer defaults to state 1`] = `
+Object {
+  "error": null,
+  "loading": true,
+  "record": Object {
+    "accessionmethod": "",
+    "accessionyear": null,
+    "classification": "",
+    "culture": "",
+    "images": Array [],
+    "people": Array [],
+    "technique": "",
+    "url": "",
+  },
+}
+`;
+
+exports[`details reducer receives fetch fail 1`] = `
+Object {
+  "error": "error",
+  "loading": false,
+  "record": Object {
+    "accessionmethod": "",
+    "accessionyear": null,
+    "classification": "",
+    "culture": "",
+    "images": Array [],
+    "people": Array [],
+    "technique": "",
+    "url": "",
+  },
+}
+`;
+
+exports[`details reducer receives fetch response 1`] = `
+Object {
+  "error": null,
+  "loading": false,
+  "record": Object {
+    "record": "data",
+  },
+}
+`;
+
+exports[`details reducer reset 1`] = `
+Object {
+  "error": null,
+  "loading": true,
+  "record": Object {
+    "accessionmethod": "",
+    "accessionyear": null,
+    "classification": "",
+    "culture": "",
+    "images": Array [],
+    "people": Array [],
+    "technique": "",
+    "url": "",
+  },
+}
+`;
+
+exports[`details reducer starts loading 1`] = `
+Object {
+  "error": null,
+  "loading": true,
+  "record": Object {
+    "accessionmethod": "",
+    "accessionyear": null,
+    "classification": "",
+    "culture": "",
+    "images": Array [],
+    "people": Array [],
+    "technique": "",
+    "url": "",
+  },
+}
+`;

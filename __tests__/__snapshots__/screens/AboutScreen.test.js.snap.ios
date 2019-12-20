@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutScreen renders 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "#6200ee",
+        "elevation": 4,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 3,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 4,
+        "zIndex": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#6200ee",
+          "elevation": 0,
+          "flexDirection": "row",
+          "height": 56,
+          "marginTop": 0,
+          "paddingHorizontal": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "width": 48,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "paddingHorizontal": 12,
+          }
+        }
+      >
+        <Text
+          accessibilityRole="header"
+          accessibilityTraits="header"
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "System",
+              "fontSize": 17,
+              "fontWeight": "400",
+              "textAlign": "left",
+            }
+          }
+        >
+          About
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "width": 48,
+          }
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "space-around",
+        "padding": 40,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontSize": 24,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 32,
+            "marginVertical": 2,
+            "textAlign": "center",
+            "writingDirection": "ltr",
+          }
+        }
+      >
+        Built with the
+      </Text>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="hyperlink"
+      >
+        <Text
+          style={
+            Object {
+              "color": "#2e78b7",
+              "fontFamily": "System",
+              "fontSize": 24,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 32,
+              "marginVertical": 2,
+              "textAlign": "center",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          Harvard Art Museums API
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.12)",
+          "height": 0.5,
+          "padding": 1,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontSize": 24,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 32,
+            "marginVertical": 2,
+            "textAlign": "center",
+            "writingDirection": "ltr",
+          }
+        }
+      >
+        Source code on 
+      </Text>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="hyperlink"
+      >
+        <Text
+          style={
+            Object {
+              "color": "#2e78b7",
+              "fontFamily": "System",
+              "fontSize": 24,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 32,
+              "marginVertical": 2,
+              "textAlign": "center",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          GitHub
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.12)",
+          "height": 0.5,
+          "padding": 1,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "System",
+            "fontSize": 14,
+            "fontWeight": "400",
+            "letterSpacing": 0.25,
+            "lineHeight": 20,
+            "marginVertical": 2,
+            "textAlign": "center",
+            "writingDirection": "ltr",
+          }
+        }
+      >
+        by 
+      </Text>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="hyperlink"
+      >
+        <Text
+          style={
+            Object {
+              "color": "#2e78b7",
+              "fontFamily": "System",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "letterSpacing": 0.25,
+              "lineHeight": 20,
+              "marginVertical": 2,
+              "textAlign": "center",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          @pedrobern
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

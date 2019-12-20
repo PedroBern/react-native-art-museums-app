@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`favorites reducer add to favotites 1`] = `
+Object {
+  "grid": true,
+  "records": Array [
+    Object {
+      "id": 1,
+    },
+  ],
+  "visibleIndex": 0,
+}
+`;
+
+exports[`favorites reducer change grid on toggle 1`] = `
+Object {
+  "grid": false,
+  "records": Array [],
+  "visibleIndex": 0,
+}
+`;
+
+exports[`favorites reducer change visible index 1`] = `
+Object {
+  "grid": true,
+  "records": Array [],
+  "visibleIndex": 1,
+}
+`;
+
+exports[`favorites reducer defaults to state 1`] = `
+Object {
+  "grid": true,
+  "records": Array [],
+  "visibleIndex": 0,
+}
+`;
+
+exports[`favorites reducer remove from favotites 1`] = `
+Object {
+  "grid": true,
+  "records": Array [],
+  "visibleIndex": 0,
+}
+`;

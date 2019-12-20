@@ -1,0 +1,352 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedItem renders 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 0,
+      "marginTop": 24,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 0,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 0,
+    }
+  }
+>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexGrow": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": 72,
+          "justifyContent": "space-between",
+          "paddingLeft": 16,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "System",
+              "fontSize": 20,
+              "fontWeight": "500",
+              "letterSpacing": 0.15,
+              "lineHeight": 30,
+              "marginBottom": 0,
+              "marginVertical": 2,
+              "minHeight": 30,
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          title
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontFamily": "System",
+              "fontSize": 12,
+              "fontWeight": "400",
+              "letterSpacing": 0.4,
+              "lineHeight": 20,
+              "marginVertical": 0,
+              "minHeight": 20,
+              "textAlign": "left",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          division
+        </Text>
+      </View>
+      <View />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="feed-item"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#eeeeee",
+            "height": 750,
+            "overflow": "hidden",
+            "width": 750,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "url?height=750&width=750",
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+              "height": undefined,
+              "justifyContent": "flex-end",
+              "padding": 16,
+              "resizeMode": "cover",
+              "width": undefined,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.54)",
+            "fontFamily": "System",
+            "fontSize": 12,
+            "fontWeight": "400",
+            "letterSpacing": 0.4,
+            "lineHeight": 20,
+            "marginVertical": 2,
+            "textAlign": "left",
+            "writingDirection": "ltr",
+          }
+        }
+      >
+        century
+      </Text>
+    </View>
+    <View
+      index={3}
+      pointerEvents="auto"
+      siblings={
+        Array [
+          "withTheme(Card.Title)",
+          "TouchableOpacity",
+          "Card.Content",
+          "Connect(FavoriteFab)",
+        ]
+      }
+      style={
+        Object {
+          "backgroundColor": "#03dac4",
+          "borderRadius": 28,
+          "bottom": 0,
+          "elevation": 6,
+          "margin": 16,
+          "opacity": 1,
+          "position": "absolute",
+          "right": 0,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 5,
+            "width": 0,
+          },
+          "shadowOpacity": 0.24,
+          "shadowRadius": 6,
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+      testID="favorite-fab"
+      total={4}
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityStates={Array []}
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "borderRadius": 28,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View
+          pointerEvents="none"
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 56,
+              "justifyContent": "center",
+              "width": 56,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 24,
+                "justifyContent": "center",
+                "width": 24,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                }
+              }
+            >
+              <Text />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`FeedItemGrid renders 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 0,
+      "padding": 2,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 0,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 0,
+    }
+  }
+>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexGrow": 1,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="feed-item-grid"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#eeeeee",
+            "height": 371,
+            "overflow": "hidden",
+            "width": 371,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "url?height=371&width=371",
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+              "height": undefined,
+              "justifyContent": "flex-end",
+              "padding": 16,
+              "resizeMode": "cover",
+              "width": undefined,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;

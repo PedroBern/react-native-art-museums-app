@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`feed reducer change grid on toggle 1`] = `
+Object {
+  "error": null,
+  "grid": true,
+  "info": Object {},
+  "loading": true,
+  "records": Array [],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
+exports[`feed reducer change grid on toggle 2`] = `
+Object {
+  "error": null,
+  "grid": false,
+  "info": Object {},
+  "loading": true,
+  "records": Array [],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 1,
+}
+`;
+
+exports[`feed reducer defaults to state 1`] = `
+Object {
+  "error": null,
+  "grid": false,
+  "info": Object {},
+  "loading": true,
+  "records": Array [],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
+exports[`feed reducer receives fetch fail 1`] = `
+Object {
+  "error": "error",
+  "grid": false,
+  "info": Object {},
+  "loading": false,
+  "records": Array [],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
+exports[`feed reducer receives fetch response 1`] = `
+Object {
+  "error": null,
+  "grid": false,
+  "info": "some info",
+  "loading": false,
+  "records": Array [
+    Object {
+      "id": 1,
+    },
+    Object {
+      "id": 2,
+    },
+  ],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
+exports[`feed reducer receives fetch response and add only new records 1`] = `
+Object {
+  "error": null,
+  "grid": false,
+  "info": "some info",
+  "loading": false,
+  "records": Array [
+    Object {
+      "id": 1,
+    },
+    Object {
+      "id": 2,
+    },
+  ],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
+exports[`feed reducer reset on refresh 1`] = `
+Object {
+  "error": null,
+  "grid": false,
+  "info": Object {},
+  "loading": true,
+  "records": Array [],
+  "refreshing": true,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
+exports[`feed reducer sort feed 1`] = `
+Object {
+  "a": "a",
+  "error": null,
+  "grid": false,
+  "info": Object {},
+  "loading": true,
+  "records": Array [],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;
+
+exports[`feed reducer starts loading 1`] = `
+Object {
+  "error": null,
+  "grid": false,
+  "info": Object {},
+  "loading": true,
+  "records": Array [],
+  "refreshing": false,
+  "sort": "totalpageviews",
+  "sortOrder": "desc",
+  "visibleIndex": 0,
+}
+`;

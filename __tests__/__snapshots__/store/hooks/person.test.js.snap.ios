@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`personReducer render 1`] = `
+Object {
+  "actions": Object {
+    "loadPerson": [Function],
+    "loadPersonRecords": [Function],
+    "onEndReached": [Function],
+  },
+  "person": Object {
+    "data": null,
+    "error": null,
+    "loading": true,
+  },
+  "records": Object {
+    "data": Array [],
+    "error": null,
+    "loading": true,
+    "next": null,
+  },
+}
+`;

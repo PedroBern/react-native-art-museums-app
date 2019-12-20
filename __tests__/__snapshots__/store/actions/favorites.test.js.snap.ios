@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`setVisibleIndex returns an action 1`] = `
+Object {
+  "payload": 1,
+  "type": "SET_VISIBLE_INDEX_FAVORITES",
+}
+`;
+
+exports[`toggleFavorite returns an action 1`] = `
+Object {
+  "payload": 1,
+  "type": "TOGGLE_FAVORITE",
+}
+`;
+
+exports[`toggleFavoritesView returns an action 1`] = `
+Object {
+  "type": "TOGGLE_FAVORITES_VIEW",
+}
+`;

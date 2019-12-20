@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="hyperlink"
+>
+  <Text
+    style={
+      Object {
+        "color": "#2e78b7",
+        "fontFamily": "System",
+        "fontSize": 24,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 32,
+        "marginVertical": 2,
+        "textAlign": "center",
+        "writingDirection": "ltr",
+      }
+    }
+  >
+    Hello
+  </Text>
+</View>
+`;

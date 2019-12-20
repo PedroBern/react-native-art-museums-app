@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomDivider renders 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "rgba(0, 0, 0, 0.12)",
+      "height": 0.5,
+      "marginBottom": 8,
+      "marginTop": 8,
+    }
+  }
+/>
+`;
