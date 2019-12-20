@@ -1,12 +1,16 @@
 import React from "react";
+import * as R from "react-native";
 import * as navHook from "react-navigation-hooks";
 import { render, fireEvent } from "react-native-testing-library";
+import { mount } from "enzyme";
+import { Provider } from "react-redux";
 
 import DetailsScreen from "../../src/screens/DetailsScreen";
 import { renderAndSnap } from "../utils";
 import * as api from "../../src/api/api";
 import * as apiMocks from "../../src/api/mockFunctions";
 import * as apiResponses from "../../src/api/mockResponses";
+import { store } from "../../src/store";
 
 const mockPush = jest.fn((screen, args) => {});
 const mockGoBack = jest.fn();
@@ -22,11 +26,10 @@ navHook.useNavigationParam = param => {
     case "division":
       return "some-division";
 
-    case "century":
-      return "some-century";
-
     case "primaryimageurl":
       return "some-url";
+    case "century":
+      return "some-century";
 
     default:
       return "some-id";
@@ -72,4 +75,28 @@ describe("DetailsScreen", () => {
     fireEvent.press(getByTestId("go-back-details-screen"));
     expect(mockGoBack).toHaveBeenCalledTimes(1);
   });
+
+  // it("handle navigation", async () => {
+  //   api.fetchRecord = jest.fn(() => apiMocks.fetchRecordSuccess());
+  //   R.TouchableOpacity = props => (
+  //     <R.TouchableOpacity {...props} onClick={props.onPress} />
+  //   );
+  //   R.Image = props => <R.View />;
+  //
+  //   const screen = mount(
+  //     <Provider store={store}>
+  //       <DetailsScreen />
+  //     </Provider>
+  //   );
+  //
+  //   expect(api.fetchRecord).toHaveBeenCalled();
+  //   await screen.update();
+  //
+  //   // expect(screen).toMatchSnapshot();
+  //
+  //   const push = screen.find("#people");
+  //   // push.simulate("click");
+  //   // screen.update();
+  //   // expect(mockPush).toHaveBeenCalledTimes(1);
+  // });
 });
