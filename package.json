@@ -68,5 +68,5 @@
       "^.+\\.jsx?$": "babel-jest"
     }
   },
-  "private": true
+  "private": false
 }
