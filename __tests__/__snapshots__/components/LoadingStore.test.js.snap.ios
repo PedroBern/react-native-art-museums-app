@@ -187,22 +187,5 @@ exports[`LoadingStore renders 1`] = `
       </View>
     </View>
   </View>
-  <Text
-    style={
-      Object {
-        "color": "rgba(0, 0, 0, 0.87)",
-        "fontFamily": "System",
-        "fontSize": 14,
-        "fontWeight": "400",
-        "letterSpacing": 0.25,
-        "lineHeight": 20,
-        "marginVertical": 2,
-        "textAlign": "left",
-        "writingDirection": "ltr",
-      }
-    }
-  >
-    Loading...
-  </Text>
 </View>
 `;

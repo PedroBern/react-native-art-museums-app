@@ -7,7 +7,6 @@ import Spinner from "./Spinner";
 const LoadingStore = () => (
   <View style={styles.root}>
     <Spinner />
-    <Paragraph>Loading...</Paragraph>
   </View>
 );
 
