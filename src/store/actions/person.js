@@ -14,9 +14,9 @@ export const FETCH_PERSON_RECORDS__REJECTED = "FETCH_PERSON_RECORDS__REJECTED";
 
 export const loadPerson = id => async dispatch => {
   dispatch({ type: FETCH_PERSON__SENT });
+  dispatch({ type: FETCH_PERSON_RECORDS__SENT });
   try {
     const results = await fetchPerson(id);
-
     dispatch({
       type: FETCH_PERSON__FULFILLED,
       payload: results
@@ -24,17 +24,21 @@ export const loadPerson = id => async dispatch => {
   } catch (err) {
     dispatch({ type: FETCH_PERSON__REJECTED, payload: err.message });
   }
+  try {
+    const resultsRecords = await fetchPersonRecords(id);
+    dispatch({
+      type: FETCH_PERSON_RECORDS__FULFILLED,
+      payload: resultsRecords
+    });
+  } catch (err) {
+    dispatch({ type: FETCH_PERSON_RECORDS__REJECTED, payload: err.message });
+  }
 };
 
-export const loadPersonRecords = (id, next) => async dispatch => {
+export const loadPersonRecordsOnEndReached = next => async dispatch => {
   dispatch({ type: FETCH_PERSON_RECORDS__SENT });
   try {
-    let results;
-    if (next) {
-      results = await fetchFeed(next);
-    } else {
-      results = await fetchPersonRecords(id);
-    }
+    const results = await fetchFeed(next);
     dispatch({
       type: FETCH_PERSON_RECORDS__FULFILLED,
       payload: results

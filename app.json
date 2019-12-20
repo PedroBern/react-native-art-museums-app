@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "cs50m-final-project",
-    "slug": "cs50m-final-project",
+    "name": "Art Museum Collection",
+    "slug": "art-museum-collection",
+    "description": "Browse through Harvard's Art Museum collection on this unofficial app! Save your favorite objects and make your own collection!",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": ["ios", "android"],

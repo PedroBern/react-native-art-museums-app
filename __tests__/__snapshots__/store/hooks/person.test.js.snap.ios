@@ -4,7 +4,6 @@ exports[`personReducer render 1`] = `
 Object {
   "actions": Object {
     "loadPerson": [Function],
-    "loadPersonRecords": [Function],
     "onEndReached": [Function],
   },
   "person": Object {

@@ -22,7 +22,7 @@ const PersonScreen = () => {
   const { person, records, actions } = usePresonReducer(id);
 
   useEffect(() => {
-    actions.loadPersonRecords();
+    // actions.loadPersonRecords();
     actions.loadPerson();
   }, []);
 

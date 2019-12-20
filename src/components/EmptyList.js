@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 });
 
 EmptyList.propTypes = {
-  notShow: PropTypes.bool.isRequired
+  notShow: PropTypes.bool
 };
 
 export default EmptyList;

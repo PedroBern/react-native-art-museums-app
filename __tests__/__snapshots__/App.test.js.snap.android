@@ -211,7 +211,7 @@ exports[`App renders 1`] = `
         }
       }
     >
-      Loading previous state...
+      Loading...
     </Text>
   </View>
 </View>
