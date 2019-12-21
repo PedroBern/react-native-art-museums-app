@@ -4,12 +4,14 @@
     "slug": "art-museum-collection",
     "description": "Browse through Harvard's Art Museum collection on this unofficial app! Save your favorite objects and make your own collection!",
     "privacy": "public",
-    "permissions": [],
     "sdkVersion": "35.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "android": {
+      "permissions": []
+    },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
