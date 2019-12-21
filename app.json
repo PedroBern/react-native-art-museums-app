@@ -10,7 +10,8 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "android": {
-      "permissions": []
+      "permissions": [],
+      "package": "collection.museum.art"
     },
     "splash": {
       "image": "./assets/splash.png",
