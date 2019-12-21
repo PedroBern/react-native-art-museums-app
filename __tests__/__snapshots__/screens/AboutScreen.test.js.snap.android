@@ -235,6 +235,73 @@ exports[`AboutScreen renders 1`] = `
             "writingDirection": "ltr",
           }
         }
+      />
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="hyperlink"
+      >
+        <Text
+          style={
+            Object {
+              "color": "#2e78b7",
+              "fontFamily": "sans-serif",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "letterSpacing": 0.25,
+              "lineHeight": 20,
+              "marginVertical": 2,
+              "textAlign": "center",
+              "writingDirection": "ltr",
+            }
+          }
+        >
+          Privacy policy
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.12)",
+          "height": 0.5,
+          "padding": 1,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "sans-serif",
+            "fontSize": 14,
+            "fontWeight": "normal",
+            "letterSpacing": 0.25,
+            "lineHeight": 20,
+            "marginVertical": 2,
+            "textAlign": "center",
+            "writingDirection": "ltr",
+          }
+        }
       >
         by 
       </Text>

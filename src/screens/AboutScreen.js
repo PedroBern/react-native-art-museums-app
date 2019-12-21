@@ -5,7 +5,7 @@ import { Appbar, Paragraph, Headline, Divider } from "react-native-paper";
 
 import Link from "../components/Link";
 
-const AboutScreen = ({}) => {
+const AboutScreen = () => {
   return (
     <View style={styles.root}>
       <Appbar.Header>
@@ -23,6 +23,16 @@ const AboutScreen = ({}) => {
           <Headline style={styles.centeredText}>Source code on </Headline>
           <Link url="https://github.com/PedroBern/react-native-art-museums-app">
             GitHub
+          </Link>
+        </View>
+        <Divider style={styles.divider} />
+        <View style={styles.row}>
+          <Paragraph style={styles.centeredText}></Paragraph>
+          <Link
+            url="https://github.com/PedroBern/react-native-art-museums-app/blob/master/privacy_policy.md"
+            Component={Paragraph}
+          >
+            Privacy policy
           </Link>
         </View>
         <Divider style={styles.divider} />
@@ -57,6 +67,9 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row"
+  },
+  link: {
+    color: "#2e78b7"
   }
 });
 
