@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Art Museum Collection",
-    "slug": "art-museum-collection",
+    "name": "Art Museum",
+    "slug": "art-museum",
     "description": "Browse through Harvard's Art Museum collection on this unofficial app! Save your favorite objects and make your own collection!",
     "privacy": "public",
     "sdkVersion": "35.0.0",
@@ -11,7 +11,7 @@
     "icon": "./assets/icon.png",
     "android": {
       "permissions": [],
-      "package": "collection.museum.art"
+      "package": "museum.art"
     },
     "splash": {
       "image": "./assets/splash.png",
