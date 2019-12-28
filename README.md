@@ -5,6 +5,8 @@
 
 <a href='https://play.google.com/store/apps/details?id=museum.art&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 
+![demo-gif](https://github.com/PedroBern/react-native-art-museums-app/raw/master/demo.gif)
+
 Browse through Harvard's Art Museum collection on this unofficial app! Save your favorite objects and make your own collection!
 
 It's build with the [amazing api](https://github.com/harvardartmuseums/api-docs) of the museum.
