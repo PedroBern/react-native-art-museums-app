@@ -1,4 +1,5 @@
-const API_KEY = "a3a79800-15f2-11ea-af26-8529a4665017";
+# get a new API key: https://github.com/harvardartmuseums/api-docs#access-to-the-api
+const API_KEY = "YOUR API KEY";
 
 export const processFeed = results => {
   const processed = {
