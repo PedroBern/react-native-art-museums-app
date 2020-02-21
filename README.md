@@ -7,7 +7,7 @@
 
 ### Preview
 
-<img src="https://github.com/PedroBern/react-native-art-museums-app/raw/master/demo.gif" width="200">
+[![preview](https://github.com/PedroBern/react-native-art-museums-app/raw/master/preview.jpg)](https://www.reddit.com/r/reactjs/comments/f6s6wc/my_first_react_published_app/)
 
 ### Description
 
