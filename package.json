@@ -43,6 +43,7 @@
     "@testing-library/react-native": "^5.0.3",
     "babel-jest": "^24.9.0",
     "babel-preset-expo": "^7.0.0",
+    "codecov": "^3.6.5",
     "enzyme": "^3.10.0",
     "expo-cli": "^3.13.1",
     "jest": "^24.9.0",
