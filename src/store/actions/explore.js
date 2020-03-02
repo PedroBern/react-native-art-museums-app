@@ -74,21 +74,18 @@ export const localSearch = (records, value) => dispatch => {
 
 export const apiSearch = (value, target, url = null) => async dispatch => {
   dispatch({ type: FILTER_RECORDS__SENT });
-  let results;
   try {
-    results = url
-      ? await fetchFeed(url)
-      : await fetchListOf(null, target, false, value);
+    const results = url ? await fetchFeed(url) : await fetchListOf(null, target, false, value);
+    if (results.records.length === 0) {
+      dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
+    } else {
+      dispatch({
+        type: FILTER_RECORDS__FULFILLED,
+        payload: { ...results }
+      });
+    }
   } catch (err) {
     dispatch({ type: FILTER_RECORDS__REJECTED, payload: err.message });
-  }
-  if (results.records.length === 0) {
-    dispatch({ type: FILTER_RECORDS__REJECTED, payload: "Nothing to show." });
-  } else {
-    dispatch({
-      type: FILTER_RECORDS__FULFILLED,
-      payload: { ...results }
-    });
   }
 };
 
