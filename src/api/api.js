@@ -1,5 +1,5 @@
 // get a new API key: https://github.com/harvardartmuseums/api-docs#access-to-the-api
-const API_KEY = "YOUR API KEY";
+import { API_KEY } from 'react-native-dotenv'
 
 export const processFeed = results => {
   const processed = {
@@ -8,7 +8,6 @@ export const processFeed = results => {
     },
     records: results.records.map(r => ({
       ...r,
-      // title: r.title[0] === "[" ? r.title.slice(1, -1) : r.title,
       id: r.objectnumber
     }))
   };
