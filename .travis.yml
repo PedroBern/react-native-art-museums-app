@@ -15,10 +15,8 @@ os:
 
 jobs:
   include:
-    - stage: test
-      script:
-        - yarn test
-    - stage: coverage
-      script:
+    - stage: "Coverage"
+      name: "Code Coverage"
+      script: 
         - yarn coverage
         - yarn codecov
