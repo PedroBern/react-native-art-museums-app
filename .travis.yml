@@ -6,7 +6,10 @@ node_js:
 
 env:
   API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-  
+
+before_install:
+  - mv .env.sample .env
+
 install:
   - yarn
 
