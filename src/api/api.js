@@ -1,5 +1,5 @@
 // get a new API key: https://github.com/harvardartmuseums/api-docs#access-to-the-api
-import { API_KEY } from 'react-native-dotenv'
+import { API_KEY } from '@env'
 
 export const processFeed = results => {
   const processed = {

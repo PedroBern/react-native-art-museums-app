@@ -31,8 +31,8 @@ It's built using the museum's [amazing api](https://github.com/harvardartmuseums
 ## Configuration
 
 1. Get a new API key: https://github.com/harvardartmuseums/api-docs#access-to-the-api
-2. Create a `.env` file in the root directory.
-3. Add the API key in the file like so:
+2. Create the file `./.env`. Use `./.env.sample` as an example.
+3. Add the API key into that file like so:
 ```
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
