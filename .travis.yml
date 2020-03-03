@@ -7,14 +7,11 @@ node_js:
 env:
   API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
   
-sudo: false
-
 install:
   - yarn
 
 os:
   - "linux"
-  - "osx"
 
 jobs:
   include:
