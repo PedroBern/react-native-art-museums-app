@@ -4,6 +4,9 @@ node_js:
   - "lts/erbium"
   - "node"
 
+env:
+  API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  
 sudo: false
 
 install:
