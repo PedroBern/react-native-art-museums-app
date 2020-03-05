@@ -1,18 +1,22 @@
 language: node_js
 
+node_js:
+  - "lts/erbium"
+  - "node"
+
+env:
+  API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
 install:
   - yarn
-  - npm install -g codecov
+
+os:
+  - "linux"
 
 jobs:
   include:
-    - state: test
-      node_js:
-        - 11
-      script:
-        - yarn test
-    - stage: coverage
-      node_js: "11"
-      script:
+    - stage: "Coverage"
+      name: "Code Coverage"
+      script: 
         - yarn coverage
-        - codecov
+        - yarn codecov

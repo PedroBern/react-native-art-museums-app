@@ -10,7 +10,7 @@ export const delayMock = async res => {
 export const fetchFeedMock__raw = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/object?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=objectnumber%2Cdated%2Ccentury%2Cdivision%2Cprimaryimageurl%2Ctitle&sort=totalpageviews&page=2&size=44&hasimage=1&sortorder=desc",
+      "https://api.harvardartmuseums.org/object?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=objectnumber%2Cdated%2Ccentury%2Cdivision%2Cprimaryimageurl%2Ctitle&sort=totalpageviews&page=2&size=44&hasimage=1&sortorder=desc",
     page: 1,
     pages: 4794,
     totalrecords: 210916,
@@ -306,7 +306,7 @@ export const fetchFeedMock__raw = {
 export const fetchFeedMock = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/object?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=objectnumber%2Cdated%2Ccentury%2Cdivision%2Cprimaryimageurl%2Ctitle&sort=totalpageviews&page=2&size=44&hasimage=1&sortorder=desc"
+      "https://api.harvardartmuseums.org/object?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=objectnumber%2Cdated%2Ccentury%2Cdivision%2Cprimaryimageurl%2Ctitle&sort=totalpageviews&page=2&size=44&hasimage=1&sortorder=desc"
   },
   records: [
     {
@@ -793,7 +793,7 @@ export const fetchPersonMock = {
 export const fetchListOfMock__person_raw = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/person?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=id%2Cobjectcount%2Cdisplayname&sortorder=asc&size=100&sort=displayname&page=2",
+      "https://api.harvardartmuseums.org/person?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=id%2Cobjectcount%2Cdisplayname&sortorder=asc&size=100&sort=displayname&page=2",
     page: 1,
     pages: 394,
     totalrecords: 39352,
@@ -1216,7 +1216,7 @@ export const fetchListOfMock__person_raw = {
 export const fetchListOfMock__person = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/person?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=id%2Cobjectcount%2Cdisplayname&sortorder=asc&size=100&sort=displayname&page=2",
+      "https://api.harvardartmuseums.org/person?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=id%2Cobjectcount%2Cdisplayname&sortorder=asc&size=100&sort=displayname&page=2",
     page: 1,
     pages: 394,
     totalrecords: 39352,
@@ -1639,7 +1639,7 @@ export const fetchListOfMock__person = {
 export const fetchListOfMock__object_raw = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/object?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=objectnumber%2Ctitle&sortorder=asc&size=100&hasimage=1&sort=title&page=2",
+      "https://api.harvardartmuseums.org/object?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=objectnumber%2Ctitle&sortorder=asc&size=100&hasimage=1&sort=title&page=2",
     page: 1,
     pages: 2110,
     totalrecords: 210916,
@@ -1935,7 +1935,7 @@ export const fetchListOfMock__object_raw = {
 export const fetchListOfMock__object = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/object?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=objectnumber%2Ctitle&sortorder=asc&size=100&hasimage=1&sort=title&page=2",
+      "https://api.harvardartmuseums.org/object?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=objectnumber%2Ctitle&sortorder=asc&size=100&hasimage=1&sort=title&page=2",
     page: 1,
     pages: 2110,
     totalrecords: 210916,
@@ -2190,7 +2190,7 @@ export const fetchListOfMock__object = {
 export const fetchListOfMock__other_raw = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/culture?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=id%2Cname%2Cobjectcount&sortorder=asc&size=100&sort=name&page=2",
+      "https://api.harvardartmuseums.org/culture?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=id%2Cname%2Cobjectcount&sortorder=asc&size=100&sort=name&page=2",
     page: 1,
     pages: 3,
     totalrecords: 255,
@@ -2703,7 +2703,7 @@ export const fetchListOfMock__other_raw = {
 export const fetchListOfMock__other = {
   info: {
     next:
-      "https://api.harvardartmuseums.org/culture?apikey=a3a79800-15f2-11ea-af26-8529a4665017&fields=id%2Cname%2Cobjectcount&sortorder=asc&size=100&sort=name&page=2",
+      "https://api.harvardartmuseums.org/culture?apikey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fields=id%2Cname%2Cobjectcount&sortorder=asc&size=100&sort=name&page=2",
     page: 1,
     pages: 3,
     totalrecords: 255,

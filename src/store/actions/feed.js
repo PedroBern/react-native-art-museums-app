@@ -52,10 +52,7 @@ export const setVisibleIndex = index => ({
 export const loadFeed = (extra, next) => async dispatch => {
   dispatch({ type: FETCH_FEED__SENT });
   try {
-    const results = next
-      ? await fetchFeed(next)
-      : await fetchFeed(null, "totalpageviews", "desc", extra);
-
+    const results = next ? await fetchFeed(next) : await fetchFeed(null, "totalpageviews", "desc", extra);
     dispatch({
       type: FETCH_FEED__FULFILLED,
       payload: {
